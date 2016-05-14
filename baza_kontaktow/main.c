@@ -15,50 +15,86 @@ struct sll_node
     unsigned short int house_number;
     char postal_code[7];
     char post_office[30];
-    unsigned int telephone_nr;
-    char email[50];
     struct sll_node *next;
-} ;
-
-struct sll_node *create_list (struct sll_node *front)
+};
+struct telephone_nr
 {
-    struct sll_node *new_node = ( struct sll_node *)malloc ( sizeof ( struct sll_node ));
-    if ( NULL != new_node )
+    unsigned int tel_nr;
+    struct telephone_nr *next;
+};
+struct email
+{
+    unsigned int emial;
+    struct emial *next3;
+};
+struct telephone_nr * CreatePhoneList(struct telephone_nr *front2)
+{
+    struct telephone_nr *new_node2 = (struct telephone_nr *)malloc (sizeof (struct telephone_nr));
+
+
+    if (NULL != new_node2)
+    {
+        scanf("%u",&new_node2->tel_nr);
+        new_node2 ->next=NULL;
+    }
+
+
+    return new_node2;
+}
+
+struct telephone_nr * InsertTelNum(struct telephone_nr *front2)
+{
+    struct telephone_nr *new_node2 = (struct telephone_nr *)malloc (sizeof (struct telephone_nr));
+
+
+    if (NULL != new_node2)
+    {
+
+        scanf("%u",&new_node2->tel_nr);
+        new_node2 ->next=NULL;
+    }
+    front2->next=new_node2;
+    return front2;
+}
+
+struct sll_node *create_list(struct sll_node *front)
+{
+    struct sll_node *new_node = (struct sll_node *)malloc (sizeof (struct sll_node));
+    if (NULL != new_node)
     {
         new_node->ID = i;
 
         printf("\nPodaj imie: \n");
         scanf("%s",new_node->name);
 
-        /* printf("Podaj nazwisko: \n");
-         scanf("%s",nowy->surname);
+        /*   printf("Podaj nazwisko: \n");
+           scanf("%s",nowy->surname);
 
-         printf("Podaj miasto:\n");
-         scanf("%s",nowy->city);
+           printf("Podaj miasto:\n");
+           scanf("%s",nowy->city);
 
-         printf("Podaj ulice:\n");
-         scanf("%s",nowy->street);
+           printf("Podaj ulice:\n");
+           scanf("%s",nowy->street);
 
-         printf("Podaj numer domu: \n");
-         scanf("%hu",&nowy->house_number);
+           printf("Podaj numer domu: \n");
+           scanf("%hu",&nowy->house_number);
 
-         printf("Podaj kod pocztowy:\n");
-         scanf("%s",nowy->postal_code);
+           printf("Podaj kod pocztowy:\n");
+           scanf("%s",nowy->postal_code);
 
-         printf("Podaj poczte:\n");
-         scanf("%s",nowy->post_office);
+           printf("Podaj poczte:\n");
+           scanf("%s",nowy->post_office);
 
-         printf("Podaj numer telefonu:\n");
-         scanf("%u",&nowy->telephone_nr);
-
-         printf("Podaj email:\n");
-         scanf("%s",nowy->email);*/
+           printf("Podaj email:\n");
+           scanf("%s",nowy->email);*/
 
         new_node -> next = NULL ;
         front=new_node;
+
     }
-    return front ;
+    return front;
 }
+
 
 struct sll_node * find_spot ( struct sll_node *front)
 {
@@ -168,7 +204,11 @@ struct sll_node * delete_node ( struct sll_node *front , int data )
     delete_after ( prev );
     return front ;
 }
-
+void print_list2 ( struct telephone_nr * front2 )
+{
+    for (; NULL != front2 ; front2 = front2 -> next )
+        printf ("%d ",front2->tel_nr);
+}
 void print_list ( struct sll_node * front )
 {
     for (; NULL != front ; front = front -> next )
@@ -256,74 +296,86 @@ void edit_person ( struct sll_node * front, unsigned short int data )
     }
 }
 
-    void remove_list ( struct sll_node ** front )
+void remove_list ( struct sll_node ** front )
+{
+    struct sll_node * next = NULL ;
+    while ( NULL != * front )
     {
-        struct sll_node * next = NULL ;
-        while ( NULL != * front )
-        {
-            next = (* front ) ->next ;
-            free (* front );
-            * front = next ;
-        }
+        next = (* front ) ->next ;
+        free (* front );
+        * front = next ;
     }
+}
 
 int main()
+{
+    struct sll_node *front=NULL;
+    struct telephone_nr *front2=NULL;
+    for(;;)
     {
-        struct sll_node *front=NULL;
-        for(;;)
+        printf("Baza kontaktow v1.0\n\n");
+        puts("#################### MENU #################");
+        puts("1.Dodaj osobe");
+        puts("2.Usun osobe");
+        puts("3.Edytuj osobe");
+        puts("4.Wyswietl baze");
+        puts("5.Wyswietl kontakt");
+        puts("6.WYJSCIE i USUNIECIE LISTY");
+
+        unsigned short int choice,tel;
+        scanf("%hu",&choice);
+        switch(choice)
         {
-            printf("Baza kontaktow v1.0\n\n");
-            puts("#################### MENU #################");
-            puts("1.Dodaj osobe");
-            puts("2.Usun osobe");
-            puts("3.Edytuj osobe");
-            puts("4.Wyswietl baze");
-            puts("5.Wyswietl kontakt");
-            puts("6.WYJSCIE i USUNIECIE LISTY");
+        case 1:
+            if(front==NULL)
+                front=create_list(front);
+            else
+                front=insert_node(front);
 
-            unsigned short int choice;
-            scanf("%hu",&choice);
-            switch(choice)
+            printf("Ile numerow telefonow chcesz podac?:\n");
+            scanf("%hu",&tel);
+            for(i=0; i<tel; i++)
             {
-            case 1:
-                if(front==NULL)
-                    front=create_list(front);
+                if(front2==NULL)
+                    front2=CreatePhoneList(front2);
                 else
-                    front=insert_node(front);
-                break;
-            case 2:
-                printf("Ktora osobe chcesz usunac (Podaj ID):");
-                unsigned short int i;
-                scanf("%hu",&i);
-                front=delete_node(front,i);
-                break;
-            case 3:
-                printf("Ktora osobe chcesz edytowac (Podaj ID):");
-                unsigned short int j;
-                scanf("%hu",&j);
-                edit_person(front,j);
-                break;
-            case 4:
-                print_list(front);
-                break;
-            case 5:
-                printf("Jaki kontakt chcesz wyswietlic(Podaj ID)");
-                unsigned short int choice1;
-                scanf("%hu",&choice1);
-                print_person(front,choice1);
-                break;
-            case 6:
-                remove_list(&front);
-                exit(0);
-                break;
-            default:
-                break;
+                    front2=InsertTelNum(front2);
 
-            }
-            getchar();
-            getchar();
-            system("cls");
+                }
+            break;
+        case 2:
+            printf("Ktora osobe chcesz usunac (Podaj ID):");
+            unsigned short int i;
+            scanf("%hu",&i);
+            front=delete_node(front,i);
+            break;
+        case 3:
+            printf("Ktora osobe chcesz edytowac (Podaj ID):");
+            unsigned short int j;
+            scanf("%hu",&j);
+            edit_person(front,j);
+            break;
+        case 4:
+            print_list2(front2);
+            break;
+        case 5:
+            printf("Jaki kontakt chcesz wyswietlic(Podaj ID)");
+            unsigned short int choice1;
+            scanf("%hu",&choice1);
+            print_person(front,choice1);
+            break;
+        case 6:
+            remove_list(&front);
+            exit(0);
+            break;
+        default:
+            break;
+
         }
+        getchar();
+        getchar();
+        system("cls");
+    }
 
 
 
