@@ -2,9 +2,9 @@
 #include<stdlib.h>
 #include<string.h>
 
-unsigned int NumID;
-//Typ bazowy i wskaÅ¸nik listy
-struct sll_node
+unsigned int NumID; //deklaracja zmiennej ID
+
+struct User_Node
 {
     unsigned int ID;
     char name[20];
@@ -14,7 +14,7 @@ struct sll_node
     unsigned short int house_number;
     char postal_code[7];
     char post_office[30];
-    struct sll_node *next;
+    struct User_Node *next;
 };
 struct telephone_nr
 {
@@ -31,79 +31,75 @@ struct email_node
 };
 
 
-struct telephone_nr * CreatePhoneList(struct telephone_nr *front2)
+struct telephone_nr * CreatePhoneList(struct telephone_nr *FrontTelList)
 {
-    struct telephone_nr *new_node2 = (struct telephone_nr *)malloc (sizeof (struct telephone_nr));
-    printf("create\n");
-    if (NULL != new_node2)
+    struct telephone_nr *new_node = (struct telephone_nr *)malloc (sizeof (struct telephone_nr));
+    if (NULL != new_node)
     {
-        new_node2->ID_tel=NumID;
-        scanf("%u",&new_node2->tel_nr);
-        new_node2 ->next=NULL;
+        new_node->ID_tel=NumID;
+        scanf("%u",&new_node->tel_nr);
+        new_node ->next=NULL;
     }
-    front2=new_node2;
-    return front2;
+    FrontTelList=new_node;
+    return FrontTelList;
 }
 
-struct telephone_nr * InsertTelNum(struct telephone_nr *front2)
+struct telephone_nr * InsertTelNum(struct telephone_nr *FrontTelList)
 {
-    struct telephone_nr *new_node2 = (struct telephone_nr *)malloc (sizeof (struct telephone_nr));
-    struct telephone_nr *wsk=front2; //Ustawienie wskaÅºnika roboczego na pierwszym elemencie listy
-    printf("diasd\n");
+    struct telephone_nr *new_node = (struct telephone_nr *)malloc (sizeof (struct telephone_nr));
+    struct telephone_nr *wsk=FrontTelList; //Ustawienie wskaŸnika roboczego na pierwszym elemencie listy
 
     while (wsk->next != NULL)
     {
-        wsk = wsk->next; // przesuwamy wsk aÅ¼ znajdziemy ostatni element
-    }
-    if (NULL != new_node2)
-    {
-        wsk->next = new_node2;  // w pole next ostatniego elementu listy wpisaÄ‡ adres nowo przydzielonego obszaru
-        new_node2->ID_tel=NumID;
-        scanf("%u",&new_node2->tel_nr);// przypisanie wartosci
-        new_node2->next=NULL; //przypisanie wartosci NULL dla ostatniego elementu listy
-    }
-    return front2;
-}
-
-
-struct email_node * CreateEmalList(struct email_node *front3)
-{
-    struct email_node *new_node3 = (struct email_node *)malloc (sizeof (struct email_node));
-    printf("create\n");
-    if (NULL != new_node3)
-    {
-        new_node3->ID_email=NumID;
-        scanf("%s",new_node3->em);
-        new_node3 ->next=NULL;
-    }
-    front3=new_node3;
-    return front3;
-}
-
-struct email_node * InsertEmail(struct email_node *front3)
-{
-    struct email_node *new_node = (struct email_node *)malloc (sizeof (struct email_node));
-    struct email_node *wsk;
-    wsk=front3; //Ustawienie wskaÅºnika roboczego na pierwszym elemencie listy
-    printf("diasd\n");
-
-    while (wsk->next != NULL)
-    {
-        wsk = wsk->next; // przesuwamy wsk aÅ¼ znajdziemy ostatni element
+        wsk = wsk->next; // przesuwamy wsk a¿ znajdziemy ostatni element
     }
     if (NULL != new_node)
     {
-        wsk->next = new_node;  // w pole next ostatniego elementu listy wpisaÄ‡ adres nowo przydzielonego obszaru
+        wsk->next = new_node;  // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
+        new_node->ID_tel=NumID;
+        scanf("%u",&new_node->tel_nr);// przypisanie wartosci
+        new_node->next=NULL; //przypisanie wartosci NULL dla ostatniego elementu listy
+    }
+    return FrontTelList;
+}
+
+
+struct email_node * CreateEmalList(struct email_node *FrontEmailList)
+{
+    struct email_node *new_node = (struct email_node *)malloc (sizeof (struct email_node));
+    if (NULL != new_node)
+    {
+        new_node->ID_email=NumID;
+        scanf("%s",new_node->em);
+        new_node ->next=NULL;
+    }
+    FrontEmailList=new_node;
+    return FrontEmailList;
+}
+
+struct email_node * InsertEmail(struct email_node *FrontEmailList)
+{
+    struct email_node *new_node = (struct email_node *)malloc (sizeof (struct email_node));
+    struct email_node *wsk;
+    wsk=FrontEmailList; //Ustawienie wskaŸnika roboczego na pierwszym elemencie listy
+
+    while (wsk->next != NULL)
+    {
+        wsk = wsk->next; // przesuwamy wsk a¿ znajdziemy ostatni element
+    }
+    if (NULL != new_node)
+    {
+        wsk->next = new_node;  // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
         new_node->ID_email=NumID;
         scanf("%s",new_node->em);// przypisanie wartosci
         new_node->next=NULL; //przypisanie wartosci NULL dla ostatniego elementu listy
     }
-    return front3;
+    return FrontEmailList;
 }
 
-struct sll_node *create_list(struct sll_node *front)
+struct User_Node *create_list(struct User_Node *FrontUserList)
 {
-    struct sll_node *new_node = (struct sll_node *)malloc (sizeof (struct sll_node));
+    struct User_Node *new_node = (struct User_Node *)malloc (sizeof (struct User_Node));
     if (NULL != new_node)
     {
         new_node->ID = NumID;
@@ -133,23 +129,23 @@ struct sll_node *create_list(struct sll_node *front)
            scanf("%s",nowy->email);*/
 
         new_node -> next = NULL ;
-        front=new_node;
+        FrontUserList=new_node;
 
     }
-    return front;
+    return FrontUserList;
 }
 
-struct sll_node * insert_node ( struct sll_node *front  )
+struct User_Node * InsertUser ( struct User_Node *FrontUserList  )
 {
-    struct sll_node * new_node = ( struct sll_node *)malloc ( sizeof ( struct sll_node ));
-    struct sll_node *wsk=front; //Ustawienie wskaÅºnika roboczego na pierwszym elemencie listy
+    struct User_Node * new_node = ( struct User_Node *)malloc ( sizeof ( struct User_Node ));
+    struct User_Node *wsk=FrontUserList; //Ustawienie wskaŸnika roboczego na pierwszym elemencie listy
     while (wsk->next != NULL)
     {
-        wsk = wsk->next; // przesuwamy wsk aÅ¼ znajdziemy ostatni element
+        wsk = wsk->next; // przesuwamy wsk a¿ znajdziemy ostatni element
     }
     if ( NULL != new_node )
     {
-        wsk->next = new_node; // w pole next ostatniego elementu listy wpisaÄ‡ adres nowo przydzielonego obszaru
+        wsk->next = new_node; // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
         new_node->ID = ++NumID;
 
         printf("\nPodaj imiea: \n");
@@ -181,122 +177,192 @@ struct sll_node * insert_node ( struct sll_node *front  )
 
         new_node -> next = NULL ;
     }
-    return front;
+    return FrontUserList;
 }
-
-struct sll_node * delete_front ( struct sll_node * front )
+struct User_Node * DeleteUserNode ( struct User_Node *FrontUserList , int data )
 {
-    struct sll_node * next = front -> next ;
-    free ( front );
-    return next ;
-}
-
-struct sll_node * find_prev_node ( struct sll_node *front , int data )
-{
-    struct sll_node * prev = NULL ;
-    while (( NULL != front ) && (front -> ID != data ))
-    {
-        prev = front ;
-        front = front -> next ;
-    }
-    return prev ;
-}
-void delete_after ( struct sll_node * node )
-{
-    struct sll_node * next = node -> next ;
-    if ( NULL != next )
-    {
-        node -> next = next -> next ;
-        free ( next );
-    }
-
-}
-
-struct sll_node * delete_node ( struct sll_node *front , int data )
-{
-    if ( NULL == front )
+    if ( NULL == FrontUserList )
         return NULL ;
+    struct User_Node * prev = FrontUserList; //zapiosanie we wskaŸniku lokalnymnext adresu pierwszego elementu listy
+    struct User_Node * temp = FrontUserList; //zapiosanie we wskaŸniku lokalnymnext adresu pierwszego elementu listy
 
-    if (front -> ID == data )
-        return delete_front ( front );
+    while(temp!=NULL)
+    {
+        if(temp-> ID == data)
+            //usuwamy pierwszy element listy
+            if(temp==FrontUserList)
+            {
+                FrontUserList=FrontUserList->next; // zapisane adredu nastepnego elementu (drugiego)
+                free(temp);
+                temp = FrontUserList;
+                prev = FrontUserList;
+            }
+        //usuwamy element ze srodka listy lub konca
+            else
+            {
+                prev -> next = temp -> next; //wskaznikowi poprzedniego elementu przypisujemy adres nastepnego
+                free(temp); //
+                temp = prev->next; //przechodzi do nastepnego elementu listy
+            }
+        else
+        {
+            prev = temp; // przechowuje wartosc temp, czyli poprzednia
+            temp = temp -> next; // przechodzi do nastepnego elementu
+        }
 
-    struct sll_node * prev = find_prev_node (front , data );
-    delete_after ( prev );
-    return front ;
+    }
+    return FrontUserList;
 }
-void print_list2(struct telephone_nr * front2)
+struct email_node * DeleteEmailNode ( struct email_node *FrontEmailList , int data )
 {
-    for (; NULL != front2 ; front2 = front2 -> next )
-        printf ("ID [%d] %d",front2->ID_tel,front2->tel_nr);
+    if ( NULL == FrontEmailList )
+        return NULL ;
+    struct email_node * prev = FrontEmailList; //zapiosanie we wskaŸniku lokalnymnext adresu pierwszego elementu listy
+    struct email_node * temp = FrontEmailList; //zapiosanie we wskaŸniku lokalnymnext adresu pierwszego elementu listy
+
+    while(temp!=NULL)
+    {
+        if(temp-> ID_email == data)
+            //usuwamy pierwszy element listy
+            if(temp==FrontEmailList)
+            {
+                FrontEmailList=FrontEmailList->next; // zapisane adredu nastepnego elementu (drugiego)
+                free(temp);
+                temp = FrontEmailList;
+                prev = FrontEmailList;
+            }
+        //usuwamy element ze srodka listy lub konca
+            else
+            {
+                prev -> next = temp -> next; //wskaznikowi poprzedniego elementu przypisujemy adres nastepnego
+                free(temp); //
+                temp = prev->next; //przechodzi do nastepnego elementu listy
+            }
+        else
+        {
+            prev = temp; // przechowuje wartosc temp, czyli poprzednia
+            temp = temp -> next; // przechodzi do nastepnego elementu
+        }
+
+    }
+    return FrontEmailList;
 }
-void print_list(struct sll_node * front, struct telephone_nr * front2, struct email_node *front3)
+struct telephone_nr * DeleteTelNode ( struct telephone_nr *FrontTelList , int data )
+{
+    if ( NULL == FrontTelList )
+        return NULL ;
+    struct telephone_nr * prev = FrontTelList; //zapiosanie we wskaŸniku lokalnymnext adresu pierwszego elementu listy
+    struct telephone_nr * temp = FrontTelList; //zapiosanie we wskaŸniku lokalnymnext adresu pierwszego elementu listy
+
+    while(temp!=NULL)
+    {
+        if(temp-> ID_tel == data)
+            //usuwamy pierwszy element listy
+            if(temp==FrontTelList)
+            {
+                FrontTelList=FrontTelList->next; // zapisane adredu nastepnego elementu (drugiego)
+                free(temp);
+                temp = FrontTelList;
+                prev = FrontTelList;
+            }
+        //usuwamy element ze srodka listy lub konca
+            else
+            {
+                prev -> next = temp -> next; //wskaznikowi poprzedniego elementu przypisujemy adres nastepnego
+                free(temp); //
+                temp = prev->next; //przechodzi do nastepnego elementu listy
+            }
+        else
+        {
+            prev = temp; // przechowuje wartosc temp, czyli poprzednia
+            temp = temp -> next; // przechodzi do nastepnego elementu
+        }
+
+    }
+    return FrontTelList;
+}
+void print_list2(struct telephone_nr * FrontTelList)
+{
+    for (; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
+        printf ("ID [%d] %d",FrontTelList->ID_tel,FrontTelList->tel_nr);
+}
+void print_list(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList)
 {
     int data;
-    for (; NULL != front ; front = front -> next )
+    for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next )
     {
-        printf ("%d %4s ",front->ID, front->name);
-        data=front->ID;
-        for (; NULL != front2 ; front2 = front2 -> next )
+        printf ("ID[%d] \nImie:%s",FrontUserList->ID, FrontUserList->name);
+        data=FrontUserList->ID;
+        for (; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
         {
-            if(front2->ID_tel==data)
+            if(FrontTelList->ID_tel==data)
             {
-                printf ("%d", front2->tel_nr);
+                printf ("\nNumer telefonu:%d", FrontTelList->tel_nr);
                 break;
             }
         }
-        for (; NULL != front3 ; front3 = front3 -> next )
+        for (; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next )
         {
-            if(front3->ID_email==data)
+            if(FrontEmailList->ID_email==data)
             {
-                printf ("%s \n", front3->em);
+                printf ("\nAdres email:%s \n\n", FrontEmailList->em);
                 break;
             }
 
         }
 
         /* printf ("%d %4s %4s %4s %4s %4hu %4s %4s %4u %4s",
-                 front->ID, front->name, front->surname, front -> city,
-                 front->street, front->house_number, front->postal_code,
-                 front->post_office, front->telephone_nr, front->email);*/
+                 FrontUserList->ID, FrontUserList->name, FrontUserList->surname, FrontUserList -> city,
+                 FrontUserList->street, FrontUserList->house_number, FrontUserList->postal_code,
+                 FrontUserList->post_office, FrontUserList->telephone_nr, FrontUserList->email);*/
     }
 
 }
-void print_person(struct sll_node * front, struct telephone_nr * front2, struct email_node *front3, int data)
+void print_person(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, int data)
 {
-    for (; NULL != front ; front = front -> next )
+    for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next )
     {
-        if(front->ID==data)
-            printf ("%d %4s ",front->ID, front->name);
+        if(FrontUserList->ID==data)
+            printf ("\n\nID[%d]\nImie:%s\n",FrontUserList->ID, FrontUserList->name);
     }
-     for (; NULL != front2 ; front2 = front2 -> next )
+    puts("\nNumery telefonow:");
+    for (; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
     {
-        if(front2->ID_tel==data)
-            printf ("%d ", front2->tel_nr);
+        if(FrontTelList->ID_tel==data)
+            printf ("%d \n", FrontTelList->tel_nr);
     }
-     for (; NULL != front3 ; front3 = front3 -> next )
+    puts("\nAdresy email:");
+    for (; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next )
     {
-        if(front3->ID_email==data)
-            printf ("%s ", front3->em);
+        if(FrontEmailList->ID_email==data)
+            printf ("%s \n", FrontEmailList->em);
     }
 }
-void edit_person ( struct sll_node * front, unsigned short int data )
+void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, unsigned short int data )
 {
     unsigned short int choice;
-    for (; NULL != front ; front = front -> next )
+    unsigned int tel_num;
+    struct telephone_nr * temp_tel = FrontTelList; ////zapiosanie we wskaŸniku lokalnym temp_tel adresu pierwszego elementu listy
+  // struct email_node * temp_email = FrontEmailList;
+    for (; NULL != FrontUserList; FrontUserList = FrontUserList -> next)
     {
-        if(front->ID==data)
+        if(FrontUserList->ID==data)
         {
-            puts("Jakie pole chcesz edytowac?");
+
             while(choice!=10)
             {
-                puts("############ EDYCJA KONTAKTU ##############");
+                system("cls");
+                printf("############ EDYCJA KONTAKTU ##############");
+                print_person(FrontUserList,temp_tel,FrontEmailList,data);
+                puts("\n");
+                puts("Co chcesz zmienic?");
                 puts("1.Imie");
-                puts("2.Nazwisko");
+                /*puts("2.Nazwisko");
                 puts("3.Miasto");
                 puts("4.Ulica");
                 puts("5.Numer domu");
                 puts("6.Kod pocztowy");
-                puts("7.Poczta");
+                puts("7.Poczta"); */
                 puts("8.Telefon");
                 puts("9.Email");
                 puts("10.Koniec edycji");
@@ -305,7 +371,8 @@ void edit_person ( struct sll_node * front, unsigned short int data )
                 switch(choice)
                 {
                 case 1:
-                    scanf("%s",front->name);
+                    puts("Podaj nowe imie:");
+                    scanf("%s",FrontUserList->name);
                     break;
                 case 2:
 
@@ -319,13 +386,24 @@ void edit_person ( struct sll_node * front, unsigned short int data )
 
                     break;
                 case 6:
-                    exit(0);
+
                     break;
                 case 7:
 
                     break;
                 case 8:
-
+                    FrontTelList=temp_tel; //ustawienie FrontTelList na pierwszy element listy
+                    puts("Ktory numer chcesz edytowac (podaj caly numer telefonu)");
+                    scanf("%u",&tel_num);
+                    puts("Podaj nowy numer:");
+                    for (; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
+                    {
+                        if(FrontTelList->ID_tel==data && FrontTelList->tel_nr==tel_num)
+                        {
+                            scanf("%u",&FrontTelList->tel_nr);
+                            break;
+                        }
+                    }
                     break;
                 case 9:
 
@@ -347,22 +425,22 @@ void edit_person ( struct sll_node * front, unsigned short int data )
     }
 }
 
-void remove_list ( struct sll_node ** front )
+void remove_list ( struct User_Node ** FrontUserList )
 {
-    struct sll_node * next = NULL ;
-    while ( NULL != * front )
+    struct User_Node * next = NULL ;
+    while ( NULL != * FrontUserList )
     {
-        next = (* front ) ->next ;
-        free (* front );
-        * front = next ;
+        next = (* FrontUserList ) ->next ;
+        free (* FrontUserList );
+        * FrontUserList = next ;
     }
 }
 
 int main()
 {
-    struct sll_node *front=NULL;
-    struct telephone_nr *front2=NULL;
-    struct email_node *front3=NULL;
+    struct User_Node *FrontUserList=NULL;
+    struct telephone_nr *FrontTelList=NULL;
+    struct email_node *FrontEmailList=NULL;
     for(;;)
     {
         printf("Baza kontaktow v1.0\n\n");
@@ -380,58 +458,56 @@ int main()
         switch(choice)
         {
         case 1:
-            if(front==NULL)
-            {
-                front=create_list(front);
-            }
+            if(FrontUserList==NULL)
+                FrontUserList=create_list(FrontUserList);
             else
-            {
-                front=insert_node(front);
-            }
+                FrontUserList=InsertUser(FrontUserList);
+
             printf("Ile numerow telefonow chcesz podac?:\n");
             scanf("%hu",&tel);
             for(i=0; i<tel; i++)
             {
-                if(front2==NULL)
-                    front2=CreatePhoneList(front2);
+                if(FrontTelList==NULL)
+                    FrontTelList=CreatePhoneList(FrontTelList);
                 else
-                    front2=InsertTelNum(front2);
+                    FrontTelList=InsertTelNum(FrontTelList);
             }
             printf("Ile adresow emial chcesz podac?:\n");
             scanf("%hu",&HowManyEmail);
             for(j=0; j<HowManyEmail; j++)
             {
-                if(front3==NULL)
-                    front3=CreateEmalList(front3);
+                if(FrontEmailList==NULL)
+                    FrontEmailList=CreateEmalList(FrontEmailList);
                 else
-                    front3=InsertEmail(front3);
+                    FrontEmailList=InsertEmail(FrontEmailList);
             }
-
             break;
         case 2:
             printf("Ktora osobe chcesz usunac (Podaj ID):");
             unsigned short int i;
             scanf("%hu",&i);
-            front=delete_node(front,i);
+            FrontUserList=DeleteUserNode(FrontUserList,i);
+            FrontEmailList=DeleteEmailNode(FrontEmailList,i);
+            FrontTelList=DeleteTelNode(FrontTelList,i);
             break;
         case 3:
             printf("Ktora osobe chcesz edytowac (Podaj ID):");
             unsigned short int j;
             scanf("%hu",&j);
-            edit_person(front,j);
+            edit_person(FrontUserList,FrontTelList,FrontEmailList,j);
             break;
         case 4:
-            print_list(front,front2,front3);
+            print_list(FrontUserList,FrontTelList,FrontEmailList);
 
             break;
         case 5:
             printf("Jaki kontakt chcesz wyswietlic(Podaj ID)");
             unsigned short int choice1;
             scanf("%hu",&choice1);
-            print_person(front,front2,front3,choice1);
+            print_person(FrontUserList,FrontTelList,FrontEmailList,choice1);
             break;
         case 6:
-            //remove_list(&front);
+            //remove_list(&FrontUserList);
             exit(0);
             break;
         default:
