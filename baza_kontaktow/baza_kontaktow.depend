@@ -1,6 +1,21 @@
 # depslib dependency file v1.0
-1463439969 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\main.c
+1463777222 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	"add_removeElements.h"
+
+1463771847 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\add_removeelements.c
+	"add_removeElements.h"
+
+1463776886 c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\add_removeelements.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1463774783 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\print_editlist.c
+	"add_removeElements.h"
+
+1463778830 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\savetofile.c
+	"add_removeElements.h"
 

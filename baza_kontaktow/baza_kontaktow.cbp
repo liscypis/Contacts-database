@@ -31,7 +31,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="add_removeElements.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="add_removeElements.h" />
 		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="print_editList.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="savetofile.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
