@@ -58,7 +58,12 @@ void print_person(struct User_Node * FrontUserList, struct telephone_nr * FrontT
 void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, unsigned short int data);
 //zapis
 void save(FILE *file,FILE *file2,FILE *file3, struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList);
-
+//odczyt uzytkownikow
+struct User_Node *read(FILE *file, struct User_Node * FrontUserList);
+//odczyt telefonow
+struct telephone_nr *readTelephone(FILE *file2, struct telephone_nr * FrontTelList);
+//odczyt adresow email
+struct email_node *readEmail(FILE *file3, struct email_node * FrontEmailList);
 
 #endif
 

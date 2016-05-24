@@ -1,1 +1,6 @@
-2	f
+0	haha1
+0	kiki1
+1	haha2
+1	kikiki2
+2	haha3
+2	kikiki3

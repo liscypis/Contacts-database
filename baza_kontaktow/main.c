@@ -20,10 +20,20 @@ int main()
     struct User_Node *FrontUserList=NULL;
     struct telephone_nr *FrontTelList=NULL;
     struct email_node *FrontEmailList=NULL;
-
+    //odczyt danych z plikow
+    if((file=fopen("USERS.txt","r"))==NULL || (file2=fopen("TELEPHONE.txt","r"))==NULL || (file3=fopen("EMAIL.txt","r"))==NULL) // sprawdzamy czy pliki istnieja
+    {
+        printf("Nie udalo sie otworzyc plikow\n");
+    }
+    else
+    {
+        FrontUserList=read(file,FrontUserList);
+        FrontTelList=readTelephone(file2, FrontTelList);
+        FrontEmailList=readEmail(file3, FrontEmailList);
+    }
     for(;;)
     {
-        printf("Baza kontaktow v1.0\n\n");
+        printf("Baza kontaktow v1.12\n\n");
         puts("#################### MENU #################");
         puts("1.Dodaj osobe");
         puts("2.Usun osobe");
@@ -41,8 +51,8 @@ int main()
         case 1:
             if(FrontUserList==NULL)
             {
-                //FrontUserList=create_list(FrontUserList);
-                FrontUserList=read(file,FrontUserList);
+                FrontUserList=create_list(FrontUserList);
+
             }
             else
                 FrontUserList=InsertUser(FrontUserList);
