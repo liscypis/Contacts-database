@@ -1,12 +1,25 @@
+
 0
-Woj
+Wojtek
 Lis
-Kie
-Ro¾
-44
-23-555
 Kielce
-T	444555532
-T	111222233
-E	haha@o2.pl
-E	wtf@gmailcou
+Roz
+23
+33-443
+Kielce
+1
+Lolu
+Koxu
+Niema
+Jakas
+55
+55-321
+Niema
+2
+Waldek
+Kowal
+Elk
+jakas
+66
+66-543
+Elk

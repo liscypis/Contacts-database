@@ -1,12 +1,11 @@
 #include "add_removeElements.h"
 
-void save(FILE *file, struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList)
+void save(FILE *file,FILE *file2,FILE *file3, struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList)
 {
-    struct telephone_nr * temp_tel = FrontTelList; ////zapisanie we wskazniku lokalnym "temp_tel" adresu pierwszego elementu listy "telephone_nr"
-    struct email_node * temp_email = FrontEmailList;
-    unsigned int data;
     file=fopen("USERS.txt","w");
-    if(file==NULL)
+    file2=fopen("TELEPHONE.txt","w");
+    file3=fopen("EMAIL.txt","w");
+    if(file==NULL || file2==NULL || file3==NULL)
     {
         printf("Blad odczytu pliku");
         exit(0);
@@ -14,33 +13,31 @@ void save(FILE *file, struct User_Node * FrontUserList, struct telephone_nr * Fr
 
     for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next )
     {
-        data=FrontUserList->ID;
-        fprintf (file,"*%u\n*%s\n*%s\n*%s\n*%s\n*%hu\n*%s\n*%s\n",
+        fprintf (file,"\n%u\n%s\n%s\n%s\n%s\n%hu\n%s\n%s",
                  FrontUserList->ID, FrontUserList->name, FrontUserList->surname, FrontUserList -> city,
                  FrontUserList->street, FrontUserList->house_number, FrontUserList->postal_code,
                  FrontUserList->post_office);
-
-        for (FrontTelList=temp_tel; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
-        {
-            if(FrontTelList->ID_tel==data)
-                fprintf(file,"T\t%d\n", FrontTelList->tel_nr);
-        }
-        for (FrontEmailList=temp_email; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next )
-        {
-            if(FrontEmailList->ID_email==data)
-                fprintf(file,"E\t%s\n", FrontEmailList->em);
-        }
     }
-    if(fclose(file))
+    for (; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
+    {
+        fprintf(file2,"%u\t", FrontTelList->ID_tel);
+        fprintf(file2,"%u\n", FrontTelList->tel_nr);
+    }
+    for (; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next )
+    {
+        fprintf(file3,"%u\t", FrontEmailList->ID_email);
+        fprintf(file3,"%s\n", FrontEmailList->em);
+    }
+
+    if(fclose(file) || fclose(file2) || fclose(file3))
     {
         printf("Blad zamkniecia pliku");
     }
 }
-void read(FILE *file, struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList)
+// odczyt uzytkonikow z pliku
+struct User_Node *read(FILE *file, struct User_Node * FrontUserList)
 {
-    struct telephone_nr * temp_tel = FrontTelList; ////zapisanie we wskazniku lokalnym "temp_tel" adresu pierwszego elementu listy "telephone_nr"
-    struct email_node * temp_email = FrontEmailList;
-    unsigned int data;
+    struct User_Node *new_node = (struct User_Node *)malloc (sizeof (struct User_Node));
     file=fopen("USERS.txt","r");
     if(file==NULL)
     {
@@ -50,30 +47,55 @@ void read(FILE *file, struct User_Node * FrontUserList, struct telephone_nr * Fr
 
     while(feof(file) == 0)
     {
-        for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next )
+        if (NULL != new_node && FrontUserList==NULL)
         {
-            data=FrontUserList->ID;
-            fscanf (file,"%u\n%s\n%s\n%s\n%s\n%hu\n%s\n%s\n",
-                     FrontUserList->ID, FrontUserList->name, FrontUserList->surname, FrontUserList -> city,
-                     FrontUserList->street, FrontUserList->house_number, FrontUserList->postal_code,
-                     FrontUserList->post_office);
+            fscanf(file,"%u",&new_node->ID);
+            NumID=new_node->ID;
+            fscanf(file,"%s",new_node->name);
+            fscanf(file,"%s",new_node->surname);
+            fscanf(file,"%s",new_node->city);
+            fscanf(file,"%s",new_node->street);
+            fscanf(file,"%hu",&new_node->house_number);
+            fscanf(file,"%s",new_node->postal_code);
+            fscanf(file,"%s",new_node->post_office);
 
-            for (FrontTelList=temp_tel; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
+            new_node -> next = NULL ;
+            FrontUserList=new_node;
+puts("hahahahahahahah111111");
+        }
+        else
+        {
+            struct User_Node *wsk=FrontUserList; //Ustawienie wskaŸnika roboczego na pierwszym elemencie listy
+            struct User_Node *new_node = (struct User_Node *)malloc (sizeof (struct User_Node));
+            while (wsk->next != NULL)
             {
-                if(FrontTelList->ID_tel==data)
-                    fscanf(file,"%d\n", FrontTelList->tel_nr);
+                wsk = wsk->next; // przesuwamy wsk a¿ znajdziemy ostatni element
             }
-            for (FrontEmailList=temp_email; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next )
+            if (NULL != new_node)
             {
-                if(FrontEmailList->ID_email==data)
-                    fscanf(file,"%s\n", FrontEmailList->em);
+                wsk->next = new_node; // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
+                fscanf(file,"%u",&new_node->ID);
+                NumID=new_node->ID;
+                fscanf(file,"%s",new_node->name);
+                fscanf(file,"%s",new_node->surname);
+                fscanf(file,"%s",new_node->city);
+                fscanf(file,"%s",new_node->street);
+                fscanf(file,"%hu",&new_node->house_number);
+                fscanf(file,"%s",new_node->postal_code);
+                fscanf(file,"%s",new_node->post_office);
+
+                new_node -> next = NULL ;
+puts("hahahahahahahah2222222");
             }
         }
+
+
     }
 
     if(fclose(file))
     {
         printf("Blad zamkniecia pliku");
     }
+return FrontUserList;
 }
 

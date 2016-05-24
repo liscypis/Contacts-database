@@ -40,7 +40,10 @@ int main()
         {
         case 1:
             if(FrontUserList==NULL)
-                FrontUserList=create_list(FrontUserList);
+            {
+                //FrontUserList=create_list(FrontUserList);
+                FrontUserList=read(file,FrontUserList);
+            }
             else
                 FrontUserList=InsertUser(FrontUserList);
 
@@ -88,7 +91,7 @@ int main()
             print_person(FrontUserList,FrontTelList,FrontEmailList,choice1);
             break;
         case 6:
-            save(file, FrontUserList,FrontTelList,FrontEmailList);
+            save(file,file2,file3, FrontUserList,FrontTelList,FrontEmailList);
             break;
         case 7:
              //remove_list(&FrontUserList);

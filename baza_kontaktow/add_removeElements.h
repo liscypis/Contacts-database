@@ -4,8 +4,10 @@
 #include<stdlib.h>
 #include<string.h>
 
-unsigned int NumID; //deklaracja zmiennej ID
+unsigned int NumID; //deklaracja globalnej zmiennej ID
 FILE *file;
+FILE *file2;
+FILE *file3;
 struct User_Node
 {
     unsigned int ID;
@@ -55,7 +57,7 @@ void print_person(struct User_Node * FrontUserList, struct telephone_nr * FrontT
 //edycja
 void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, unsigned short int data);
 //zapis
-void save(FILE *file, struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList);
+void save(FILE *file,FILE *file2,FILE *file3, struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList);
 
 
 #endif

@@ -70,7 +70,7 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
             while(choice!=10)
             {
                 system("cls");
-                printf("############ EDYCJA KONTAKTU ##############");
+                printf("############ EDYCJA KONTAKTU ##############\n");
                 print_person(FrontUserList,temp_tel,temp_email,data); //wyswietlenie edytowanego uzytwonika
                 puts("\n");
                 puts("Co chcesz zmienic?");
