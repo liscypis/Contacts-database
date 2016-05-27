@@ -1,21 +1,24 @@
 # depslib dependency file v1.0
-1464127351 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\main.c
+1464372612 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"add_removeElements.h"
 
-1463771847 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\add_removeelements.c
+1464369864 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\add_removeelements.c
 	"add_removeElements.h"
 
-1464124764 c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\add_removeelements.h
+1464372588 c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\add_removeelements.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1463860409 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\print_editlist.c
+1464278228 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\print_editlist.c
 	"add_removeElements.h"
 
 1464125316 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\savetofile.c
+	"add_removeElements.h"
+
+1464372941 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\sorting.c
 	"add_removeElements.h"
 

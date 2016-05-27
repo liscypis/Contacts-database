@@ -64,6 +64,10 @@ struct User_Node *read(FILE *file, struct User_Node * FrontUserList);
 struct telephone_nr *readTelephone(FILE *file2, struct telephone_nr * FrontTelList);
 //odczyt adresow email
 struct email_node *readEmail(FILE *file3, struct email_node * FrontEmailList);
+// sortowanie
+void sortowanie_listy(struct User_Node *FrontUserList,unsigned int direction);
+//usuwanie listy
+void remove_list ( struct User_Node ** temp );
 
 #endif
 

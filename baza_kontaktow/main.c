@@ -4,16 +4,7 @@
 #include "add_removeElements.h"
 
 
-void remove_list ( struct User_Node ** FrontUserList )
-{
-    struct User_Node * next = NULL ;
-    while ( NULL != * FrontUserList )
-    {
-        next = (* FrontUserList ) ->next ;
-        free (* FrontUserList );
-        * FrontUserList = next ;
-    }
-}
+
 
 int main()
 {
@@ -31,6 +22,7 @@ int main()
         FrontTelList=readTelephone(file2, FrontTelList);
         FrontEmailList=readEmail(file3, FrontEmailList);
     }
+sortowanie_listy(FrontUserList,0);
     for(;;)
     {
         printf("Baza kontaktow v1.12\n\n");
@@ -92,7 +84,6 @@ int main()
             break;
         case 4:
             print_list(FrontUserList,FrontTelList,FrontEmailList);
-
             break;
         case 5:
             printf("Jaki kontakt chcesz wyswietlic(Podaj ID)");

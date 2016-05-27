@@ -243,3 +243,13 @@ struct telephone_nr * DeleteTelNode ( struct telephone_nr *FrontTelList , int da
     }
     return FrontTelList;
 }
+void remove_list ( struct User_Node ** temp )
+{
+    struct User_Node * next = NULL ;
+    while ( NULL != * temp )
+    {
+        next = (* temp ) ->next ;
+        free (* temp );
+        * temp = next ;
+    }
+}
