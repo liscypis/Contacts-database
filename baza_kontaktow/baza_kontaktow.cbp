@@ -31,20 +31,20 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="add_removeElements.c">
+		<Unit filename="add_and_remove_elements.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="add_removeElements.h" />
+		<Unit filename="baza_kontaktow.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="print_editList.c">
+		<Unit filename="operations_on_lists.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="savetofile.c">
+		<Unit filename="read_and_save_to_file.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="sorting.c">
+		<Unit filename="sort_list.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

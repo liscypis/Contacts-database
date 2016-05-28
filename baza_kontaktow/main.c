@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include "add_removeElements.h"
+#include "baza_kontaktow.h"
 
 int main()
 {
@@ -83,6 +83,7 @@ int main()
             edit_person(FrontUserList,FrontTelList,FrontEmailList,j);
             break;
         case 4:
+            system("cls");
             print_list(FrontUserList,FrontTelList,FrontEmailList);
             break;
         case 5:
@@ -95,10 +96,10 @@ int main()
             save(file,file2,file3, FrontUserList,FrontTelList,FrontEmailList);
             break;
         case 7:
-
             scanf("%u",&z);
-            scanf("%u",&k);
-             sort_list(FrontUserList,z,k);
+           scanf("%u",&k);
+           sort_list_by_tel(FrontTelList,z,k);
+          // sort_list(FrontUserList,z,k);
             break;
         case 8:
              //remove_list(&FrontUserList);

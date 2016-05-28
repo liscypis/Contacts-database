@@ -1,4 +1,4 @@
-#include "add_removeElements.h"
+#include "baza_kontaktow.h"
 
 
 struct telephone_nr * CreatePhoneList(struct telephone_nr *FrontTelList)
@@ -129,7 +129,7 @@ struct User_Node * InsertUser ( struct User_Node *FrontUserList  )
          scanf("%s",new_node->street);
 
          printf("Podaj numer domu: \n");
-         scanf("%hu",&new_node->house_number);
+         scanf("%u",&new_node->house_number);
 
          printf("Podaj kod pocztowy:\n");
          scanf("%s",new_node->postal_code);
@@ -253,3 +253,4 @@ void remove_list ( struct User_Node ** temp )
         * temp = next ;
     }
 }
+

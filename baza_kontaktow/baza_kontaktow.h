@@ -1,5 +1,5 @@
-#ifndef add_removeElements_h
-#define add_removeElements_h
+#ifndef baza_kontaktow_h
+#define baza_kontaktow_h
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -64,20 +64,10 @@ struct User_Node *read(FILE *file, struct User_Node * FrontUserList);
 struct telephone_nr *readTelephone(FILE *file2, struct telephone_nr * FrontTelList);
 //odczyt adresow email
 struct email_node *readEmail(FILE *file3, struct email_node * FrontEmailList);
-// sortowanie po imieniu
-void sort_list_by_name(struct User_Node *FrontUserList,unsigned int direction);
-// sortowanie po nazwisku
-void sort_list_by_surname(struct User_Node *FrontUserList,unsigned int direction);
-// sortowanie po miescie
-void sort_list_by_city(struct User_Node *FrontUserList,unsigned int direction);
-// sortowanie po ulicy
-void sort_list_by_street(struct User_Node *FrontUserList,unsigned int direction);
-// sortowanie po nr domu
-void sort_list_by_house_nr(struct User_Node *FrontUserList,unsigned int direction);
-// sortowanie po kodzie pocztowym
-void sort_list_by_postal_code(struct User_Node *FrontUserList,unsigned int direction);
-// sortowanie po poczcie
+// sortowanie listy
 void sort_list(struct User_Node *FrontUserList,unsigned int direction,unsigned int what);
+// sortowanie pod tel
+void sort_list_by_tel(struct telephone_nr *FrontTelList, unsigned int direction,unsigned int what);
 //usuwanie listy
 void remove_list ( struct User_Node ** temp );
 

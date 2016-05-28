@@ -1,4 +1,4 @@
-#include "add_removeElements.h"
+#include "baza_kontaktow.h"
 
 void save(FILE *file,FILE *file2,FILE *file3, struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList)
 {
@@ -20,13 +20,13 @@ void save(FILE *file,FILE *file2,FILE *file3, struct User_Node * FrontUserList, 
     }
     for (; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
     {
-        fprintf(file2,"%u\t", FrontTelList->ID_tel);
-        fprintf(file2,"%u\n", FrontTelList->tel_nr);
+        fprintf(file2,"\n%u\t", FrontTelList->ID_tel);
+        fprintf(file2,"%u", FrontTelList->tel_nr);
     }
     for (; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next )
     {
-        fprintf(file3,"%u\t", FrontEmailList->ID_email);
-        fprintf(file3,"%s\n", FrontEmailList->em);
+        fprintf(file3,"\n%u\t", FrontEmailList->ID_email);
+        fprintf(file3,"%s", FrontEmailList->em);
     }
 
     if(fclose(file) || fclose(file2) || fclose(file3))
@@ -51,6 +51,7 @@ struct User_Node *read(FILE *file, struct User_Node * FrontUserList)
         {
             fscanf(file,"%u",&new_node->ID);
             NumID=new_node->ID;
+            printf("%u",NumID);
             fscanf(file,"%s",new_node->name);
             fscanf(file,"%s",new_node->surname);
             fscanf(file,"%s",new_node->city);
@@ -76,6 +77,7 @@ struct User_Node *read(FILE *file, struct User_Node * FrontUserList)
                 wsk->next = new_node; // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
                 fscanf(file,"%u",&new_node->ID);
                 NumID=new_node->ID;
+                 printf("%u",NumID);
                 fscanf(file,"%s",new_node->name);
                 fscanf(file,"%s",new_node->surname);
                 fscanf(file,"%s",new_node->city);
@@ -113,6 +115,7 @@ struct telephone_nr *readTelephone(FILE *file2, struct telephone_nr * FrontTelLi
         {
             fscanf(file2,"%u",&new_node->ID_tel);
             NumID=new_node->ID_tel;
+             printf("%u",NumID);
             fscanf(file2,"%u",&new_node->tel_nr);
 
             new_node -> next = NULL ;
@@ -132,6 +135,7 @@ struct telephone_nr *readTelephone(FILE *file2, struct telephone_nr * FrontTelLi
                 wsk->next = new_node; // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
                 fscanf(file2,"%u",&new_node->ID_tel);
                 NumID=new_node->ID_tel;
+                 printf("%u",NumID);
                 fscanf(file2,"%u",&new_node->tel_nr);
 
                 new_node -> next = NULL ;
@@ -163,6 +167,7 @@ struct email_node *readEmail(FILE *file3, struct email_node * FrontEmailList)
         {
             fscanf(file3,"%u",&new_node->ID_email);
             NumID=new_node->ID_email;
+              printf("%u",NumID);
             fscanf(file3,"%s",new_node->em);
             new_node -> next = NULL ;
             FrontEmailList=new_node;
@@ -181,6 +186,7 @@ struct email_node *readEmail(FILE *file3, struct email_node * FrontEmailList)
                 wsk->next = new_node; // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
                 fscanf(file3,"%u",&new_node->ID_email);
                 NumID=new_node->ID_email;
+                  printf("%u",NumID);
                 fscanf(file3,"%s",new_node->em);
                 new_node -> next = NULL ;
                 puts("email222");
