@@ -36,7 +36,7 @@ int main()
 
         unsigned short int choice,tel,HowManyEmail;
         int i,j;
-        int z,k; // do sortowanie
+        int z,k,wyb; // do sortowanie
         scanf("%hu",&choice);
         switch(choice)
         {
@@ -96,10 +96,18 @@ int main()
             save(file,file2,file3, FrontUserList,FrontTelList,FrontEmailList);
             break;
         case 7:
+            system("cls");
             scanf("%u",&z);
-           scanf("%u",&k);
-           sort_list_by_tel(FrontTelList,z,k);
-          // sort_list(FrontUserList,z,k);
+            scanf("%u",&k);
+            scanf("%u",&wyb);
+           if(wyb==0)
+           {
+               sort_list_by_tel(FrontTelList,FrontUserList,z);
+           }
+            else if(wyb==1)
+                sort_list_by_email(FrontEmailList,FrontUserList,z);
+            else
+            sort_list(FrontUserList,z,k);
             break;
         case 8:
              //remove_list(&FrontUserList);

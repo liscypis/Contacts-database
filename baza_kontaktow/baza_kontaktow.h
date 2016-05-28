@@ -67,7 +67,9 @@ struct email_node *readEmail(FILE *file3, struct email_node * FrontEmailList);
 // sortowanie listy
 void sort_list(struct User_Node *FrontUserList,unsigned int direction,unsigned int what);
 // sortowanie pod tel
-void sort_list_by_tel(struct telephone_nr *FrontTelList, unsigned int direction,unsigned int what);
+void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *FrontUserList,unsigned int direction);
+// sortowanie pod emailu
+void sort_list_by_email(struct email_node *FrontEmailList, struct User_Node *FrontUserList,unsigned int direction);
 //usuwanie listy
 void remove_list ( struct User_Node ** temp );
 

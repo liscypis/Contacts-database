@@ -80,7 +80,7 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
                     }
                     else  FrontUserList=FrontUserList->next;
                 }
-                 if(what==2)
+                if(what==2)
                 {
                     if (strcmp(FrontUserList->surname, temp->surname) <= 0)
                     {
@@ -90,7 +90,7 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
                     }
                     else  FrontUserList=FrontUserList->next;
                 }
-                 if(what==3)
+                if(what==3)
                 {
                     if (strcmp(FrontUserList->city, temp->city) <= 0)
                     {
@@ -101,7 +101,7 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
                     }
                     else  FrontUserList=FrontUserList->next;
                 }
-                 if(what==4)
+                if(what==4)
                 {
                     if (strcmp(FrontUserList->street, temp->street) <= 0)
                     {
@@ -180,7 +180,7 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
                     }
                     else  FrontUserList=FrontUserList->next;
                 }
-                  if(what==3)
+                if(what==3)
                 {
                     if (strcmp(FrontUserList->city, temp->city) >= 0)
                     {
@@ -191,7 +191,7 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
                     }
                     else  FrontUserList=FrontUserList->next;
                 }
-                    if(what==4)
+                if(what==4)
                 {
                     if (strcmp(FrontUserList->street, temp->street) >= 0)
                     {
@@ -287,11 +287,18 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
     }
     remove_list(&temp);
 }
-void sort_list_by_tel(struct telephone_nr *FrontTelList, unsigned int direction,unsigned int what)
+//$$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+// sortowanie po nr tel
+void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *FrontUserList,unsigned int direction)
 {
     unsigned int counter=0,i,j;
+    struct User_Node *front_user=FrontUserList;
+    struct User_Node *temp_user=NULL, *pomtemp_user,*front_temp_user;
+    //////
     struct telephone_nr *pom;
-    struct telephone_nr *front_user=FrontTelList;
+    struct telephone_nr *front_tel=FrontTelList;
     struct telephone_nr *wsk=FrontTelList; //Ustawienie wskaŸnika roboczego na pierwszym elemencie listy
     struct telephone_nr *temp=NULL, *pomtemp,*front_temp;
     while (wsk != NULL)
@@ -299,15 +306,16 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, unsigned int direction,
         ++counter; // liczymy ile jest elementow w licie
         wsk = wsk->next;
     }
+    int tab[counter]; // przechowuje jakie id już wystapily
     for(i=0; i<counter; i++)
     {
-        FrontTelList=front_user;
+        FrontTelList=front_tel;//ustawienie wskaznika na pierwszy element listy
         if(temp==NULL)
         {
             temp=(struct telephone_nr*)malloc(sizeof(struct telephone_nr));
             front_temp=pomtemp=temp;
             temp->next=NULL;
-            if(what==0)temp->tel_nr=FrontTelList->tel_nr;
+            temp->tel_nr=FrontTelList->tel_nr;
         }
         else
         {
@@ -318,7 +326,7 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, unsigned int direction,
             temp=(struct telephone_nr*)malloc(sizeof(struct telephone_nr));
             pomtemp->next=temp;
             temp->next=NULL;
-            if(what==0)temp->tel_nr=FrontTelList->tel_nr;
+            temp->tel_nr=FrontTelList->tel_nr;
         }
         ///////////////////////
         /// Szukanie minimum///
@@ -330,8 +338,6 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, unsigned int direction,
         {
             if(direction==0)
             {
-                if(what==0)
-                {
                     if (FrontTelList->tel_nr<=temp->tel_nr)
                     {
                         pom=FrontTelList;
@@ -340,12 +346,9 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, unsigned int direction,
 
                     }
                     else  FrontTelList=FrontTelList->next;
-                }
             }
             else if(direction==1)
             {
-                if(what==0)
-                {
                     if (FrontTelList->tel_nr>=temp->tel_nr)
                     {
                         pom=FrontTelList;
@@ -354,32 +357,100 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, unsigned int direction,
 
                     }
                     else  FrontTelList=FrontTelList->next;
-                }
-
             }
         }
+
+
         //zapis do listy temp
         FrontTelList=pom;
-         temp->ID_tel=FrontTelList->ID_tel;
-         temp->tel_nr=FrontTelList->tel_nr;
+        temp->ID_tel=FrontTelList->ID_tel;
+        temp->tel_nr=FrontTelList->tel_nr;
+        tab[i]=temp->ID_tel;
+        //printf("zawartosc tab %d\n ",tab[i]);
+        //posortowanie listy user_node po id tel
+            int k,bylo=0;
+                    for(k=0;k<i;k++)
+                    {
+                        if(tab[k]==tab[i])
+                            bylo=1;
+                    }
+                   // printf("%d",bylo);
+    if(bylo==0)
+    {
+        for(FrontUserList=front_user; FrontUserList!=NULL; FrontUserList =FrontUserList->next)
+        {
+            if(FrontUserList->ID==temp->ID_tel)
+            {
+                if(temp_user==NULL)
+                {
+
+                    temp_user=(struct User_Node*)malloc(sizeof(struct User_Node));
+                    front_temp_user=pomtemp_user=temp_user;
+                    temp_user->next=NULL;
+                    temp_user->ID=FrontUserList->ID;
+                    strcpy(temp_user->name, FrontUserList->name);
+                    strcpy(temp_user->surname, FrontUserList->surname);
+                    strcpy(temp_user->city, FrontUserList->city);
+                    strcpy(temp_user->street, FrontUserList->street);
+                    temp_user->house_number=FrontUserList->house_number;
+                    strcpy(temp_user->postal_code, FrontUserList->postal_code);
+                    strcpy(temp_user->post_office, FrontUserList->post_office);
+                }
+                else
+                {
+                    while (pomtemp_user->next)
+                    {
+                        pomtemp_user = pomtemp_user->next;//szukamy ostatniego elementu listy
+                    }
+
+                    temp_user=(struct User_Node*)malloc(sizeof(struct User_Node));
+                    pomtemp_user->next=temp_user;
+                    temp_user->next=NULL;
+                    temp_user->ID=FrontUserList->ID;
+                    strcpy(temp_user->name, FrontUserList->name);
+                    strcpy(temp_user->surname, FrontUserList->surname);
+                    strcpy(temp_user->city, FrontUserList->city);
+                    strcpy(temp_user->street, FrontUserList->street);
+                    temp_user->house_number=FrontUserList->house_number;
+                    strcpy(temp_user->postal_code, FrontUserList->postal_code);
+                    strcpy(temp_user->post_office, FrontUserList->post_office);
+                }
+            }
+        }
+    }
 
 
         if(direction==0)
         {
             FrontTelList->tel_nr=9999999;
-
-
         }
         else
         {
             FrontTelList->tel_nr=0;
-
         }
+}
 
-
+    temp_user=front_temp_user;
+    FrontUserList=front_user;
+    //skopiowanie posortowanej listy temp_user do listy FrontUserList
+    while(temp_user!=NULL)
+    {
+        printf("\n%s",temp_user->surname);
+        strcpy(FrontUserList->name, temp_user->name);
+        strcpy(FrontUserList->surname, temp_user->surname);
+        strcpy(FrontUserList->city, temp_user->city);
+        strcpy(FrontUserList->street, temp_user->street);
+        FrontUserList->house_number=temp_user->house_number;
+        strcpy(FrontUserList->postal_code, temp_user->postal_code);
+        strcpy(FrontUserList->post_office, temp_user->post_office);
+        FrontUserList->ID=temp_user->ID;
+        temp_user=temp_user->next;
+        FrontUserList=FrontUserList->next;
     }
+    remove_list(&temp_user);
+
     temp=front_temp;
-    FrontTelList=front_user;
+    FrontTelList=front_tel;
     //skopiowanie posortowanej listy temp do listy FrontTelList
     while(temp!=NULL)
     {
@@ -389,9 +460,182 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, unsigned int direction,
         temp=temp->next;
         FrontTelList=FrontTelList->next;
     }
-    remove_list(&temp);
+    //remove_list(&temp);
+}
+//$$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+// sortowanie po emailu
+void sort_list_by_email(struct email_node *FrontEmailList, struct User_Node *FrontUserList,unsigned int direction)
+{
+    unsigned int counter=0,i,j;
+    struct User_Node *front_user=FrontUserList;
+    struct User_Node *temp_user=NULL, *pomtemp_user,*front_temp_user;
+    //////
+    struct email_node *pom;
+    struct email_node *front_em=FrontEmailList;
+    struct email_node *wsk=FrontEmailList; //Ustawienie wskaŸnika roboczego na pierwszym elemencie listy
+    struct email_node *temp=NULL, *pomtemp,*front_temp;
+    while (wsk != NULL)
+    {
+        ++counter; // liczymy ile jest elementow w licie
+        wsk = wsk->next;
+    }
+    int tab[counter]; // przechowuje jakie id już wystapily
+    for(i=0; i<counter; i++)
+    {
+        FrontEmailList=front_em;//ustawienie wskaznika na pierwszy element listy
+        if(temp==NULL)
+        {
+            temp=(struct email_node*)malloc(sizeof(struct email_node));
+            front_temp=pomtemp=temp;
+            temp->next=NULL;
+            strcpy(temp->em,FrontEmailList->em);
+        }
+        else
+        {
+            while (pomtemp->next)
+            {
+                pomtemp = pomtemp->next;//szukamy ostatniego elementu listy
+            }
+            temp=(struct email_node*)malloc(sizeof(struct email_node));
+            pomtemp->next=temp;
+            temp->next=NULL;
+            strcpy(temp->em,FrontEmailList->em);
+        }
+        ///////////////////////
+        /// Szukanie minimum///
+        ////////// || /////////
+        /// Szukanie maximum///
+        ///////////////////////
+
+        for(j=0; j<counter; j++)
+        {
+            if(direction==0)
+            {
+                    if ((strcmp(FrontEmailList->em, temp->em) <= 0 ))
+                    {
+                        pom=FrontEmailList;
+                        strcpy(temp->em,FrontEmailList->em);
+                        FrontEmailList=FrontEmailList->next;
+
+                    }
+                    else  FrontEmailList=FrontEmailList->next;
+            }
+            else if(direction==1)
+            {
+                    if ((strcmp(FrontEmailList->em, temp->em) >= 0))
+                    {
+                        pom=FrontEmailList;
+                        strcpy(temp->em,FrontEmailList->em);
+                        FrontEmailList=FrontEmailList->next;
+
+                    }
+                    else  FrontEmailList=FrontEmailList->next;
+            }
+        }
+
+
+        //zapis do listy temp
+        FrontEmailList=pom;
+        temp->ID_email=FrontEmailList->ID_email;
+        strcpy(temp->em,FrontEmailList->em);
+        tab[i]=temp->ID_email;
+        //printf("zawartosc tab %d\n ",tab[i]);
+        //posortowanie listy user_node po id tel
+            int k,bylo=0;
+                    for(k=0;k<i;k++)
+                    {
+                        if(tab[k]==tab[i])
+                            bylo=1;
+                    }
+                   // printf("%d",bylo);
+    if(bylo==0)
+    {
+        for(FrontUserList=front_user; FrontUserList!=NULL; FrontUserList =FrontUserList->next)
+        {
+            if(FrontUserList->ID==temp->ID_email)
+            {
+                if(temp_user==NULL)
+                {
+
+                    temp_user=(struct User_Node*)malloc(sizeof(struct User_Node));
+                    front_temp_user=pomtemp_user=temp_user;
+                    temp_user->next=NULL;
+                    temp_user->ID=FrontUserList->ID;
+                    strcpy(temp_user->name, FrontUserList->name);
+                    strcpy(temp_user->surname, FrontUserList->surname);
+                    strcpy(temp_user->city, FrontUserList->city);
+                    strcpy(temp_user->street, FrontUserList->street);
+                    temp_user->house_number=FrontUserList->house_number;
+                    strcpy(temp_user->postal_code, FrontUserList->postal_code);
+                    strcpy(temp_user->post_office, FrontUserList->post_office);
+                }
+                else
+                {
+                    while (pomtemp_user->next)
+                    {
+                        pomtemp_user = pomtemp_user->next;//szukamy ostatniego elementu listy
+                    }
+
+                    temp_user=(struct User_Node*)malloc(sizeof(struct User_Node));
+                    pomtemp_user->next=temp_user;
+                    temp_user->next=NULL;
+                    temp_user->ID=FrontUserList->ID;
+                    strcpy(temp_user->name, FrontUserList->name);
+                    strcpy(temp_user->surname, FrontUserList->surname);
+                    strcpy(temp_user->city, FrontUserList->city);
+                    strcpy(temp_user->street, FrontUserList->street);
+                    temp_user->house_number=FrontUserList->house_number;
+                    strcpy(temp_user->postal_code, FrontUserList->postal_code);
+                    strcpy(temp_user->post_office, FrontUserList->post_office);
+                }
+            }
+        }
+    }
+
+
+        if(direction==0)
+        {
+             strcpy(FrontEmailList->em, "xxxxxxxxxxxx");
+        }
+        else if (direction==1)
+        {
+            strcpy(FrontEmailList->em, "");
+        }
 }
 
+    temp_user=front_temp_user;
+    FrontUserList=front_user;
+    //skopiowanie posortowanej listy temp_user do listy FrontUserList
+    while(temp_user!=NULL)
+    {
+        printf("\n%s",temp_user->surname);
+        strcpy(FrontUserList->name, temp_user->name);
+        strcpy(FrontUserList->surname, temp_user->surname);
+        strcpy(FrontUserList->city, temp_user->city);
+        strcpy(FrontUserList->street, temp_user->street);
+        FrontUserList->house_number=temp_user->house_number;
+        strcpy(FrontUserList->postal_code, temp_user->postal_code);
+        strcpy(FrontUserList->post_office, temp_user->post_office);
+        FrontUserList->ID=temp_user->ID;
+        temp_user=temp_user->next;
+        FrontUserList=FrontUserList->next;
+    }
+    remove_list(&temp_user);
+
+    temp=front_temp;
+    FrontEmailList=front_em;
+    //skopiowanie posortowanej listy temp do listy FrontEmailList
+    while(temp!=NULL)
+    {
+        FrontEmailList->ID_email=temp->ID_email;
+        strcpy(FrontEmailList->em, temp->em);
+        temp=temp->next;
+        FrontEmailList=FrontEmailList->next;
+    }
+    //remove_list(&temp);
+}
 
 
 
