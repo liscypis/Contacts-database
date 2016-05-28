@@ -55,7 +55,7 @@ struct User_Node *read(FILE *file, struct User_Node * FrontUserList)
             fscanf(file,"%s",new_node->surname);
             fscanf(file,"%s",new_node->city);
             fscanf(file,"%s",new_node->street);
-            fscanf(file,"%hu",&new_node->house_number);
+            fscanf(file,"%u",&new_node->house_number);
             fscanf(file,"%s",new_node->postal_code);
             fscanf(file,"%s",new_node->post_office);
 
@@ -80,7 +80,7 @@ struct User_Node *read(FILE *file, struct User_Node * FrontUserList)
                 fscanf(file,"%s",new_node->surname);
                 fscanf(file,"%s",new_node->city);
                 fscanf(file,"%s",new_node->street);
-                fscanf(file,"%hu",&new_node->house_number);
+                fscanf(file,"%u",&new_node->house_number);
                 fscanf(file,"%s",new_node->postal_code);
                 fscanf(file,"%s",new_node->post_office);
 

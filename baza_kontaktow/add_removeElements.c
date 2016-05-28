@@ -87,7 +87,7 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
            scanf("%s",new_node->street);
 
            printf("Podaj numer domu: \n");
-           scanf("%hu",&new_node->house_number);
+           scanf("%u",&new_node->house_number);
 
            printf("Podaj kod pocztowy:\n");
            scanf("%s",new_node->postal_code);

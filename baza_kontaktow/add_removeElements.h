@@ -10,13 +10,13 @@ FILE *file2;
 FILE *file3;
 struct User_Node
 {
-    unsigned int ID;
+    int ID;
     char name[20];
     char surname[40];
     char city[40];
     char street[40];
-    unsigned short int house_number;
-    char postal_code[7];
+    unsigned int house_number;
+    char postal_code[8];
     char post_office[30];
     struct User_Node *next;
 };
@@ -64,8 +64,20 @@ struct User_Node *read(FILE *file, struct User_Node * FrontUserList);
 struct telephone_nr *readTelephone(FILE *file2, struct telephone_nr * FrontTelList);
 //odczyt adresow email
 struct email_node *readEmail(FILE *file3, struct email_node * FrontEmailList);
-// sortowanie
-void sortowanie_listy(struct User_Node *FrontUserList,unsigned int direction);
+// sortowanie po imieniu
+void sort_list_by_name(struct User_Node *FrontUserList,unsigned int direction);
+// sortowanie po nazwisku
+void sort_list_by_surname(struct User_Node *FrontUserList,unsigned int direction);
+// sortowanie po miescie
+void sort_list_by_city(struct User_Node *FrontUserList,unsigned int direction);
+// sortowanie po ulicy
+void sort_list_by_street(struct User_Node *FrontUserList,unsigned int direction);
+// sortowanie po nr domu
+void sort_list_by_house_nr(struct User_Node *FrontUserList,unsigned int direction);
+// sortowanie po kodzie pocztowym
+void sort_list_by_postal_code(struct User_Node *FrontUserList,unsigned int direction);
+// sortowanie po poczcie
+void sort_list(struct User_Node *FrontUserList,unsigned int direction,unsigned int what);
 //usuwanie listy
 void remove_list ( struct User_Node ** temp );
 

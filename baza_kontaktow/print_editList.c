@@ -2,6 +2,8 @@
 
 void print_list(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList)
 {
+    struct telephone_nr *TempTel=FrontTelList;
+    struct email_node *TempEm=FrontEmailList;
     int data;
     for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next )
     {
@@ -10,7 +12,7 @@ void print_list(struct User_Node * FrontUserList, struct telephone_nr * FrontTel
                 FrontUserList->street, FrontUserList->house_number, FrontUserList->postal_code,
                 FrontUserList->post_office);
         data=FrontUserList->ID;
-        for (; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
+        for (FrontTelList=TempTel; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
         {
             if(FrontTelList->ID_tel==data)
             {
@@ -18,22 +20,19 @@ void print_list(struct User_Node * FrontUserList, struct telephone_nr * FrontTel
                 break;
             }
         }
-        for (; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next )
+        for (FrontEmailList=TempEm; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next )
         {
             if(FrontEmailList->ID_email==data)
             {
                 printf ("Adres email:    %s \n\n", FrontEmailList->em);
                 break;
             }
-
         }
-
     }
-
 }
 void print_person(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, int data)
 {
-    for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next )
+    for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next)
     {
         if(FrontUserList->ID==data)
             printf ("ID  [%u]\nImie:          %s\nNazwisko:      %s\nMiasto:        %s\nUlica:         %s\nNumer domu:    %hu\nKod pocztowy:  %s\nPoczta:        %s\n",
@@ -106,7 +105,7 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
                     break;
                 case 5:
                     puts("Podaj nowy numer domu:");
-                    scanf("%hu",&FrontUserList->house_number);
+                    scanf("%u",&FrontUserList->house_number);
                     break;
                 case 6:
                     puts("Podaj nowy kod pocztowy:");
@@ -117,11 +116,10 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
                     scanf("%s",FrontUserList->post_office);
                     break;
                 case 8:
-                    FrontTelList=temp_tel; //ustawienie FrontTelList na pierwszy element listy, zeby petla wynonywala sie od poczatku listy
                     puts("Ktory numer chcesz edytowac? (podaj caly numer telefonu)");
                     scanf("%u",&tel_num);
                     puts("Podaj nowy numer:");
-                    for (; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
+                    for (FrontTelList=temp_tel; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
                     {
                         if(FrontTelList->ID_tel==data && FrontTelList->tel_nr==tel_num)
                         {
@@ -131,11 +129,10 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
                     }
                     break;
                 case 9:
-                    FrontEmailList=temp_email; //ustawienie FrontEmailList na pierwszy element listy
                     puts("Ktory email chcesz edytowac? (podaj caly emal )");
                     scanf("%s",email);
                     puts("Podaj nowy email:");
-                    for (; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next )
+                    for (FrontEmailList=temp_email; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next )
                     {
                         temp=strcmp(FrontEmailList->em,email);
                         if(FrontEmailList->ID_email==data && temp==0)

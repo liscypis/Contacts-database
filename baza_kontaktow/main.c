@@ -3,9 +3,6 @@
 #include<string.h>
 #include "add_removeElements.h"
 
-
-
-
 int main()
 {
     struct User_Node *FrontUserList=NULL;
@@ -22,7 +19,8 @@ int main()
         FrontTelList=readTelephone(file2, FrontTelList);
         FrontEmailList=readEmail(file3, FrontEmailList);
     }
-sortowanie_listy(FrontUserList,0);
+
+
     for(;;)
     {
         printf("Baza kontaktow v1.12\n\n");
@@ -33,10 +31,12 @@ sortowanie_listy(FrontUserList,0);
         puts("4.Wyswietl baze");
         puts("5.Wyswietl kontakt");
         puts("6.ZAPIS DO PLIKU");
-        puts("7.WYJSCIE i USUNIECIE LISTY");
+        puts("7.SORTOWANIE");
+        puts("8.WYJSCIE i USUNIECIE LISTY");
 
         unsigned short int choice,tel,HowManyEmail;
         int i,j;
+        int z,k; // do sortowanie
         scanf("%hu",&choice);
         switch(choice)
         {
@@ -95,6 +95,12 @@ sortowanie_listy(FrontUserList,0);
             save(file,file2,file3, FrontUserList,FrontTelList,FrontEmailList);
             break;
         case 7:
+
+            scanf("%u",&z);
+            scanf("%u",&k);
+             sort_list(FrontUserList,z,k);
+            break;
+        case 8:
              //remove_list(&FrontUserList);
             exit(0);
             break;
