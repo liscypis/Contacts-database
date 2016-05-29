@@ -28,7 +28,7 @@ struct telephone_nr * InsertTelNum(struct telephone_nr *FrontTelList)
         wsk->next = new_node;  // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
         new_node->ID_tel=NumID;
         scanf("%u",&new_node->tel_nr);// przypisanie wartosci
-        new_node->next=NULL; //przypisanie wartosci NULL dla ostatniego elementu listy
+        new_node->next=NULL; //przypisanie wskaznikowi next ostatniego elementu na liscie wartosci NULL
     }
     return FrontTelList;
 }
@@ -39,8 +39,11 @@ struct email_node * CreateEmalList(struct email_node *FrontEmailList)
     struct email_node *new_node = (struct email_node *)malloc (sizeof (struct email_node));
     if (NULL != new_node)
     {
+        char email[40];
         new_node->ID_email=NumID;
-        scanf("%s",new_node->em);
+        scanf("%s",email);
+        ChangeToupper(email);
+        strcpy(new_node->em, email);
         new_node ->next=NULL;
     }
     FrontEmailList=new_node;
@@ -59,9 +62,12 @@ struct email_node * InsertEmail(struct email_node *FrontEmailList)
     }
     if (NULL != new_node)
     {
+        char email[40];
         wsk->next = new_node;  // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
         new_node->ID_email=NumID;
-        scanf("%s",new_node->em);// przypisanie wartosci
+        scanf("%s",email);
+        ChangeToupper(email); //zamiena na duże litery
+        strcpy(new_node->em, email);
         new_node->next=NULL; //przypisanie wartosci NULL dla ostatniego elementu listy
     }
     return FrontEmailList;
@@ -72,28 +78,78 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
     struct User_Node *new_node = (struct User_Node *)malloc (sizeof (struct User_Node));
     if (NULL != new_node)
     {
+        char pom[20];
+        unsigned int good=1,HouseNr;
         new_node->ID = NumID;
 
+       do{
         printf("\nPodaj imie: \n");
-        scanf("%s",new_node->name);
+        scanf("%s",pom);
+        good=check_string(pom);
+        if(good==0)
+            puts("Wprowadzone imie jest niepoprawne");
+        }while(good==0);
+        ChangeToupper(pom);
+        strcpy(new_node->name,pom);
 
-          printf("Podaj nazwisko: \n");
-           scanf("%s",new_node->surname);
+        do{
+        printf("\nPodaj nazwisko: \n");
+        scanf("%s",pom);
+        good=check_string(pom);
+        if(good==0)
+            puts("Wprowadzone nazwisko jest niepoprawne");
+        }while(good==0);
+        ChangeToupper(pom);
+        strcpy(new_node->surname,pom);
 
-           printf("Podaj miasto:\n");
-           scanf("%s",new_node->city);
+        do{
+        printf("\nPodaj miasto: \n");
+        scanf("%s",pom);
+        good=check_string(pom);
+        if(good==0)
+            puts("Wprowadzone miasto jest niepoprawne");
+        }while(good==0);
+        ChangeToupper(pom);
+        strcpy(new_node->city,pom);
 
-           printf("Podaj ulice:\n");
-           scanf("%s",new_node->street);
+        do{
+        printf("\nPodaj ulice: \n");
+        scanf("%s",pom);
+        good=check_string(pom);
+        if(good==0)
+            puts("Wprowadzona nazwa ulicy jest niepoprawna");
+        }while(good==0);
+        ChangeToupper(pom);
+        strcpy(new_node->street,pom);
 
-           printf("Podaj numer domu: \n");
-           scanf("%u",&new_node->house_number);
+        printf("Podaj numer domu: \n");
+        while(scanf("%u", &HouseNr) != 1) //dopóki nie uda się wczytać
+        {
+            puts("Niepoprawny format, podaj numer domu jeszcze raz:");
+        fflush(stdin);
+        }
+        new_node->house_number=HouseNr;
 
-           printf("Podaj kod pocztowy:\n");
-           scanf("%s",new_node->postal_code);
+        do
+        {
+        printf("Podaj kod pocztowy (00-000):\n");
+        scanf("%s",pom);
+        good=check_postal_code(pom);
+        if(good==0)
+        puts("Wprowadzony kod jest nie poprawny");
+        strcpy(new_node->postal_code,pom);
+        }while(good==0);
 
-           printf("Podaj poczte:\n");
-           scanf("%s",new_node->post_office);
+
+        do{
+        printf("\nPodaj poczte: \n");
+        scanf("%s",pom);
+        good=check_string(pom);
+        if(good==0)
+            puts("Wprowadzona nazwa poczty jest niepoprawna");
+        }while(good==0);
+        ChangeToupper(pom);
+        strcpy(new_node->post_office,pom);
 
 
         new_node -> next = NULL ;
@@ -113,29 +169,79 @@ struct User_Node * InsertUser ( struct User_Node *FrontUserList  )
     }
     if ( NULL != new_node )
     {
+        char pom[20];
+        unsigned int good=1,HouseNr;
         wsk->next = new_node; // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
         new_node->ID = ++NumID;
 
-        printf("\nPodaj imiea: \n");
-        scanf("%s",new_node->name);
+        do{
+        printf("\nPodaj imie: \n");
+        scanf("%s",pom);
+        good=check_string(pom);
+        if(good==0)
+            puts("Wprowadzone imie jest niepoprawne");
+        }while(good==0);
+        ChangeToupper(pom);
+        strcpy(new_node->name,pom);
 
-        printf("Podaj nazwisko: \n");
-         scanf("%s",new_node->surname);
+        do{
+        printf("\nPodaj nazwisko: \n");
+        scanf("%s",pom);
+        good=check_string(pom);
+        if(good==0)
+            puts("Wprowadzone nazwisko jest niepoprawne");
+        }while(good==0);
+        ChangeToupper(pom);
+        strcpy(new_node->surname,pom);
 
-         printf("Podaj miasto:\n");
-         scanf("%s",new_node->city);
+        do{
+        printf("\nPodaj miasto: \n");
+        scanf("%s",pom);
+        good=check_string(pom);
+        if(good==0)
+            puts("Wprowadzone miasto jest niepoprawne");
+        }while(good==0);
+        ChangeToupper(pom);
+        strcpy(new_node->city,pom);
 
-         printf("Podaj ulice:\n");
-         scanf("%s",new_node->street);
+        do{
+        printf("\nPodaj ulice: \n");
+        scanf("%s",pom);
+        good=check_string(pom);
+        if(good==0)
+            puts("Wprowadzona nazwa ulicy jest niepoprawna");
+        }while(good==0);
+        ChangeToupper(pom);
+        strcpy(new_node->street,pom);
 
-         printf("Podaj numer domu: \n");
-         scanf("%u",&new_node->house_number);
+        printf("Podaj numer domu: \n");
+        while(scanf("%u", &HouseNr) != 1) //dopóki nie uda się wczytać
+        {
+            puts("Niepoprawny format, podaj numer domu jeszcze raz:");
+        fflush(stdin);
+        }
+        new_node->house_number=HouseNr;
 
-         printf("Podaj kod pocztowy:\n");
-         scanf("%s",new_node->postal_code);
+        do
+        {
+        printf("Podaj kod pocztowy (00-000):\n");
+        scanf("%s",pom);
+        good=check_postal_code(pom);
+        if(good==0)
+        puts("Wprowadzony kod jest nie poprawny");
+        strcpy(new_node->postal_code,pom);
+        }while(good==0);
 
-         printf("Podaj poczte:\n");
-         scanf("%s",new_node->post_office);
+
+        do{
+        printf("\nPodaj poczte: \n");
+        scanf("%s",pom);
+        good=check_string(pom);
+        if(good==0)
+            puts("Wprowadzona nazwa poczty jest niepoprawna");
+        }while(good==0);
+        ChangeToupper(pom);
+        strcpy(new_node->post_office,pom);
 
         new_node -> next = NULL ;
     }

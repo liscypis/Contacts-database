@@ -158,3 +158,38 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
         }
     }
 }
+
+void ChangeToupper(char array[])
+{
+    int i;
+    for(i=0; i<strlen(array); ++i)
+    {
+        array[i]=toupper(array[i]);
+    }
+}
+int check_postal_code(char array[])
+{
+    if(strlen(array)>6) return 0;
+    if(isdigit(array[0])==0) return 0;
+    if(isdigit(array[1])==0) return 0;
+    if((array[2])!='-') return 0;
+    if(isdigit(array[3])==0) return 0;
+    if(isdigit(array[4])==0) return 0;
+    if(isdigit(array[5])==0) return 0;
+    else
+        return 1;
+}
+int check_string(char array[])
+{
+    int i,k=1;
+    for(i=0; i<strlen(array); ++i)
+    {
+        if(isalnum(array[i])!=0 && isdigit(array[i])==0){
+        }
+        else{
+            k=0;
+        }
+    }
+    if(k==0)return 0;
+    return 1;
+}

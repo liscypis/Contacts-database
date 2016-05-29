@@ -96,10 +96,12 @@ int main()
             save(file,file2,file3, FrontUserList,FrontTelList,FrontEmailList);
             break;
         case 7:
+            //#######################################
+            //########### SROTOWANIE#################
             system("cls");
-            scanf("%u",&z);
-            scanf("%u",&k);
-            scanf("%u",&wyb);
+            scanf("%u",&z); // moze byæ 0- rosnaco lub 1-malejaco
+            scanf("%u",&k); // moze byæ 0-7
+            scanf("%u",&wyb); // zrob by bylo 0 sortowanie po polach z user_list, 1- sortowanie po tel 2- sotrowanie po emailu
            if(wyb==0)
            {
                sort_list_by_tel(FrontTelList,FrontUserList,z);

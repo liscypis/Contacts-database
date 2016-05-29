@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<ctype.h>
 
 unsigned int NumID; //deklaracja globalnej zmiennej ID
 FILE *file;
@@ -11,8 +12,8 @@ FILE *file3;
 struct User_Node
 {
     int ID;
-    char name[20];
-    char surname[40];
+    char name[15];
+    char surname[20];
     char city[40];
     char street[40];
     unsigned int house_number;
@@ -70,6 +71,12 @@ void sort_list(struct User_Node *FrontUserList,unsigned int direction,unsigned i
 void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *FrontUserList,unsigned int direction);
 // sortowanie pod emailu
 void sort_list_by_email(struct email_node *FrontEmailList, struct User_Node *FrontUserList,unsigned int direction);
+//zamiana
+void ChangeToupper(char array[]);
+//sprawdzanie kodu
+int check_postal_code(char array[]);
+//sprawdzanie stringow
+int check_string(char array[]);
 //usuwanie listy
 void remove_list ( struct User_Node ** temp );
 
