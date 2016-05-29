@@ -4,10 +4,19 @@
 struct telephone_nr * CreatePhoneList(struct telephone_nr *FrontTelList)
 {
     struct telephone_nr *new_node = (struct telephone_nr *)malloc (sizeof (struct telephone_nr));
+    unsigned long int NrTel;
     if (NULL != new_node)
     {
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("Podaj numer telefonu:");
+        while(scanf("%lu", &NrTel) != 1 || NrTel<1 || NrTel>999999999) //dopóki nie uda się wczytać
+        {
+            puts("Niepoprawny format, podaj numer tel jeszcze raz:");
+            fflush(stdin);
+        }
         new_node->ID_tel=NumID;
-        scanf("%u",&new_node->tel_nr);
+        new_node->tel_nr=NrTel;// przypisanie wartosci
         new_node ->next=NULL;
     }
     FrontTelList=new_node;
@@ -18,16 +27,24 @@ struct telephone_nr * InsertTelNum(struct telephone_nr *FrontTelList)
 {
     struct telephone_nr *new_node = (struct telephone_nr *)malloc (sizeof (struct telephone_nr));
     struct telephone_nr *wsk=FrontTelList; //Ustawienie wskaŸnika roboczego na pierwszym elemencie listy
-
+    unsigned long int NrTel;
     while (wsk->next != NULL)
     {
         wsk = wsk->next; // przesuwamy wsk a¿ znajdziemy ostatni element
     }
     if (NULL != new_node)
     {
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("Podaj numer telefonu:");
         wsk->next = new_node;  // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
+        while(scanf("%lu", &NrTel) != 1 || NrTel<1 || NrTel>999999999) //dopóki nie uda się wczytać
+        {
+            puts("Niepoprawny format, podaj numer tel jeszcze raz:");
+            fflush(stdin);
+        }
         new_node->ID_tel=NumID;
-        scanf("%u",&new_node->tel_nr);// przypisanie wartosci
+        new_node->tel_nr=NrTel;// przypisanie wartosci
         new_node->next=NULL; //przypisanie wskaznikowi next ostatniego elementu na liscie wartosci NULL
     }
     return FrontTelList;
@@ -39,11 +56,20 @@ struct email_node * CreateEmalList(struct email_node *FrontEmailList)
     struct email_node *new_node = (struct email_node *)malloc (sizeof (struct email_node));
     if (NULL != new_node)
     {
+        int good=1;
         char email[40];
-        new_node->ID_email=NumID;
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
+        do{
+        puts("Podaj email:");
         scanf("%s",email);
-        ChangeToupper(email);
+        good=check_email(email);
+        if(good==0)
+            puts("Wprowadzone email jest niepoprawny");
+        }while(good==0);
+        ChangeToupper(email); //zamiena na duże litery
         strcpy(new_node->em, email);
+        new_node->ID_email=NumID;
         new_node ->next=NULL;
     }
     FrontEmailList=new_node;
@@ -61,13 +87,22 @@ struct email_node * InsertEmail(struct email_node *FrontEmailList)
         wsk = wsk->next; // przesuwamy wsk a¿ znajdziemy ostatni element
     }
     if (NULL != new_node)
-    {
+    {   int good=1;
         char email[40];
         wsk->next = new_node;  // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
-        new_node->ID_email=NumID;
+
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
+        do{
+        puts("Podaj email:");
         scanf("%s",email);
+        good=check_email(email);
+        if(good==0)
+            puts("Wprowadzone email jest niepoprawny");
+        }while(good==0);
         ChangeToupper(email); //zamiena na duże litery
         strcpy(new_node->em, email);
+        new_node->ID_email=NumID;
         new_node->next=NULL; //przypisanie wartosci NULL dla ostatniego elementu listy
     }
     return FrontEmailList;
@@ -82,8 +117,10 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         unsigned int good=1,HouseNr;
         new_node->ID = NumID;
 
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
        do{
-        printf("\nPodaj imie: \n");
+        printf("Podaj imie: \n");
         scanf("%s",pom);
         good=check_string(pom);
         if(good==0)
@@ -92,8 +129,10 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         ChangeToupper(pom);
         strcpy(new_node->name,pom);
 
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
         do{
-        printf("\nPodaj nazwisko: \n");
+        printf("Podaj nazwisko: \n");
         scanf("%s",pom);
         good=check_string(pom);
         if(good==0)
@@ -102,8 +141,10 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         ChangeToupper(pom);
         strcpy(new_node->surname,pom);
 
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
         do{
-        printf("\nPodaj miasto: \n");
+        printf("Podaj miasto: \n");
         scanf("%s",pom);
         good=check_string(pom);
         if(good==0)
@@ -112,8 +153,10 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         ChangeToupper(pom);
         strcpy(new_node->city,pom);
 
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
         do{
-        printf("\nPodaj ulice: \n");
+        printf("Podaj ulice: \n");
         scanf("%s",pom);
         good=check_string(pom);
         if(good==0)
@@ -122,6 +165,8 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         ChangeToupper(pom);
         strcpy(new_node->street,pom);
 
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
         printf("Podaj numer domu: \n");
         while(scanf("%u", &HouseNr) != 1) //dopóki nie uda się wczytać
         {
@@ -130,6 +175,8 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         }
         new_node->house_number=HouseNr;
 
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
         do
         {
         printf("Podaj kod pocztowy (00-000):\n");
@@ -140,9 +187,10 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         strcpy(new_node->postal_code,pom);
         }while(good==0);
 
-
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
         do{
-        printf("\nPodaj poczte: \n");
+        printf("Podaj poczte: \n");
         scanf("%s",pom);
         good=check_string(pom);
         if(good==0)
@@ -174,8 +222,10 @@ struct User_Node * InsertUser ( struct User_Node *FrontUserList  )
         wsk->next = new_node; // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
         new_node->ID = ++NumID;
 
-        do{
-        printf("\nPodaj imie: \n");
+         system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
+       do{
+        printf("Podaj imie: \n");
         scanf("%s",pom);
         good=check_string(pom);
         if(good==0)
@@ -184,8 +234,10 @@ struct User_Node * InsertUser ( struct User_Node *FrontUserList  )
         ChangeToupper(pom);
         strcpy(new_node->name,pom);
 
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
         do{
-        printf("\nPodaj nazwisko: \n");
+        printf("Podaj nazwisko: \n");
         scanf("%s",pom);
         good=check_string(pom);
         if(good==0)
@@ -194,8 +246,10 @@ struct User_Node * InsertUser ( struct User_Node *FrontUserList  )
         ChangeToupper(pom);
         strcpy(new_node->surname,pom);
 
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
         do{
-        printf("\nPodaj miasto: \n");
+        printf("Podaj miasto: \n");
         scanf("%s",pom);
         good=check_string(pom);
         if(good==0)
@@ -204,8 +258,10 @@ struct User_Node * InsertUser ( struct User_Node *FrontUserList  )
         ChangeToupper(pom);
         strcpy(new_node->city,pom);
 
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
         do{
-        printf("\nPodaj ulice: \n");
+        printf("Podaj ulice: \n");
         scanf("%s",pom);
         good=check_string(pom);
         if(good==0)
@@ -214,6 +270,8 @@ struct User_Node * InsertUser ( struct User_Node *FrontUserList  )
         ChangeToupper(pom);
         strcpy(new_node->street,pom);
 
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
         printf("Podaj numer domu: \n");
         while(scanf("%u", &HouseNr) != 1) //dopóki nie uda się wczytać
         {
@@ -222,6 +280,8 @@ struct User_Node * InsertUser ( struct User_Node *FrontUserList  )
         }
         new_node->house_number=HouseNr;
 
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
         do
         {
         printf("Podaj kod pocztowy (00-000):\n");
@@ -232,9 +292,10 @@ struct User_Node * InsertUser ( struct User_Node *FrontUserList  )
         strcpy(new_node->postal_code,pom);
         }while(good==0);
 
-
+        system("cls");
+        puts("#### DODAWANIE UZYTWONIKA ####");
         do{
-        printf("\nPodaj poczte: \n");
+        printf("Podaj poczte: \n");
         scanf("%s",pom);
         good=check_string(pom);
         if(good==0)
@@ -357,6 +418,26 @@ void remove_list ( struct User_Node ** temp )
         next = (* temp ) ->next ;
         free (* temp );
         * temp = next ;
+    }
+}
+void remove_tel_list ( struct telephone_nr ** temp )
+{
+    struct telephone_nr * next = NULL ;
+    while ( NULL != * temp )
+    {
+        next = (* temp ) ->next ;
+        free (* temp );
+        * temp = next ;
+    }
+}
+void remove_email_list ( struct email_node ** temp )
+{
+    struct email_node * next = NULL ;
+    while ( NULL != * temp )
+    {
+        next = (* temp ) ->next ;
+        free (* temp );
+        *temp = next ;
     }
 }
 

@@ -24,7 +24,7 @@ struct User_Node
 struct telephone_nr
 {
     unsigned int ID_tel;
-    unsigned int tel_nr;
+    unsigned long int tel_nr;
     struct telephone_nr *next;
 };
 
@@ -77,8 +77,19 @@ void ChangeToupper(char array[]);
 int check_postal_code(char array[]);
 //sprawdzanie stringow
 int check_string(char array[]);
+//sprawdzanie poprawnosci emaila
+int check_email(char array[]);
+//spradza czy jest taki uzytkownic
+int user_exist(struct User_Node * FrontUserList,int data);
+//sprawdza czy jest taki nr tel
+int tel_exist(struct telephone_nr * FrontTelList,int data);
+//sprawdza czy jest taki emial
+int email_exist(struct email_node * FrontEmailList,char data[]);
 //usuwanie listy
 void remove_list ( struct User_Node ** temp );
+void remove_tel_list ( struct telephone_nr ** temp );
+void remove_email_list ( struct email_node ** temp );
+//
 
 #endif
 

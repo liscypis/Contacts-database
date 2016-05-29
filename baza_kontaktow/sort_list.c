@@ -75,8 +75,6 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
                         pom=FrontUserList;
                         strcpy(temp->name, FrontUserList->name);
                         FrontUserList=FrontUserList->next;
-                        printf("%s\n",temp->name);
-
                     }
                     else  FrontUserList=FrontUserList->next;
                 }
@@ -164,8 +162,6 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
                         pom=FrontUserList;
                         strcpy(temp->name, FrontUserList->name);
                         FrontUserList=FrontUserList->next;
-                        printf("%s\n",temp->name);
-
                     }
                     else  FrontUserList=FrontUserList->next;
                 }
@@ -176,7 +172,6 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
                         pom=FrontUserList;
                         strcpy(temp->surname, FrontUserList->surname);
                         FrontUserList=FrontUserList->next;
-
                     }
                     else  FrontUserList=FrontUserList->next;
                 }
@@ -187,7 +182,6 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
                         pom=FrontUserList;
                         strcpy(temp->city, FrontUserList->city);
                         FrontUserList=FrontUserList->next;
-
                     }
                     else  FrontUserList=FrontUserList->next;
                 }
@@ -273,7 +267,6 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
     //skopiowanie posortowanej listy temp do listy FrontUserList
     while(temp!=NULL)
     {
-        printf("\n%s",temp->surname);
         strcpy(FrontUserList->name, temp->name);
         strcpy(FrontUserList->surname, temp->surname);
         strcpy(FrontUserList->city, temp->city);
@@ -365,7 +358,7 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *Front
         FrontTelList=pom;
         temp->ID_tel=FrontTelList->ID_tel;
         temp->tel_nr=FrontTelList->tel_nr;
-        tab[i]=temp->ID_tel;
+        tab[i]=temp->ID_tel; //zapisanie ID zeby wiedziec jakie juz wysapilo
         //printf("zawartosc tab %d\n ",tab[i]);
         //posortowanie listy user_node po id tel
             int k,bylo=0;
@@ -422,7 +415,7 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *Front
 
         if(direction==0)
         {
-            FrontTelList->tel_nr=9999999;
+            FrontTelList->tel_nr=9999999999;
         }
         else
         {
@@ -435,7 +428,6 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *Front
     //skopiowanie posortowanej listy temp_user do listy FrontUserList
     while(temp_user!=NULL)
     {
-        printf("\n%s",temp_user->surname);
         strcpy(FrontUserList->name, temp_user->name);
         strcpy(FrontUserList->surname, temp_user->surname);
         strcpy(FrontUserList->city, temp_user->city);
@@ -460,7 +452,7 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *Front
         temp=temp->next;
         FrontTelList=FrontTelList->next;
     }
-    //remove_list(&temp);
+    remove_tel_list(&temp);
 }
 //$$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -610,7 +602,6 @@ void sort_list_by_email(struct email_node *FrontEmailList, struct User_Node *Fro
     //skopiowanie posortowanej listy temp_user do listy FrontUserList
     while(temp_user!=NULL)
     {
-        printf("\n%s",temp_user->surname);
         strcpy(FrontUserList->name, temp_user->name);
         strcpy(FrontUserList->surname, temp_user->surname);
         strcpy(FrontUserList->city, temp_user->city);
@@ -634,7 +625,7 @@ void sort_list_by_email(struct email_node *FrontEmailList, struct User_Node *Fro
         temp=temp->next;
         FrontEmailList=FrontEmailList->next;
     }
-    //remove_list(&temp);
+    remove_email_list(&temp);
 }
 
 

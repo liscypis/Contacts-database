@@ -21,7 +21,7 @@ void save(FILE *file,FILE *file2,FILE *file3, struct User_Node * FrontUserList, 
     for (; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
     {
         fprintf(file2,"\n%u\t", FrontTelList->ID_tel);
-        fprintf(file2,"%u", FrontTelList->tel_nr);
+        fprintf(file2,"%lu", FrontTelList->tel_nr);
     }
     for (; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next )
     {
@@ -116,7 +116,7 @@ struct telephone_nr *readTelephone(FILE *file2, struct telephone_nr * FrontTelLi
             fscanf(file2,"%u",&new_node->ID_tel);
             NumID=new_node->ID_tel;
              printf("%u",NumID);
-            fscanf(file2,"%u",&new_node->tel_nr);
+            fscanf(file2,"%lu",&new_node->tel_nr);
 
             new_node -> next = NULL ;
             FrontTelList=new_node;
@@ -136,7 +136,7 @@ struct telephone_nr *readTelephone(FILE *file2, struct telephone_nr * FrontTelLi
                 fscanf(file2,"%u",&new_node->ID_tel);
                 NumID=new_node->ID_tel;
                  printf("%u",NumID);
-                fscanf(file2,"%u",&new_node->tel_nr);
+                fscanf(file2,"%lu",&new_node->tel_nr);
 
                 new_node -> next = NULL ;
                 puts("tel222");
