@@ -7,11 +7,12 @@
 
 /**
     @file baza_kontaktow.h
-    \brief Przechowuje struktury i nag³ówki funkcji.
+    \brief Przechowuje struktury i naglówki funkcji.
 */
 
 /**
-    \var NumID globalna zmienna ID
+    \var NumID
+    \brief globalna zmienna ID
 */
 unsigned int NumID; //deklaracja globalnej zmiennej ID
 
@@ -20,7 +21,7 @@ FILE *file2;
 FILE *file3;
 /**
     \struct User_Node
-    \brief Struktura przechowuje dane u¿ytkownika i wskaŸnik na nastêpny element.
+    \brief Struktura przechowuje dane uzytkownika i wskaznik na nastepny element.
 */
 struct User_Node
 {
@@ -36,7 +37,7 @@ struct User_Node
 };
 /**
     \struct telephone_nr
-    \brief Struktura przechowuje numery telefonów u¿ytkownika i wskaŸnik na nastêpny element.
+    \brief Struktura przechowuje numery telefonów uzytkownika i wskaznik na nastepny element.
 */
 struct telephone_nr
 {
@@ -46,7 +47,7 @@ struct telephone_nr
 };
 /**
     \struct email_node
-    \brief Struktura przechowuje adresy email u¿ytkownika i wskaŸnik na nastêpny element.
+    \brief Struktura przechowuje adresy email uzytkownika i wskaznik na nastepny element.
 */
 struct email_node
 {

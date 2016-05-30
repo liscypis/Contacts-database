@@ -2,13 +2,13 @@
 
 /**
     @file sort_list.c
-    \brief Przechowuje funkcję do sortowania list
+    \brief Przechowuje funkcje do sortowania list
 */
 
 /**
     * \fn void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned int what)
     * \brief Procedura sortuje listę User_Node po wybranym polu i po wybranym kierunku
-    * \param FrontUserList wskaźnik na początek listy User_Node.
+    * \param FrontUserList wskaźnik na początek listy.
     * \param direction przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco.
     * \param what przechowuje wyrób po którym polu chcemy sortować 0-numer,ID 1-imie,2-nazwisko,3-miasto,4-ulica,5-numer domu,6-kod pocztowy,7-poczta.
 */
@@ -297,8 +297,8 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
 /**
     * \fn void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *FrontUserList,unsigned int direction)
     * \brief Procedura sortuje listę telephone_nr po wybranym kierunku i sortuje listę User_Node po odpowiednum ID telefonów
-    * \param FrontTelList wskaźnik na początek listy telephone_nr.
-    * \param FrontUserList wskaźnik na początek listy User_Node.
+    * \param FrontTelList wskaźnik na początek listy.
+    * \param FrontUserList wskaźnik na początek listy.
     * \param direction przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco.
 */
 void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *FrontUserList,unsigned int direction)
@@ -476,8 +476,8 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *Front
 /**
     * \fn void sort_list_by_email(struct email_node *FrontEmailList, struct User_Node *FrontUserList,unsigned int direction)
     * \brief Procedura sortuje listę email_node po wybranym kierunku i sortuje listę User_Node po odpowiednum ID emaili
-    * \param FrontEmailList wskaźnik na początek listy email_node.
-    * \param FrontUserList wskaźnik na początek listy User_Node.
+    * \param FrontEmailList wskaźnik na początek listy.
+    * \param FrontUserList wskaźnik na początek listy.
     * \param direction przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco.
 */
 void sort_list_by_email(struct email_node *FrontEmailList, struct User_Node *FrontUserList,unsigned int direction)

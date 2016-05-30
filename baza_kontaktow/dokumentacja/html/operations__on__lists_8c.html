@@ -1,0 +1,642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Baza_Kontaktów: Dokumentacja pliku operations_on_lists.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Baza_Kontaktów
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Struktury&#160;Danych</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Globalne</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_4ba060140f7c4c059a734c3f197a64ab.html">Wojtek</a></li><li class="navelem"><a class="el" href="dir_57f46c8065417c1180351e4ade066eb5.html">Documents</a></li><li class="navelem"><a class="el" href="dir_97bf03685a4da93da42cd86886f680fb.html">C</a></li><li class="navelem"><a class="el" href="dir_13c53a711f2704d04ba10e6a714f7d32.html">PP2</a></li><li class="navelem"><a class="el" href="dir_9d5e8bf75aaf8d66743ae002a706996b.html">projektpp2</a></li><li class="navelem"><a class="el" href="dir_d3b1cb10a0324528fa463e563b202a6b.html">baza_kontaktow</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funkcje</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja pliku operations_on_lists.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Przechowuje definicje funkcji do obsługi list oraz funkcji ogólnego uzytku.  
+<a href="#details">Więcej...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:abc0b81e67c5e810959cfc688f7edf27d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operations__on__lists_8c.html#abc0b81e67c5e810959cfc688f7edf27d">print_list</a> (struct <a class="el" href="struct_user___node.html">User_Node</a> *FrontUserList, struct <a class="el" href="structtelephone__nr.html">telephone_nr</a> *FrontTelList, struct <a class="el" href="structemail__node.html">email_node</a> *FrontEmailList)</td></tr>
+<tr class="memdesc:abc0b81e67c5e810959cfc688f7edf27d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedura wyświetla wszystkich używtowników.  <a href="#abc0b81e67c5e810959cfc688f7edf27d">Więcej...</a><br /></td></tr>
+<tr class="separator:abc0b81e67c5e810959cfc688f7edf27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaead51089d15ad37065e49115abe269d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operations__on__lists_8c.html#aaead51089d15ad37065e49115abe269d">print_person_by_id</a> (struct <a class="el" href="struct_user___node.html">User_Node</a> *FrontUserList, struct <a class="el" href="structtelephone__nr.html">telephone_nr</a> *FrontTelList, struct <a class="el" href="structemail__node.html">email_node</a> *FrontEmailList, int data)</td></tr>
+<tr class="memdesc:aaead51089d15ad37065e49115abe269d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedura wyświetla danego użytkownika pod ID.  <a href="#aaead51089d15ad37065e49115abe269d">Więcej...</a><br /></td></tr>
+<tr class="separator:aaead51089d15ad37065e49115abe269d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2849a560244c9913814fdd7d4de49bd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operations__on__lists_8c.html#a2849a560244c9913814fdd7d4de49bd1">print_person_by_name_or_surname</a> (struct <a class="el" href="struct_user___node.html">User_Node</a> *FrontUserList, struct <a class="el" href="structtelephone__nr.html">telephone_nr</a> *FrontTelList, struct <a class="el" href="structemail__node.html">email_node</a> *FrontEmailList, char data[], unsigned short int what)</td></tr>
+<tr class="memdesc:a2849a560244c9913814fdd7d4de49bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedura wyświetla szukanego użytkownika po imieniu lub nazwisku.  <a href="#a2849a560244c9913814fdd7d4de49bd1">Więcej...</a><br /></td></tr>
+<tr class="separator:a2849a560244c9913814fdd7d4de49bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fcc8ee697e7e6139fcec267f318cd8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operations__on__lists_8c.html#a4fcc8ee697e7e6139fcec267f318cd8d">edit_person</a> (struct <a class="el" href="struct_user___node.html">User_Node</a> *FrontUserList, struct <a class="el" href="structtelephone__nr.html">telephone_nr</a> *FrontTelList, struct <a class="el" href="structemail__node.html">email_node</a> *FrontEmailList, unsigned short int data)</td></tr>
+<tr class="memdesc:a4fcc8ee697e7e6139fcec267f318cd8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedura służy do edycji użytkownika.  <a href="#a4fcc8ee697e7e6139fcec267f318cd8d">Więcej...</a><br /></td></tr>
+<tr class="separator:a4fcc8ee697e7e6139fcec267f318cd8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dfd24985ba4c940fa55e8b52b1d894a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operations__on__lists_8c.html#a0dfd24985ba4c940fa55e8b52b1d894a">ChangeToupper</a> (char array[])</td></tr>
+<tr class="memdesc:a0dfd24985ba4c940fa55e8b52b1d894a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedura do zamiany małych liter na duże.  <a href="#a0dfd24985ba4c940fa55e8b52b1d894a">Więcej...</a><br /></td></tr>
+<tr class="separator:a0dfd24985ba4c940fa55e8b52b1d894a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a0a121a2515462ecefe2df97884d3d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operations__on__lists_8c.html#a7a0a121a2515462ecefe2df97884d3d0">check_postal_code</a> (char array[])</td></tr>
+<tr class="memdesc:a7a0a121a2515462ecefe2df97884d3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja do sprawdzania poprawnosci wprowadzonego kodu pocztowego.  <a href="#a7a0a121a2515462ecefe2df97884d3d0">Więcej...</a><br /></td></tr>
+<tr class="separator:a7a0a121a2515462ecefe2df97884d3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79452b3a1e8edc1c4d3dc79f341e7e83"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operations__on__lists_8c.html#a79452b3a1e8edc1c4d3dc79f341e7e83">check_string</a> (char array[])</td></tr>
+<tr class="memdesc:a79452b3a1e8edc1c4d3dc79f341e7e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja do sprawdzania poprawnosci wprowadzonego ciagu znaków.  <a href="#a79452b3a1e8edc1c4d3dc79f341e7e83">Więcej...</a><br /></td></tr>
+<tr class="separator:a79452b3a1e8edc1c4d3dc79f341e7e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac63965293c5ac9757e143dc71d4cd894"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operations__on__lists_8c.html#ac63965293c5ac9757e143dc71d4cd894">check_email</a> (char array[])</td></tr>
+<tr class="memdesc:ac63965293c5ac9757e143dc71d4cd894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja do sprawdzania poprawnosci wprowadzonego ciagu znaków.  <a href="#ac63965293c5ac9757e143dc71d4cd894">Więcej...</a><br /></td></tr>
+<tr class="separator:ac63965293c5ac9757e143dc71d4cd894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d11ee910d336026d1bd40fee81af8d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operations__on__lists_8c.html#a4d11ee910d336026d1bd40fee81af8d9">user_exist</a> (struct <a class="el" href="struct_user___node.html">User_Node</a> *FrontUserList, int data)</td></tr>
+<tr class="memdesc:a4d11ee910d336026d1bd40fee81af8d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja sprawdza czy użytkownik o podanym ID instnieje.  <a href="#a4d11ee910d336026d1bd40fee81af8d9">Więcej...</a><br /></td></tr>
+<tr class="separator:a4d11ee910d336026d1bd40fee81af8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fb3179dc8f606870a43567f925162a8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operations__on__lists_8c.html#a5fb3179dc8f606870a43567f925162a8">tel_exist</a> (struct <a class="el" href="structtelephone__nr.html">telephone_nr</a> *FrontTelList, int data)</td></tr>
+<tr class="memdesc:a5fb3179dc8f606870a43567f925162a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja sprawdza czy podany telefon znajduje się na liście.  <a href="#a5fb3179dc8f606870a43567f925162a8">Więcej...</a><br /></td></tr>
+<tr class="separator:a5fb3179dc8f606870a43567f925162a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab33f50f098f67fd355030b6a6b3ca35b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operations__on__lists_8c.html#ab33f50f098f67fd355030b6a6b3ca35b">email_exist</a> (struct <a class="el" href="structemail__node.html">email_node</a> *FrontEmailList, char data[])</td></tr>
+<tr class="memdesc:ab33f50f098f67fd355030b6a6b3ca35b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja sprawdza czy podany email znajduje się na liście.  <a href="#ab33f50f098f67fd355030b6a6b3ca35b">Więcej...</a><br /></td></tr>
+<tr class="separator:ab33f50f098f67fd355030b6a6b3ca35b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad488603dfea360822d096a4390b39f07"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operations__on__lists_8c.html#ad488603dfea360822d096a4390b39f07">name_exist</a> (struct <a class="el" href="struct_user___node.html">User_Node</a> *FrontUserList, char data[])</td></tr>
+<tr class="memdesc:ad488603dfea360822d096a4390b39f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja sprawdza czy podane imię znajduje się na liście.  <a href="#ad488603dfea360822d096a4390b39f07">Więcej...</a><br /></td></tr>
+<tr class="separator:ad488603dfea360822d096a4390b39f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd56d94c79e7d6d3cc1f4ec78be6f97b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operations__on__lists_8c.html#acd56d94c79e7d6d3cc1f4ec78be6f97b">surname_exist</a> (struct <a class="el" href="struct_user___node.html">User_Node</a> *FrontUserList, char data[])</td></tr>
+<tr class="memdesc:acd56d94c79e7d6d3cc1f4ec78be6f97b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja sprawdza czy podane nazwisko znajduje się na liście.  <a href="#acd56d94c79e7d6d3cc1f4ec78be6f97b">Więcej...</a><br /></td></tr>
+<tr class="separator:acd56d94c79e7d6d3cc1f4ec78be6f97b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Przechowuje definicje funkcji do obsługi list oraz funkcji ogólnego uzytku. </p>
+</div><h2 class="groupheader">Dokumentacja funkcji</h2>
+<a class="anchor" id="a0dfd24985ba4c940fa55e8b52b1d894a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ChangeToupper </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>array</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Procedura do zamiany małych liter na duże. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>paramert przechowuje ciąg co edycji </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac63965293c5ac9757e143dc71d4cd894"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int check_email </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>array</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funkcja do sprawdzania poprawnosci wprowadzonego ciagu znaków. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>paramert przechowuje ciąg znaków </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>1 w przypadku gdy ciąg jest poprawny </dd>
+<dd>
+0 w przypadku gdy ciąg jest niepoprawny </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7a0a121a2515462ecefe2df97884d3d0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int check_postal_code </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>array</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funkcja do sprawdzania poprawnosci wprowadzonego kodu pocztowego. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>paramert przechowuje kod pocztowy </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>1 w przypadku gdy kod pocztowy jest poprawny </dd>
+<dd>
+0 w przypadku gdy kod pocztowy jest niepoprawny </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a79452b3a1e8edc1c4d3dc79f341e7e83"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int check_string </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>array</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funkcja do sprawdzania poprawnosci wprowadzonego ciagu znaków. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>paramert przechowuje ciąg znaków </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>1 w przypadku gdy ciąg jest poprawny </dd>
+<dd>
+0 w przypadku gdy ciąg jest niepoprawny </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4fcc8ee697e7e6139fcec267f318cd8d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void edit_person </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_user___node.html">User_Node</a> *&#160;</td>
+          <td class="paramname"><em>FrontUserList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structtelephone__nr.html">telephone_nr</a> *&#160;</td>
+          <td class="paramname"><em>FrontTelList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structemail__node.html">email_node</a> *&#160;</td>
+          <td class="paramname"><em>FrontEmailList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Procedura służy do edycji użytkownika. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">FrontUserList</td><td>wskaźnik na początek listy. </td></tr>
+    <tr><td class="paramname">FrontTelList</td><td>wskaźnik na początek listy. </td></tr>
+    <tr><td class="paramname">FrontEmailList</td><td>wskaźnik na początek listy. </td></tr>
+    <tr><td class="paramname">data</td><td>paramert przechowuje ID edytowanego użytkownika </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab33f50f098f67fd355030b6a6b3ca35b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int email_exist </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structemail__node.html">email_node</a> *&#160;</td>
+          <td class="paramname"><em>FrontEmailList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>data</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funkcja sprawdza czy podany email znajduje się na liście. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">FrontEmailList</td><td>wskaźnik na pierwszy element listy </td></tr>
+    <tr><td class="paramname">data</td><td>przechowuje email podany przez użytkownika </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>1 w przypadku gdy email znajduję się liście </dd>
+<dd>
+0 w przypadku gdy email nie znajduję się liście </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad488603dfea360822d096a4390b39f07"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int name_exist </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_user___node.html">User_Node</a> *&#160;</td>
+          <td class="paramname"><em>FrontUserList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>data</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funkcja sprawdza czy podane imię znajduje się na liście. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">FrontUserList</td><td>wskaźnik na pierwszy element listy </td></tr>
+    <tr><td class="paramname">data</td><td>przechowuje imię podane przez użytkownika </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>1 w przypadku gdy imię znajduję się liście </dd>
+<dd>
+0 w przypadku gdy imię nie znajduję się liście </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abc0b81e67c5e810959cfc688f7edf27d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_list </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_user___node.html">User_Node</a> *&#160;</td>
+          <td class="paramname"><em>FrontUserList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structtelephone__nr.html">telephone_nr</a> *&#160;</td>
+          <td class="paramname"><em>FrontTelList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structemail__node.html">email_node</a> *&#160;</td>
+          <td class="paramname"><em>FrontEmailList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Procedura wyświetla wszystkich używtowników. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">FrontUserList</td><td>wskaźnik na początek listy. </td></tr>
+    <tr><td class="paramname">FrontTelList</td><td>wskaźnik na początek listy. </td></tr>
+    <tr><td class="paramname">FrontEmailList</td><td>wskaźnik na początek listy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aaead51089d15ad37065e49115abe269d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_person_by_id </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_user___node.html">User_Node</a> *&#160;</td>
+          <td class="paramname"><em>FrontUserList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structtelephone__nr.html">telephone_nr</a> *&#160;</td>
+          <td class="paramname"><em>FrontTelList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structemail__node.html">email_node</a> *&#160;</td>
+          <td class="paramname"><em>FrontEmailList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Procedura wyświetla danego użytkownika pod ID. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">FrontUserList</td><td>wskaźnik na początek listy. </td></tr>
+    <tr><td class="paramname">FrontTelList</td><td>wskaźnik na początek listy. </td></tr>
+    <tr><td class="paramname">FrontEmailList</td><td>wskaźnik na początek listy. </td></tr>
+    <tr><td class="paramname">data</td><td>numer ID użytkownika do wyświetlenia </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2849a560244c9913814fdd7d4de49bd1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_person_by_name_or_surname </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_user___node.html">User_Node</a> *&#160;</td>
+          <td class="paramname"><em>FrontUserList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structtelephone__nr.html">telephone_nr</a> *&#160;</td>
+          <td class="paramname"><em>FrontTelList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structemail__node.html">email_node</a> *&#160;</td>
+          <td class="paramname"><em>FrontEmailList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>data</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>what</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Procedura wyświetla szukanego użytkownika po imieniu lub nazwisku. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">FrontUserList</td><td>wskaźnik na początek listy. </td></tr>
+    <tr><td class="paramname">FrontTelList</td><td>wskaźnik na początek listy. </td></tr>
+    <tr><td class="paramname">FrontEmailList</td><td>wskaźnik na początek listy. </td></tr>
+    <tr><td class="paramname">data</td><td>paramert przechowuje imie lub nazwisko. </td></tr>
+    <tr><td class="paramname">wtah</td><td>parametr przechowuje decyzje użytkownica po jakim polu chce wyszukać osobę wartość 1 po imieniu 2 po nazwisku </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="acd56d94c79e7d6d3cc1f4ec78be6f97b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int surname_exist </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_user___node.html">User_Node</a> *&#160;</td>
+          <td class="paramname"><em>FrontUserList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>data</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funkcja sprawdza czy podane nazwisko znajduje się na liście. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">FrontUserList</td><td>wskaźnik na pierwszy element listy </td></tr>
+    <tr><td class="paramname">data</td><td>przechowuje nazwisko podane przez użytkownika </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>1 w przypadku gdy nazwisko znajduję się liście </dd>
+<dd>
+0 w przypadku gdy nazwisko nie znajduję się liście </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5fb3179dc8f606870a43567f925162a8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tel_exist </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structtelephone__nr.html">telephone_nr</a> *&#160;</td>
+          <td class="paramname"><em>FrontTelList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funkcja sprawdza czy podany telefon znajduje się na liście. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">FrontTelList</td><td>wskaźnik na pierwszy element listy </td></tr>
+    <tr><td class="paramname">data</td><td>przechowuje numer telefonu podany przez użytkownika </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>1 w przypadku gdy numer telefonu znajduję się liście </dd>
+<dd>
+0 w przypadku gdy numer telefonu nie znajduję się liście </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4d11ee910d336026d1bd40fee81af8d9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int user_exist </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_user___node.html">User_Node</a> *&#160;</td>
+          <td class="paramname"><em>FrontUserList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funkcja sprawdza czy użytkownik o podanym ID instnieje. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">FrontUserList</td><td>wskaźnik na pierwszy element listy. </td></tr>
+    <tr><td class="paramname">data</td><td>przechowuje ID podane przed użytkownika </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>1 w przypadku gdy użytkownik o podanym ID znajduję się na liście </dd>
+<dd>
+0 w przypadku gdy użytkownik o podanym ID nie znajduję się na liście </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>

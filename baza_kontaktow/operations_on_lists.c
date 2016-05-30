@@ -1,15 +1,16 @@
 #include "baza_kontaktow.h"
+
 /**
-    @file operations_on_list.c
+    @file operations_on_lists.c
     \brief Przechowuje definicje funkcji do obsługi list oraz funkcji ogólnego uzytku.
 */
 
 /**
     * \fn void print_list(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList)
     * \brief Procedura wyświetla wszystkich używtowników
-    * \param FrontUserList wskaźnik na początek listy User_Node.
-    * \param FrontTelList wskaźnik na początek listy telephone_nr.
-    * \param FrontEmailList wskaźnik na początek listy email_node.
+    * \param FrontUserList wskaźnik na początek listy.
+    * \param FrontTelList wskaźnik na początek listy.
+    * \param FrontEmailList wskaźnik na początek listy.
 */
 void print_list(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList)
 {
@@ -47,9 +48,9 @@ void print_list(struct User_Node * FrontUserList, struct telephone_nr * FrontTel
 /**
     * \fn void print_person_by_id(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, int data)
     * \brief Procedura wyświetla danego użytkownika pod ID
-    * \param FrontUserList wskaźnik na początek listy User_Node.
-    * \param FrontTelList wskaźnik na początek listy telephone_nr.
-    * \param FrontEmailList wskaźnik na początek listy email_node.
+    * \param FrontUserList wskaźnik na początek listy.
+    * \param FrontTelList wskaźnik na początek listy.
+    * \param FrontEmailList wskaźnik na początek listy.
     * \param data numer ID użytkownika do wyświetlenia
 */
 void print_person_by_id(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, int data)
@@ -78,9 +79,9 @@ void print_person_by_id(struct User_Node * FrontUserList, struct telephone_nr * 
 /**
     * \fn void print_person_by_name_or_surname(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, char data[], unsigned short int what)
     * \brief Procedura wyświetla szukanego użytkownika po imieniu lub nazwisku
-    * \param FrontUserList wskaźnik na początek listy User_Node.
-    * \param FrontTelList wskaźnik na początek listy telephone_nr.
-    * \param FrontEmailList wskaźnik na początek listy email_node.
+    * \param FrontUserList wskaźnik na początek listy.
+    * \param FrontTelList wskaźnik na początek listy.
+    * \param FrontEmailList wskaźnik na początek listy.
     * \param data paramert przechowuje imie lub nazwisko.
     * \param wtah parametr przechowuje decyzje użytkownica po jakim polu chce wyszukać osobę wartość 1 po imieniu 2 po nazwisku
 */
@@ -132,9 +133,9 @@ void print_person_by_name_or_surname(struct User_Node * FrontUserList, struct te
 /**
     * \fn void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, unsigned short int data)
     * \brief Procedura służy do edycji użytkownika
-    * \param FrontUserList wskaźnik na początek listy User_Node.
-    * \param FrontTelList wskaźnik na początek listy telephone_nr.
-    * \param FrontEmailList wskaźnik na początek listy email_node.
+    * \param FrontUserList wskaźnik na początek listy.
+    * \param FrontTelList wskaźnik na początek listy.
+    * \param FrontEmailList wskaźnik na początek listy.
     * \param data paramert przechowuje ID edytowanego użytkownika
 */
 void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, unsigned short int data )
@@ -409,7 +410,7 @@ int check_email(char array[])
 /**
     * \fn int user_exist(struct User_Node * FrontUserList,int data)
     * \brief Funkcja sprawdza czy użytkownik o podanym ID instnieje
-    * \param FrontUserList wskaźnik na pierwszy element listy User_Node
+    * \param FrontUserList wskaźnik na pierwszy element listy.
     * \param data przechowuje ID podane przed użytkownika
     * \return 1 w przypadku gdy użytkownik o podanym ID znajduję się na liście
     * \return 0 w przypadku gdy użytkownik o podanym ID nie znajduję się na liście
@@ -426,8 +427,8 @@ int user_exist(struct User_Node * FrontUserList,int data)
 }
 /**
     * \fn int tel_exist(struct telephone_nr * FrontTelList,int data)
-    * \brief Funkcja sprawdza czy podany telefon znajduje się na liście telephone_nr
-    * \param FrontTelList wskaźnik na pierwszy element listy telephone_nr
+    * \brief Funkcja sprawdza czy podany telefon znajduje się na liście
+    * \param FrontTelList wskaźnik na pierwszy element listy
     * \param data przechowuje numer telefonu podany przez użytkownika
     * \return 1 w przypadku gdy numer telefonu znajduję się liście
     * \return 0 w przypadku gdy numer telefonu nie znajduję się liście
@@ -444,8 +445,8 @@ int tel_exist(struct telephone_nr * FrontTelList,int data)
 }
 /**
     * \fn int email_exist(struct email_node * FrontEmailList,char data[])
-    * \brief Funkcja sprawdza czy podany email znajduje się na liście email_node
-    * \param FrontEmailList wskaźnik na pierwszy element listy email_node
+    * \brief Funkcja sprawdza czy podany email znajduje się na liście
+    * \param FrontEmailList wskaźnik na pierwszy element listy
     * \param data przechowuje email podany przez użytkownika
     * \return 1 w przypadku gdy email znajduję się liście
     * \return 0 w przypadku gdy email nie znajduję się liście
@@ -462,8 +463,8 @@ int email_exist(struct email_node * FrontEmailList,char data[])
 }
 /**
     * \fn int name_exist(struct User_Node * FrontUserList,char data[])
-    * \brief Funkcja sprawdza czy podane imię znajduje się na liście User_Node
-    * \param FrontUserList wskaźnik na pierwszy element listy User_Node
+    * \brief Funkcja sprawdza czy podane imię znajduje się na liście
+    * \param FrontUserList wskaźnik na pierwszy element listy
     * \param data przechowuje imię podane przez użytkownika
     * \return 1 w przypadku gdy imię znajduję się liście
     * \return 0 w przypadku gdy imię nie znajduję się liście
@@ -480,8 +481,8 @@ int name_exist(struct User_Node * FrontUserList,char data[])
 }
 /**
     * \fn int surname_exist(struct User_Node * FrontUserList,char data[])
-    * \brief Funkcja sprawdza czy podane nazwisko znajduje się na liście User_Node
-    * \param FrontUserList wskaźnik na pierwszy element listy User_Node
+    * \brief Funkcja sprawdza czy podane nazwisko znajduje się na liście
+    * \param FrontUserList wskaźnik na pierwszy element listy
     * \param data przechowuje nazwisko podane przez użytkownika
     * \return 1 w przypadku gdy nazwisko znajduję się liście
     * \return 0 w przypadku gdy nazwisko nie znajduję się liście

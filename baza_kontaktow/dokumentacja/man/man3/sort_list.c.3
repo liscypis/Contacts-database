@@ -1,0 +1,89 @@
+.TH "C:/Users/Wojtek/Documents/C/PP2/projektpp2/baza_kontaktow/sort_list.c" 3 "Pn, 30 maj 2016" "Version 1.0" "Baza_Kontaktów" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/Wojtek/Documents/C/PP2/projektpp2/baza_kontaktow/sort_list.c \- Przechowuje funkcje do sortowania list\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'baza_kontaktow\&.h'\fP
+.br
+
+.SS "Funkcje"
+
+.in +1c
+.ti -1c
+.RI "void \fBsort_list\fP (struct \fBUser_Node\fP *FrontUserList, unsigned int direction, unsigned int what)"
+.br
+.RI "\fIProcedura sortuje listę \fBUser_Node\fP po wybranym polu i po wybranym kierunku\&. \fP"
+.ti -1c
+.RI "void \fBsort_list_by_tel\fP (struct \fBtelephone_nr\fP *FrontTelList, struct \fBUser_Node\fP *FrontUserList, unsigned int direction)"
+.br
+.RI "\fIProcedura sortuje listę \fBtelephone_nr\fP po wybranym kierunku i sortuje listę \fBUser_Node\fP po odpowiednum ID telefonów\&. \fP"
+.ti -1c
+.RI "void \fBsort_list_by_email\fP (struct \fBemail_node\fP *FrontEmailList, struct \fBUser_Node\fP *FrontUserList, unsigned int direction)"
+.br
+.RI "\fIProcedura sortuje listę \fBemail_node\fP po wybranym kierunku i sortuje listę \fBUser_Node\fP po odpowiednum ID emaili\&. \fP"
+.in -1c
+.SH "Opis szczegółowy"
+.PP 
+Przechowuje funkcje do sortowania list\&. 
+
+
+.SH "Dokumentacja funkcji"
+.PP 
+.SS "void sort_list (struct \fBUser_Node\fP * FrontUserList, unsigned int direction, unsigned int what)"
+
+.PP
+Procedura sortuje listę \fBUser_Node\fP po wybranym polu i po wybranym kierunku\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIdirection\fP przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco\&. 
+.br
+\fIwhat\fP przechowuje wyrób po którym polu chcemy sortować 0-numer,ID 1-imie,2-nazwisko,3-miasto,4-ulica,5-numer domu,6-kod pocztowy,7-poczta\&. 
+.RE
+.PP
+Szukanie minimum///
+.PP
+|| ///////// Szukanie maximum///
+.SS "void sort_list_by_email (struct \fBemail_node\fP * FrontEmailList, struct \fBUser_Node\fP * FrontUserList, unsigned int direction)"
+
+.PP
+Procedura sortuje listę \fBemail_node\fP po wybranym kierunku i sortuje listę \fBUser_Node\fP po odpowiednum ID emaili\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontEmailList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIdirection\fP przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco\&. 
+.RE
+.PP
+Szukanie minimum///
+.PP
+|| ///////// Szukanie maximum///
+.SS "void sort_list_by_tel (struct \fBtelephone_nr\fP * FrontTelList, struct \fBUser_Node\fP * FrontUserList, unsigned int direction)"
+
+.PP
+Procedura sortuje listę \fBtelephone_nr\fP po wybranym kierunku i sortuje listę \fBUser_Node\fP po odpowiednum ID telefonów\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontTelList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIdirection\fP przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco\&. 
+.RE
+.PP
+Szukanie minimum///
+.PP
+|| ///////// Szukanie maximum///
+.SH "Autor"
+.PP 
+Wygenerowano automatycznie z kodu źródłowego programem Doxygen dla Baza_Kontaktów\&.

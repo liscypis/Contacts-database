@@ -2,15 +2,15 @@
 
 /**
     @file read_and_save_to_file.c
-    \brief Przechowuje funkcję do odczytu i zapisu plików.
+    \brief Przechowuje funkcje do odczytu i zapisu plików.
 */
 
 /**
     * \fn void save(FILE *file,FILE *file2,FILE *file3, struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList)
     * \brief Procedura zapisuje dane z 3 różnych list do 3 różnych plików.
-    * \param FrontUserList wskaźnik na początek listy User_Node.
-    * \param FrontTelList wskaźnik na początek listy telephone_nr.
-    * \param FrontEmailList wskaźnik na początek listy email_node.
+    * \param FrontUserList wskaźnik na początek listy.
+    * \param FrontTelList wskaźnik na początek listy.
+    * \param FrontEmailList wskaźnik na początek listy.
     * \param file wskaźnik na plik
     * \param file2 wskaźnik na plik
     * \param file3 wskaźnik na plik
@@ -52,8 +52,8 @@ void save(FILE *file,FILE *file2,FILE *file3, struct User_Node * FrontUserList, 
 // odczyt uzytkonikow z pliku
 /**
     * \fn struct User_Node *read(FILE *file, struct User_Node * FrontUserList)
-    * \brief Funkcja odczytuje dane z pliku USERS.txt i zapisuje je w liście User_Node
-    * \param FrontUserList wskaźnik na początek listy User_Node.
+    * \brief Funkcja odczytuje dane z pliku USERS.txt i zapisuje je w liście
+    * \param FrontUserList wskaźnik na początek listy.
     * \param file wskaźnik na plik
     * \return FrontUserList zwraca wskażnik na początek listy
 */
@@ -119,8 +119,8 @@ struct User_Node *read(FILE *file, struct User_Node * FrontUserList)
 //Odczyt telefontow z pliku
 /**
     * \fn struct telephone_nr *readTelephone(FILE *file2, struct telephone_nr * FrontTelList)
-    * \brief Funkcja odczytuje dane z pliku TELEPGONE.txt i zapisuje je w liście telephone_nr
-    * \param FrontTelList wskaźnik na początek listy telephone_nr.
+    * \brief Funkcja odczytuje dane z pliku TELEPGONE.txt i zapisuje je w liście
+    * \param FrontTelList wskaźnik na początek listy.
     * \param file2 wskaźnik na plik
     * \return FrontTelList zwraca wskażnik na początek listy
 */
@@ -174,8 +174,8 @@ struct telephone_nr *readTelephone(FILE *file2, struct telephone_nr * FrontTelLi
 // odczyt adresow email z pliku
 /**
     * \fn struct email_node *readEmail(FILE *file3, struct email_node * FrontEmailList)
-    * \brief Funkcja odczytuje dane z pliku EMAIL.txt i zapisuje je w liście email_node
-    * \param FrontEmailList wskaźnik na początek listy email_node.
+    * \brief Funkcja odczytuje dane z pliku EMAIL.txt i zapisuje je w liście
+    * \param FrontEmailList wskaźnik na początek listy.
     * \param file3 wskaźnik na plik
     * \return FrontEmailList zwraca wskażnik na początek listy
 */

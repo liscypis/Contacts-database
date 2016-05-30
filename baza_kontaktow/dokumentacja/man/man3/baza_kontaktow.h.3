@@ -1,0 +1,735 @@
+.TH "C:/Users/Wojtek/Documents/C/PP2/projektpp2/baza_kontaktow/baza_kontaktow.h" 3 "Pn, 30 maj 2016" "Version 1.0" "Baza_Kontaktów" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/Wojtek/Documents/C/PP2/projektpp2/baza_kontaktow/baza_kontaktow.h \- Przechowuje struktury i nagl�wki funkcji\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <ctype\&.h>\fP
+.br
+
+.SS "Struktury danych"
+
+.in +1c
+.ti -1c
+.RI "struct \fBUser_Node\fP"
+.br
+.RI "\fIStruktura przechowuje dane uzytkownika i wskaznik na nastepny element\&. \fP"
+.ti -1c
+.RI "struct \fBtelephone_nr\fP"
+.br
+.RI "\fIStruktura przechowuje numery telefon�w uzytkownika i wskaznik na nastepny element\&. \fP"
+.ti -1c
+.RI "struct \fBemail_node\fP"
+.br
+.RI "\fIStruktura przechowuje adresy email uzytkownika i wskaznik na nastepny element\&. \fP"
+.in -1c
+.SS "Funkcje"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtelephone_nr\fP * \fBCreatePhoneList\fP (struct \fBtelephone_nr\fP *FrontTelList)"
+.br
+.RI "\fIFunkcja tworzy listę \fBtelephone_nr\fP i dodaje do niej pierwszy element\&. \fP"
+.ti -1c
+.RI "struct \fBtelephone_nr\fP * \fBInsertTelNum\fP (struct \fBtelephone_nr\fP *FrontTelList)"
+.br
+.RI "\fIFunkcja dodaje nowy element na koniec listy\&. \fP"
+.ti -1c
+.RI "struct \fBemail_node\fP * \fBCreateEmalList\fP (struct \fBemail_node\fP *FrontEmailList)"
+.br
+.RI "\fIFunkcja tworzy listę \fBemail_node\fP i dodaje do niej pierwszy element\&. \fP"
+.ti -1c
+.RI "struct \fBemail_node\fP * \fBInsertEmail\fP (struct \fBemail_node\fP *FrontEmailList)"
+.br
+.RI "\fIFunkcja dodaje nowy element na koniec listy\&. \fP"
+.ti -1c
+.RI "struct \fBUser_Node\fP * \fBcreate_list\fP (struct \fBUser_Node\fP *FrontUserList)"
+.br
+.RI "\fIFunkcja tworzy listę \fBUser_Node\fP i dodaje do niej pierwszy element\&. \fP"
+.ti -1c
+.RI "struct \fBUser_Node\fP * \fBInsertUser\fP (struct \fBUser_Node\fP *FrontUserList)"
+.br
+.RI "\fIFunkcja dodaje nowy element na koniec listy\&. \fP"
+.ti -1c
+.RI "struct \fBUser_Node\fP * \fBDeleteUserNode\fP (struct \fBUser_Node\fP *FrontUserList, int data)"
+.br
+.RI "\fIFunkcja usuwa użytkownika o podanym ID\&. \fP"
+.ti -1c
+.RI "struct \fBemail_node\fP * \fBDeleteEmailNode\fP (struct \fBemail_node\fP *FrontEmailList, int data)"
+.br
+.RI "\fIFunkcja usuwa emaile o podanym ID\&. \fP"
+.ti -1c
+.RI "struct \fBtelephone_nr\fP * \fBDeleteTelNode\fP (struct \fBtelephone_nr\fP *FrontTelList, int data)"
+.br
+.RI "\fIFunkcja usuwa numery telefonów o podanym ID\&. \fP"
+.ti -1c
+.RI "void \fBprint_list\fP (struct \fBUser_Node\fP *FrontUserList, struct \fBtelephone_nr\fP *FrontTelList, struct \fBemail_node\fP *FrontEmailList)"
+.br
+.RI "\fIProcedura wyświetla wszystkich używtowników\&. \fP"
+.ti -1c
+.RI "void \fBprint_person_by_id\fP (struct \fBUser_Node\fP *FrontUserList, struct \fBtelephone_nr\fP *FrontTelList, struct \fBemail_node\fP *FrontEmailList, int data)"
+.br
+.RI "\fIProcedura wyświetla danego użytkownika pod ID\&. \fP"
+.ti -1c
+.RI "void \fBprint_person_by_name_or_surname\fP (struct \fBUser_Node\fP *FrontUserList, struct \fBtelephone_nr\fP *FrontTelList, struct \fBemail_node\fP *FrontEmailList, char data[], unsigned short int what)"
+.br
+.RI "\fIProcedura wyświetla szukanego użytkownika po imieniu lub nazwisku\&. \fP"
+.ti -1c
+.RI "void \fBedit_person\fP (struct \fBUser_Node\fP *FrontUserList, struct \fBtelephone_nr\fP *FrontTelList, struct \fBemail_node\fP *FrontEmailList, unsigned short int data)"
+.br
+.RI "\fIProcedura służy do edycji użytkownika\&. \fP"
+.ti -1c
+.RI "void \fBsave\fP (FILE *file, FILE *file2, FILE *file3, struct \fBUser_Node\fP *FrontUserList, struct \fBtelephone_nr\fP *FrontTelList, struct \fBemail_node\fP *FrontEmailList)"
+.br
+.RI "\fIProcedura zapisuje dane z 3 różnych list do 3 różnych plików\&. \fP"
+.ti -1c
+.RI "struct \fBUser_Node\fP * \fBread\fP (FILE *file, struct \fBUser_Node\fP *FrontUserList)"
+.br
+.RI "\fIFunkcja odczytuje dane z pliku USERS\&.txt i zapisuje je w liście\&. \fP"
+.ti -1c
+.RI "struct \fBtelephone_nr\fP * \fBreadTelephone\fP (FILE *file2, struct \fBtelephone_nr\fP *FrontTelList)"
+.br
+.RI "\fIFunkcja odczytuje dane z pliku TELEPGONE\&.txt i zapisuje je w liście\&. \fP"
+.ti -1c
+.RI "struct \fBemail_node\fP * \fBreadEmail\fP (FILE *file3, struct \fBemail_node\fP *FrontEmailList)"
+.br
+.RI "\fIFunkcja odczytuje dane z pliku EMAIL\&.txt i zapisuje je w liście\&. \fP"
+.ti -1c
+.RI "void \fBsort_list\fP (struct \fBUser_Node\fP *FrontUserList, unsigned int direction, unsigned int what)"
+.br
+.RI "\fIProcedura sortuje listę \fBUser_Node\fP po wybranym polu i po wybranym kierunku\&. \fP"
+.ti -1c
+.RI "void \fBsort_list_by_tel\fP (struct \fBtelephone_nr\fP *FrontTelList, struct \fBUser_Node\fP *FrontUserList, unsigned int direction)"
+.br
+.RI "\fIProcedura sortuje listę \fBtelephone_nr\fP po wybranym kierunku i sortuje listę \fBUser_Node\fP po odpowiednum ID telefonów\&. \fP"
+.ti -1c
+.RI "void \fBsort_list_by_email\fP (struct \fBemail_node\fP *FrontEmailList, struct \fBUser_Node\fP *FrontUserList, unsigned int direction)"
+.br
+.RI "\fIProcedura sortuje listę \fBemail_node\fP po wybranym kierunku i sortuje listę \fBUser_Node\fP po odpowiednum ID emaili\&. \fP"
+.ti -1c
+.RI "void \fBChangeToupper\fP (char array[])"
+.br
+.RI "\fIProcedura do zamiany małych liter na duże\&. \fP"
+.ti -1c
+.RI "int \fBcheck_postal_code\fP (char array[])"
+.br
+.RI "\fIFunkcja do sprawdzania poprawnosci wprowadzonego kodu pocztowego\&. \fP"
+.ti -1c
+.RI "int \fBcheck_string\fP (char array[])"
+.br
+.RI "\fIFunkcja do sprawdzania poprawnosci wprowadzonego ciagu znaków\&. \fP"
+.ti -1c
+.RI "int \fBcheck_email\fP (char array[])"
+.br
+.RI "\fIFunkcja do sprawdzania poprawnosci wprowadzonego ciagu znaków\&. \fP"
+.ti -1c
+.RI "int \fBuser_exist\fP (struct \fBUser_Node\fP *FrontUserList, int data)"
+.br
+.RI "\fIFunkcja sprawdza czy użytkownik o podanym ID instnieje\&. \fP"
+.ti -1c
+.RI "int \fBtel_exist\fP (struct \fBtelephone_nr\fP *FrontTelList, int data)"
+.br
+.RI "\fIFunkcja sprawdza czy podany telefon znajduje się na liście\&. \fP"
+.ti -1c
+.RI "int \fBemail_exist\fP (struct \fBemail_node\fP *FrontEmailList, char data[])"
+.br
+.RI "\fIFunkcja sprawdza czy podany email znajduje się na liście\&. \fP"
+.ti -1c
+.RI "int \fBname_exist\fP (struct \fBUser_Node\fP *FrontUserList, char data[])"
+.br
+.RI "\fIFunkcja sprawdza czy podane imię znajduje się na liście\&. \fP"
+.ti -1c
+.RI "int \fBsurname_exist\fP (struct \fBUser_Node\fP *FrontUserList, char data[])"
+.br
+.RI "\fIFunkcja sprawdza czy podane nazwisko znajduje się na liście\&. \fP"
+.ti -1c
+.RI "void \fBremove_list\fP (struct \fBUser_Node\fP **temp)"
+.br
+.RI "\fIProcedura usuwa liste typu \fBUser_Node\fP\&. \fP"
+.ti -1c
+.RI "void \fBremove_tel_list\fP (struct \fBtelephone_nr\fP **temp)"
+.br
+.RI "\fIProcedura usuwa liste typu \fBtelephone_nr\fP\&. \fP"
+.ti -1c
+.RI "void \fBremove_email_list\fP (struct \fBemail_node\fP **temp)"
+.br
+.RI "\fIProcedura usuwa liste typu \fBemail_node\fP\&. \fP"
+.in -1c
+.SS "Zmienne"
+
+.in +1c
+.ti -1c
+.RI "unsigned int \fBNumID\fP"
+.br
+.RI "\fIglobalna zmienna ID \fP"
+.ti -1c
+.RI "FILE * \fBfile\fP"
+.br
+.ti -1c
+.RI "FILE * \fBfile2\fP"
+.br
+.ti -1c
+.RI "FILE * \fBfile3\fP"
+.br
+.in -1c
+.SH "Opis szczegółowy"
+.PP 
+Przechowuje struktury i nagl�wki funkcji\&. 
+
+
+.SH "Dokumentacja funkcji"
+.PP 
+.SS "void ChangeToupper (char array[])"
+
+.PP
+Procedura do zamiany małych liter na duże\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIarray\fP paramert przechowuje ciąg co edycji 
+.RE
+.PP
+
+.SS "int check_email (char array[])"
+
+.PP
+Funkcja do sprawdzania poprawnosci wprowadzonego ciagu znaków\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIarray\fP paramert przechowuje ciąg znaków 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+1 w przypadku gdy ciąg jest poprawny 
+.PP
+0 w przypadku gdy ciąg jest niepoprawny 
+.RE
+.PP
+
+.SS "int check_postal_code (char array[])"
+
+.PP
+Funkcja do sprawdzania poprawnosci wprowadzonego kodu pocztowego\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIarray\fP paramert przechowuje kod pocztowy 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+1 w przypadku gdy kod pocztowy jest poprawny 
+.PP
+0 w przypadku gdy kod pocztowy jest niepoprawny 
+.RE
+.PP
+
+.SS "int check_string (char array[])"
+
+.PP
+Funkcja do sprawdzania poprawnosci wprowadzonego ciagu znaków\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIarray\fP paramert przechowuje ciąg znaków 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+1 w przypadku gdy ciąg jest poprawny 
+.PP
+0 w przypadku gdy ciąg jest niepoprawny 
+.RE
+.PP
+
+.SS "struct \fBUser_Node\fP* create_list (struct \fBUser_Node\fP * FrontUserList)"
+
+.PP
+Funkcja tworzy listę \fBUser_Node\fP i dodaje do niej pierwszy element\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na początek listy 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontUserList zwraca wskażnik na pierwszy element 
+.RE
+.PP
+
+.SS "struct \fBemail_node\fP* CreateEmalList (struct \fBemail_node\fP * FrontEmailList)"
+
+.PP
+Funkcja tworzy listę \fBemail_node\fP i dodaje do niej pierwszy element\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontEmailList\fP wskaźnik na początek listy 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontEmailList zwraca wskażnik na pierwszy element 
+.RE
+.PP
+
+.SS "struct \fBtelephone_nr\fP* CreatePhoneList (struct \fBtelephone_nr\fP * FrontTelList)"
+
+.PP
+Funkcja tworzy listę \fBtelephone_nr\fP i dodaje do niej pierwszy element\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontTelList\fP wskaźnik na początek listy\&. 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontTelList zwraca wskażnik na pierwszy element 
+.RE
+.PP
+
+.SS "struct \fBemail_node\fP* DeleteEmailNode (struct \fBemail_node\fP * FrontEmailList, int data)"
+
+.PP
+Funkcja usuwa emaile o podanym ID\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontEmailList\fP wskaźnik na początek listy\&. 
+.br
+\fIdata\fP przechowuje ID podane przez użytkownika 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontEmailList zwraca wskażnik na pierwszy element 
+.RE
+.PP
+
+.SS "struct \fBtelephone_nr\fP* DeleteTelNode (struct \fBtelephone_nr\fP * FrontTelList, int data)"
+
+.PP
+Funkcja usuwa numery telefonów o podanym ID\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontTelList\fP wskaźnik na początek listy\&. 
+.br
+\fIdata\fP przechowuje ID podane przez użytkownika 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontTelList zwraca wskażnik na pierwszy element 
+.RE
+.PP
+
+.SS "struct \fBUser_Node\fP* DeleteUserNode (struct \fBUser_Node\fP * FrontUserList, int data)"
+
+.PP
+Funkcja usuwa użytkownika o podanym ID\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIdata\fP przechowuje ID podane przez użytkownika 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontUserList zwraca wskażnik na pierwszy element 
+.RE
+.PP
+
+.SS "void edit_person (struct \fBUser_Node\fP * FrontUserList, struct \fBtelephone_nr\fP * FrontTelList, struct \fBemail_node\fP * FrontEmailList, unsigned short int data)"
+
+.PP
+Procedura służy do edycji użytkownika\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontTelList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontEmailList\fP wskaźnik na początek listy\&. 
+.br
+\fIdata\fP paramert przechowuje ID edytowanego użytkownika 
+.RE
+.PP
+
+.SS "int email_exist (struct \fBemail_node\fP * FrontEmailList, char data[])"
+
+.PP
+Funkcja sprawdza czy podany email znajduje się na liście\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontEmailList\fP wskaźnik na pierwszy element listy 
+.br
+\fIdata\fP przechowuje email podany przez użytkownika 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+1 w przypadku gdy email znajduję się liście 
+.PP
+0 w przypadku gdy email nie znajduję się liście 
+.RE
+.PP
+
+.SS "struct \fBemail_node\fP* InsertEmail (struct \fBemail_node\fP * FrontEmailList)"
+
+.PP
+Funkcja dodaje nowy element na koniec listy\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontEmailList\fP wskaźnik na początek listy\&. 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontEmailList zwraca wskażnik na pierwszy element 
+.RE
+.PP
+
+.SS "struct \fBtelephone_nr\fP* InsertTelNum (struct \fBtelephone_nr\fP * FrontTelList)"
+
+.PP
+Funkcja dodaje nowy element na koniec listy\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontTelList\fP wskaźnik na początek listy\&. 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontTelList zwraca wskażnik na pierwszy element 
+.RE
+.PP
+
+.SS "struct \fBUser_Node\fP* InsertUser (struct \fBUser_Node\fP * FrontUserList)"
+
+.PP
+Funkcja dodaje nowy element na koniec listy\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontUserList zwraca wskażnik na pierwszy element 
+.RE
+.PP
+
+.SS "int name_exist (struct \fBUser_Node\fP * FrontUserList, char data[])"
+
+.PP
+Funkcja sprawdza czy podane imię znajduje się na liście\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na pierwszy element listy 
+.br
+\fIdata\fP przechowuje imię podane przez użytkownika 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+1 w przypadku gdy imię znajduję się liście 
+.PP
+0 w przypadku gdy imię nie znajduję się liście 
+.RE
+.PP
+
+.SS "void print_list (struct \fBUser_Node\fP * FrontUserList, struct \fBtelephone_nr\fP * FrontTelList, struct \fBemail_node\fP * FrontEmailList)"
+
+.PP
+Procedura wyświetla wszystkich używtowników\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontTelList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontEmailList\fP wskaźnik na początek listy\&. 
+.RE
+.PP
+
+.SS "void print_person_by_id (struct \fBUser_Node\fP * FrontUserList, struct \fBtelephone_nr\fP * FrontTelList, struct \fBemail_node\fP * FrontEmailList, int data)"
+
+.PP
+Procedura wyświetla danego użytkownika pod ID\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontTelList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontEmailList\fP wskaźnik na początek listy\&. 
+.br
+\fIdata\fP numer ID użytkownika do wyświetlenia 
+.RE
+.PP
+
+.SS "void print_person_by_name_or_surname (struct \fBUser_Node\fP * FrontUserList, struct \fBtelephone_nr\fP * FrontTelList, struct \fBemail_node\fP * FrontEmailList, char data[], unsigned short int what)"
+
+.PP
+Procedura wyświetla szukanego użytkownika po imieniu lub nazwisku\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontTelList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontEmailList\fP wskaźnik na początek listy\&. 
+.br
+\fIdata\fP paramert przechowuje imie lub nazwisko\&. 
+.br
+\fIwtah\fP parametr przechowuje decyzje użytkownica po jakim polu chce wyszukać osobę wartość 1 po imieniu 2 po nazwisku 
+.RE
+.PP
+
+.SS "struct \fBUser_Node\fP * read (FILE * file, struct \fBUser_Node\fP * FrontUserList)"
+
+.PP
+Funkcja odczytuje dane z pliku USERS\&.txt i zapisuje je w liście\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIfile\fP wskaźnik na plik 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontUserList zwraca wskażnik na początek listy 
+.RE
+.PP
+
+.SS "struct \fBemail_node\fP * readEmail (FILE * file3, struct \fBemail_node\fP * FrontEmailList)"
+
+.PP
+Funkcja odczytuje dane z pliku EMAIL\&.txt i zapisuje je w liście\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontEmailList\fP wskaźnik na początek listy\&. 
+.br
+\fIfile3\fP wskaźnik na plik 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontEmailList zwraca wskażnik na początek listy 
+.RE
+.PP
+
+.SS "struct \fBtelephone_nr\fP * readTelephone (FILE * file2, struct \fBtelephone_nr\fP * FrontTelList)"
+
+.PP
+Funkcja odczytuje dane z pliku TELEPGONE\&.txt i zapisuje je w liście\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontTelList\fP wskaźnik na początek listy\&. 
+.br
+\fIfile2\fP wskaźnik na plik 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontTelList zwraca wskażnik na początek listy 
+.RE
+.PP
+
+.SS "void remove_email_list (struct \fBemail_node\fP ** temp)"
+
+.PP
+Procedura usuwa liste typu \fBemail_node\fP\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fItemp\fP podwójny wskaźnik na początek listy \&. 
+.RE
+.PP
+
+.SS "void remove_list (struct \fBUser_Node\fP ** temp)"
+
+.PP
+Procedura usuwa liste typu \fBUser_Node\fP\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fItemp\fP podwójny wskaźnik na początek listy\&. 
+.RE
+.PP
+
+.SS "void remove_tel_list (struct \fBtelephone_nr\fP ** temp)"
+
+.PP
+Procedura usuwa liste typu \fBtelephone_nr\fP\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fItemp\fP podwójny wskaźnik na początek listy\&. 
+.RE
+.PP
+
+.SS "void save (FILE * file, FILE * file2, FILE * file3, struct \fBUser_Node\fP * FrontUserList, struct \fBtelephone_nr\fP * FrontTelList, struct \fBemail_node\fP * FrontEmailList)"
+
+.PP
+Procedura zapisuje dane z 3 różnych list do 3 różnych plików\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontTelList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontEmailList\fP wskaźnik na początek listy\&. 
+.br
+\fIfile\fP wskaźnik na plik 
+.br
+\fIfile2\fP wskaźnik na plik 
+.br
+\fIfile3\fP wskaźnik na plik 
+.RE
+.PP
+
+.SS "void sort_list (struct \fBUser_Node\fP * FrontUserList, unsigned int direction, unsigned int what)"
+
+.PP
+Procedura sortuje listę \fBUser_Node\fP po wybranym polu i po wybranym kierunku\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIdirection\fP przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco\&. 
+.br
+\fIwhat\fP przechowuje wyrób po którym polu chcemy sortować 0-numer,ID 1-imie,2-nazwisko,3-miasto,4-ulica,5-numer domu,6-kod pocztowy,7-poczta\&. 
+.RE
+.PP
+Szukanie minimum///
+.PP
+|| ///////// Szukanie maximum///
+.SS "void sort_list_by_email (struct \fBemail_node\fP * FrontEmailList, struct \fBUser_Node\fP * FrontUserList, unsigned int direction)"
+
+.PP
+Procedura sortuje listę \fBemail_node\fP po wybranym kierunku i sortuje listę \fBUser_Node\fP po odpowiednum ID emaili\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontEmailList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIdirection\fP przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco\&. 
+.RE
+.PP
+Szukanie minimum///
+.PP
+|| ///////// Szukanie maximum///
+.SS "void sort_list_by_tel (struct \fBtelephone_nr\fP * FrontTelList, struct \fBUser_Node\fP * FrontUserList, unsigned int direction)"
+
+.PP
+Procedura sortuje listę \fBtelephone_nr\fP po wybranym kierunku i sortuje listę \fBUser_Node\fP po odpowiednum ID telefonów\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontTelList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIdirection\fP przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco\&. 
+.RE
+.PP
+Szukanie minimum///
+.PP
+|| ///////// Szukanie maximum///
+.SS "int surname_exist (struct \fBUser_Node\fP * FrontUserList, char data[])"
+
+.PP
+Funkcja sprawdza czy podane nazwisko znajduje się na liście\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na pierwszy element listy 
+.br
+\fIdata\fP przechowuje nazwisko podane przez użytkownika 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+1 w przypadku gdy nazwisko znajduję się liście 
+.PP
+0 w przypadku gdy nazwisko nie znajduję się liście 
+.RE
+.PP
+
+.SS "int tel_exist (struct \fBtelephone_nr\fP * FrontTelList, int data)"
+
+.PP
+Funkcja sprawdza czy podany telefon znajduje się na liście\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontTelList\fP wskaźnik na pierwszy element listy 
+.br
+\fIdata\fP przechowuje numer telefonu podany przez użytkownika 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+1 w przypadku gdy numer telefonu znajduję się liście 
+.PP
+0 w przypadku gdy numer telefonu nie znajduję się liście 
+.RE
+.PP
+
+.SS "int user_exist (struct \fBUser_Node\fP * FrontUserList, int data)"
+
+.PP
+Funkcja sprawdza czy użytkownik o podanym ID instnieje\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na pierwszy element listy\&. 
+.br
+\fIdata\fP przechowuje ID podane przed użytkownika 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+1 w przypadku gdy użytkownik o podanym ID znajduję się na liście 
+.PP
+0 w przypadku gdy użytkownik o podanym ID nie znajduję się na liście 
+.RE
+.PP
+
+.SH "Autor"
+.PP 
+Wygenerowano automatycznie z kodu źródłowego programem Doxygen dla Baza_Kontaktów\&.

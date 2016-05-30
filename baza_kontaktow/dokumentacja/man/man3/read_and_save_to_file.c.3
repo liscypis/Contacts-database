@@ -1,0 +1,117 @@
+.TH "C:/Users/Wojtek/Documents/C/PP2/projektpp2/baza_kontaktow/read_and_save_to_file.c" 3 "Pn, 30 maj 2016" "Version 1.0" "Baza_Kontaktów" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/Wojtek/Documents/C/PP2/projektpp2/baza_kontaktow/read_and_save_to_file.c \- Przechowuje funkcje do odczytu i zapisu plików\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'baza_kontaktow\&.h'\fP
+.br
+
+.SS "Funkcje"
+
+.in +1c
+.ti -1c
+.RI "void \fBsave\fP (FILE *file, FILE *file2, FILE *file3, struct \fBUser_Node\fP *FrontUserList, struct \fBtelephone_nr\fP *FrontTelList, struct \fBemail_node\fP *FrontEmailList)"
+.br
+.RI "\fIProcedura zapisuje dane z 3 różnych list do 3 różnych plików\&. \fP"
+.ti -1c
+.RI "struct \fBUser_Node\fP * \fBread\fP (FILE *file, struct \fBUser_Node\fP *FrontUserList)"
+.br
+.RI "\fIFunkcja odczytuje dane z pliku USERS\&.txt i zapisuje je w liście\&. \fP"
+.ti -1c
+.RI "struct \fBtelephone_nr\fP * \fBreadTelephone\fP (FILE *file2, struct \fBtelephone_nr\fP *FrontTelList)"
+.br
+.RI "\fIFunkcja odczytuje dane z pliku TELEPGONE\&.txt i zapisuje je w liście\&. \fP"
+.ti -1c
+.RI "struct \fBemail_node\fP * \fBreadEmail\fP (FILE *file3, struct \fBemail_node\fP *FrontEmailList)"
+.br
+.RI "\fIFunkcja odczytuje dane z pliku EMAIL\&.txt i zapisuje je w liście\&. \fP"
+.in -1c
+.SH "Opis szczegółowy"
+.PP 
+Przechowuje funkcje do odczytu i zapisu plików\&. 
+
+
+.SH "Dokumentacja funkcji"
+.PP 
+.SS "struct \fBUser_Node\fP* read (FILE * file, struct \fBUser_Node\fP * FrontUserList)"
+
+.PP
+Funkcja odczytuje dane z pliku USERS\&.txt i zapisuje je w liście\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIfile\fP wskaźnik na plik 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontUserList zwraca wskażnik na początek listy 
+.RE
+.PP
+
+.SS "struct \fBemail_node\fP* readEmail (FILE * file3, struct \fBemail_node\fP * FrontEmailList)"
+
+.PP
+Funkcja odczytuje dane z pliku EMAIL\&.txt i zapisuje je w liście\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontEmailList\fP wskaźnik na początek listy\&. 
+.br
+\fIfile3\fP wskaźnik na plik 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontEmailList zwraca wskażnik na początek listy 
+.RE
+.PP
+
+.SS "struct \fBtelephone_nr\fP* readTelephone (FILE * file2, struct \fBtelephone_nr\fP * FrontTelList)"
+
+.PP
+Funkcja odczytuje dane z pliku TELEPGONE\&.txt i zapisuje je w liście\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontTelList\fP wskaźnik na początek listy\&. 
+.br
+\fIfile2\fP wskaźnik na plik 
+.RE
+.PP
+\fBZwraca:\fP
+.RS 4
+FrontTelList zwraca wskażnik na początek listy 
+.RE
+.PP
+
+.SS "void save (FILE * file, FILE * file2, FILE * file3, struct \fBUser_Node\fP * FrontUserList, struct \fBtelephone_nr\fP * FrontTelList, struct \fBemail_node\fP * FrontEmailList)"
+
+.PP
+Procedura zapisuje dane z 3 różnych list do 3 różnych plików\&. 
+.PP
+\fBParametry:\fP
+.RS 4
+\fIFrontUserList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontTelList\fP wskaźnik na początek listy\&. 
+.br
+\fIFrontEmailList\fP wskaźnik na początek listy\&. 
+.br
+\fIfile\fP wskaźnik na plik 
+.br
+\fIfile2\fP wskaźnik na plik 
+.br
+\fIfile3\fP wskaźnik na plik 
+.RE
+.PP
+
+.SH "Autor"
+.PP 
+Wygenerowano automatycznie z kodu źródłowego programem Doxygen dla Baza_Kontaktów\&.
