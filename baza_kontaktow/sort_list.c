@@ -415,7 +415,7 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *Front
 
         if(direction==0)
         {
-            FrontTelList->tel_nr=9999999999;
+            FrontTelList->tel_nr=999999999;
         }
         else
         {

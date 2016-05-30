@@ -54,7 +54,9 @@ struct telephone_nr * DeleteTelNode ( struct telephone_nr *FrontTelList , int da
 
 //wyswietlanie
 void print_list(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList);
-void print_person(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, int data);
+void print_person_by_id(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, int data);
+void print_person_by_name_or_surname(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, char data[], unsigned short int what);
+
 //edycja
 void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, unsigned short int data);
 //zapis
@@ -85,6 +87,10 @@ int user_exist(struct User_Node * FrontUserList,int data);
 int tel_exist(struct telephone_nr * FrontTelList,int data);
 //sprawdza czy jest taki emial
 int email_exist(struct email_node * FrontEmailList,char data[]);
+//sprawdza czy jest takie imie
+int name_exist(struct User_Node * FrontUserList,char data[]);
+//sprawdza czy jest takie nazwisko
+int surname_exist(struct User_Node * FrontUserList,char data[]);
 //usuwanie listy
 void remove_list ( struct User_Node ** temp );
 void remove_tel_list ( struct telephone_nr ** temp );

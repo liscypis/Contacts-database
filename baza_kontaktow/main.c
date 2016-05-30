@@ -21,7 +21,7 @@ int main()
     }
     for(;;)
     {
-        printf("Baza kontaktow v1.12\n\n");
+        printf("Baza kontaktow v1.27\n\n");
         puts("#################### MENU ####################");
         puts("1.Dodaj osobe");
         puts("2.Usun osobe");
@@ -33,7 +33,7 @@ int main()
         puts("8.WYJSCIE i USUNIECIE LISTY");
 
         unsigned short int choice,tel,HowManyEmail;
-        int i,j;
+        int i=0,j=0;
         unsigned int z,k; // do sortowanie
         scanf("%hu",&choice);
         switch(choice)
@@ -134,6 +134,8 @@ int main()
             {
                 system("cls");
                 print_list(FrontUserList,FrontTelList,FrontEmailList);
+                puts("##############################");
+                puts("\nNacisnij ENTER by kontynuowac");
             }
             break;
         case 5:
@@ -143,22 +145,66 @@ int main()
                 break;
             }
             else
-            {   unsigned short int choice1;
+            {
+                system("cls");
+                unsigned short int choice1;
                 puts("Po jakim polu chcesz wyszukac?");
                 puts(" 0 - ID \n 1 - IMEIU\n 2 - NAZWISKU");
+                printf("WYBOR: ");
                 while(scanf("%hu", &choice1) != 1 || choice1<0 || choice1>2) //dopóki nie uda się wczytać
                 {
                     puts("Niepoprawny wybor, podaj numer jeszcze raz:");
                     fflush(stdin);
                 }
-                /////////// DOKONCZTYĆZSBUDC //////
+
                 if(choice1==0)
+                {
+                    system("cls");
+                    puts("Podaj ID uzytkownika, ktorego chcesz wyswietlic:");
+                    while(scanf("%d", &i) != 1 || user_exist(FrontUserList,i)==0) //dopóki nie uda się wczytać
+                    {
+                        puts("Nie znaleziono uzytkownika o podanym ID, podaj numer jeszcze raz:");
+                        fflush(stdin);
+                    }
+                    print_person_by_id(FrontUserList,FrontTelList,FrontEmailList,i);
+                }
+
                 if(choice1==1)
+                {
+                    system("cls");
+                    char name[30];
+                    int good=0;
+                    do
+                    {
+                        puts("Podaj imie uzytkownika, ktorego chcesz wyswietlic:");
+                        scanf("%s",name);
+                        good=check_string(name);
+                        if(good==0)
+                            puts("Wprowadzone imie jest niepoprawne");
+                        ChangeToupper(name);
+                    }
+                    while(good==0 || name_exist(FrontUserList,name)==0);
+                    print_person_by_name_or_surname(FrontUserList, FrontTelList, FrontEmailList, name ,choice1);
+                }
+
                 if(choice1==2)
-
-
-                scanf("%hu",&choice1);
-                print_person(FrontUserList,FrontTelList,FrontEmailList,choice1);
+                {
+                    system("cls");
+                    char surname[30];
+                    int good=0;
+                    do
+                    {
+                        puts("Podaj nazwisko uzytkownika, ktorego chcesz wyswietlic:");
+                        scanf("%s",surname);
+                        good=check_string(surname);
+                        if(good==0)
+                            puts("Wprowadzone imie jest niepoprawne");
+                        ChangeToupper(surname);
+                    }
+                    while(good==0 || surname_exist(FrontUserList,surname)==0);
+                    print_person_by_name_or_surname(FrontUserList, FrontTelList, FrontEmailList, surname, choice1);
+                }
+                puts("Nacisnij ENTER by kontynuowac");
             }
             break;
         case 6:
@@ -169,6 +215,7 @@ int main()
             }
             else
             {
+                sort_list(FrontUserList,0,0);
                 save(file,file2,file3, FrontUserList,FrontTelList,FrontEmailList);
                 puts("ZAPISANO DANE DO PLIKOW");
                 puts("Nacisnij ENTER by kontynuowac");

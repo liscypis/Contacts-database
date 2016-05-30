@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="read_and_save_to_file.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1004" topLine="166" />
+			<Cursor1 position="740" topLine="249" />
 		</Cursor>
 	</File>
 	<File name="baza_kontaktow.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3190" topLine="58" />
-		</Cursor>
-	</File>
-	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5378" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="operations_on_lists.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8568" topLine="274" />
-		</Cursor>
-	</File>
-	<File name="sort_list.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="16840" topLine="0" />
+			<Cursor1 position="1844" topLine="30" />
 		</Cursor>
 	</File>
 	<File name="add_and_remove_elements.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2306" topLine="406" />
+			<Cursor1 position="107" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="sort_list.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="16767" topLine="399" />
+		</Cursor>
+	</File>
+	<File name="read_and_save_to_file.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1950" topLine="114" />
+		</Cursor>
+	</File>
+	<File name="operations_on_lists.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9778" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

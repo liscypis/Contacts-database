@@ -33,7 +33,7 @@ void print_list(struct User_Node * FrontUserList, struct telephone_nr * FrontTel
         }
     }
 }
-void print_person(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, int data)
+void print_person_by_id(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, int data)
 {
     for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next)
     {
@@ -56,6 +56,51 @@ void print_person(struct User_Node * FrontUserList, struct telephone_nr * FrontT
             printf("               %s\n", FrontEmailList->em);
     }
 }
+void print_person_by_name_or_surname(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, char data[], unsigned short int what)
+{
+    int tempID;
+    for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next)
+    {
+        if(what==1)
+        {
+            if(strcmp(FrontUserList->name,data)==0)
+            {
+                puts("##############################");
+                printf ("ID  [%u]\nImie:          %s\nNazwisko:      %s\nMiasto:        %s\nUlica:         %s\nNumer domu:    %hu\nKod pocztowy:  %s\nPoczta:        %s\n",
+                        FrontUserList->ID, FrontUserList->name, FrontUserList->surname, FrontUserList -> city,
+                        FrontUserList->street, FrontUserList->house_number, FrontUserList->postal_code,
+                        FrontUserList->post_office);
+                tempID = FrontUserList->ID;
+            }
+
+        }
+        if(what==2)
+        {
+            if(strcmp(FrontUserList->surname,data)==0)
+            {
+                puts("##############################");
+                printf ("ID  [%u]\nImie:          %s\nNazwisko:      %s\nMiasto:        %s\nUlica:         %s\nNumer domu:    %hu\nKod pocztowy:  %s\nPoczta:        %s\n",
+                        FrontUserList->ID, FrontUserList->name, FrontUserList->surname, FrontUserList -> city,
+                        FrontUserList->street, FrontUserList->house_number, FrontUserList->postal_code,
+                        FrontUserList->post_office);
+                tempID = FrontUserList->ID;
+            }
+        }
+
+    }
+    puts("Nr telefonow:");
+    for (; NULL != FrontTelList ; FrontTelList = FrontTelList -> next )
+    {
+        if(FrontTelList->ID_tel==tempID)
+            printf("               %lu\n", FrontTelList->tel_nr);
+    }
+    puts("Adresy email:");
+    for (; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next )
+    {
+        if(FrontEmailList->ID_email==tempID)
+            printf("               %s\n", FrontEmailList->em);
+    }
+}
 void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, unsigned short int data )
 {
     unsigned short int choice;
@@ -74,7 +119,7 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
             {
                 system("cls");
                 printf("############ EDYCJA KONTAKTU ##############\n");
-                print_person(FrontUserList,temp_tel,temp_email,data); //wyswietlenie edytowanego uzytwonika
+                print_person_by_id(FrontUserList,temp_tel,temp_email,data); //wyswietlenie edytowanego uzytwonika
                 puts("\n");
                 puts("Co chcesz zmienic?");
                 puts("1.Imie");
@@ -180,6 +225,8 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
                     strcpy(FrontUserList->post_office,pom);
                     break;
                 case 8:
+                    FrontTelList=temp_tel;
+                    unsigned long int pomtel;
                     puts("Ktory numer chcesz edytowac? (podaj caly numer telefonu)");
                     while(scanf("%lu", &tel_num) != 1  || tel_exist(FrontTelList,tel_num)==0) //dopóki nie uda siê wczytaæ
                     {
@@ -187,30 +234,49 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
                         fflush(stdin);
                     }
                     puts("Podaj nowy numer:");
-                    while(scanf("%lu", &FrontTelList->tel_nr) != 1 || FrontTelList->tel_nr<=0 ||  FrontTelList->tel_nr>999999999) //dopóki nie uda siê wczytaæ
+                    while(scanf("%lu", &pomtel) != 1 || pomtel<=0 ||  pomtel>999999999) //dopóki nie uda siê wczytaæ
                     {
-                        puts("Niepoprawny wybor lub nie ma takiego numeru, podaj nr jeszcze raz:");
+                        puts("Niepoprawny format, podaj nr jeszcze raz:");
                         fflush(stdin);
                     }
-                   // scanf("%lu",&FrontTelList->tel_nr);
+                    for(; NULL != FrontTelList; FrontTelList = FrontTelList ->next)
+                    {
+                        if(FrontTelList->tel_nr==tel_num)
+                        {
+                        FrontTelList->tel_nr=pomtel;
+                        break;
+                        }
+
+                    }
                     break;
                 case 9:
+                    FrontEmailList=temp_email;
                     puts("Ktory email chcesz edytowac? (podaj caly email)");
                     do
                     {
-                    scanf("%s",email);
-                    good=email_exist(FrontEmailList,email);
-                    if(good==0)
-                    puts("Podany email nie istnieje, podaj jeszcze raz:");
-                    }while(good==0);
+                        scanf("%s",email);
+                        good=email_exist(FrontEmailList,email);
+                        if(good==0)
+                            puts("Podany email nie istnieje, podaj jeszcze raz:");
+                    }
+                    while(good==0);
                     puts("Podaj nowy email");
                     do
                     {
-                    scanf("%s",email);
-                    good2=check_email(email);
-                    if(good2==0)
-                    puts("Wprowadzone email jest niepoprawny");
-                    }while(good2==0);
+                        for (; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next)
+                        {
+
+                            if(strcmp(FrontEmailList->em,email)==0)
+                            {
+                                scanf("%s",email);
+                                good2=check_email(email);
+                                if(good2==0)
+                                    puts("Wprowadzone email jest niepoprawny");
+                                break;
+                            }
+                        }
+                    }
+                    while(good2==0);
                     ChangeToupper(email); //zamiena na du¿e litery
                     strcpy(FrontEmailList->em, email);
                     break;
@@ -309,3 +375,25 @@ int email_exist(struct email_node * FrontEmailList,char data[])
         }
     return 0;
 }
+int name_exist(struct User_Node * FrontUserList,char data[])
+{
+    for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next)
+        if(strcmp(FrontUserList->name,data)==0)
+        {
+            return 1;
+            break;
+        }
+    return 0;
+}
+int surname_exist(struct User_Node * FrontUserList,char data[])
+{
+    for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next)
+        if(strcmp(FrontUserList->surname,data)==0)
+        {
+            return 1;
+            break;
+        }
+    return 0;
+}
+
+
