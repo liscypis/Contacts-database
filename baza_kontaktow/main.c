@@ -3,6 +3,11 @@
 #include<string.h>
 #include "baza_kontaktow.h"
 
+/**
+    @file main.c
+    \brief Główna funcka programu.
+*/
+
 int main()
 {
     struct User_Node *FrontUserList=NULL;

@@ -1,5 +1,16 @@
 #include "baza_kontaktow.h"
+/**
+    @file operations_on_list.c
+    \brief Przechowuje definicje funkcji do obsługi list oraz funkcji ogólnego uzytku.
+*/
 
+/**
+    * \fn void print_list(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList)
+    * \brief Procedura wyświetla wszystkich używtowników
+    * \param FrontUserList wskaźnik na początek listy User_Node.
+    * \param FrontTelList wskaźnik na początek listy telephone_nr.
+    * \param FrontEmailList wskaźnik na początek listy email_node.
+*/
 void print_list(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList)
 {
     struct telephone_nr *TempTel=FrontTelList;
@@ -33,6 +44,14 @@ void print_list(struct User_Node * FrontUserList, struct telephone_nr * FrontTel
         }
     }
 }
+/**
+    * \fn void print_person_by_id(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, int data)
+    * \brief Procedura wyświetla danego użytkownika pod ID
+    * \param FrontUserList wskaźnik na początek listy User_Node.
+    * \param FrontTelList wskaźnik na początek listy telephone_nr.
+    * \param FrontEmailList wskaźnik na początek listy email_node.
+    * \param data numer ID użytkownika do wyświetlenia
+*/
 void print_person_by_id(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, int data)
 {
     for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next)
@@ -56,6 +75,15 @@ void print_person_by_id(struct User_Node * FrontUserList, struct telephone_nr * 
             printf("               %s\n", FrontEmailList->em);
     }
 }
+/**
+    * \fn void print_person_by_name_or_surname(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, char data[], unsigned short int what)
+    * \brief Procedura wyświetla szukanego użytkownika po imieniu lub nazwisku
+    * \param FrontUserList wskaźnik na początek listy User_Node.
+    * \param FrontTelList wskaźnik na początek listy telephone_nr.
+    * \param FrontEmailList wskaźnik na początek listy email_node.
+    * \param data paramert przechowuje imie lub nazwisko.
+    * \param wtah parametr przechowuje decyzje użytkownica po jakim polu chce wyszukać osobę wartość 1 po imieniu 2 po nazwisku
+*/
 void print_person_by_name_or_surname(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, char data[], unsigned short int what)
 {
     int tempID;
@@ -101,6 +129,14 @@ void print_person_by_name_or_surname(struct User_Node * FrontUserList, struct te
             printf("               %s\n", FrontEmailList->em);
     }
 }
+/**
+    * \fn void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, unsigned short int data)
+    * \brief Procedura służy do edycji użytkownika
+    * \param FrontUserList wskaźnik na początek listy User_Node.
+    * \param FrontTelList wskaźnik na początek listy telephone_nr.
+    * \param FrontEmailList wskaźnik na początek listy email_node.
+    * \param data paramert przechowuje ID edytowanego użytkownika
+*/
 void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, unsigned short int data )
 {
     unsigned short int choice;
@@ -190,7 +226,7 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
                     break;
                 case 5:
                     printf("Podaj numer domu: \n");
-                    while(scanf("%u", &HouseNr) != 1) //dop�ki nie uda si� wczyta�
+                    while(scanf("%u", &HouseNr) != 1) //dopóki nie uda siê wczytaæ
                     {
                         puts("Niepoprawny format, podaj numer domu jeszcze raz:");
                         fflush(stdin);
@@ -228,13 +264,13 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
                     FrontTelList=temp_tel;
                     unsigned long int pomtel;
                     puts("Ktory numer chcesz edytowac? (podaj caly numer telefonu)");
-                    while(scanf("%lu", &tel_num) != 1  || tel_exist(FrontTelList,tel_num)==0) //dop�ki nie uda si� wczyta�
+                    while(scanf("%lu", &tel_num) != 1  || tel_exist(FrontTelList,tel_num)==0) //dopóki nie uda siê wczytaæ
                     {
                         puts("Niepoprawny wybor lub nie ma takiego numeru, podaj nr jeszcze raz:");
                         fflush(stdin);
                     }
                     puts("Podaj nowy numer:");
-                    while(scanf("%lu", &pomtel) != 1 || pomtel<=0 ||  pomtel>999999999) //dop�ki nie uda si� wczyta�
+                    while(scanf("%lu", &pomtel) != 1 || pomtel<=0 ||  pomtel>999999999) //dopóki nie uda siê wczytaæ
                     {
                         puts("Niepoprawny format, podaj nr jeszcze raz:");
                         fflush(stdin);
@@ -277,7 +313,7 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
                         }
                     }
                     while(good2==0);
-                    ChangeToupper(email); //zamiena na du�e litery
+                    ChangeToupper(email); //zamiena na du¿e litery
                     strcpy(FrontEmailList->em, email);
                     break;
                 case 10:
@@ -296,7 +332,11 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
         }
     }
 }
-
+/**
+    * \fn void ChangeToupper(char array[])
+    * \brief Procedura do zamiany małych liter na duże
+    * \param array paramert przechowuje ciąg co edycji
+*/
 void ChangeToupper(char array[])
 {
     int i;
@@ -305,6 +345,13 @@ void ChangeToupper(char array[])
         array[i]=toupper(array[i]);
     }
 }
+/**
+    * \fn int check_postal_code(char array[])
+    * \brief Funkcja do sprawdzania poprawnosci wprowadzonego kodu pocztowego
+    * \param array paramert przechowuje kod pocztowy
+    * \return 1 w przypadku gdy kod pocztowy jest poprawny
+    * \return 0 w przypadku gdy kod pocztowy jest niepoprawny
+*/
 int check_postal_code(char array[])
 {
     if(strlen(array)>6) return 0;
@@ -317,6 +364,13 @@ int check_postal_code(char array[])
     else
         return 1;
 }
+/**
+    * \fn int check_string(char array[])
+    * \brief Funkcja do sprawdzania poprawnosci wprowadzonego ciagu znaków
+    * \param array paramert przechowuje ciąg znaków
+    * \return 1 w przypadku gdy ciąg jest poprawny
+    * \return 0 w przypadku gdy ciąg jest niepoprawny
+*/
 int check_string(char array[])
 {
     int i,k=1;
@@ -333,6 +387,13 @@ int check_string(char array[])
     if(k==0)return 0;
     return 1;
 }
+/**
+    * \fn int check_email(char array[])
+    * \brief Funkcja do sprawdzania poprawnosci wprowadzonego ciagu znaków
+    * \param array paramert przechowuje ciąg znaków
+    * \return 1 w przypadku gdy ciąg jest poprawny
+    * \return 0 w przypadku gdy ciąg jest niepoprawny
+*/
 int check_email(char array[])
 {
     int i,k=1,m=1;
@@ -345,6 +406,14 @@ int check_email(char array[])
     else
         return 1;
 }
+/**
+    * \fn int user_exist(struct User_Node * FrontUserList,int data)
+    * \brief Funkcja sprawdza czy użytkownik o podanym ID instnieje
+    * \param FrontUserList wskaźnik na pierwszy element listy User_Node
+    * \param data przechowuje ID podane przed użytkownika
+    * \return 1 w przypadku gdy użytkownik o podanym ID znajduję się na liście
+    * \return 0 w przypadku gdy użytkownik o podanym ID nie znajduję się na liście
+*/
 int user_exist(struct User_Node * FrontUserList,int data)
 {
     for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next)
@@ -355,6 +424,14 @@ int user_exist(struct User_Node * FrontUserList,int data)
         }
     return 0;
 }
+/**
+    * \fn int tel_exist(struct telephone_nr * FrontTelList,int data)
+    * \brief Funkcja sprawdza czy podany telefon znajduje się na liście telephone_nr
+    * \param FrontTelList wskaźnik na pierwszy element listy telephone_nr
+    * \param data przechowuje numer telefonu podany przez użytkownika
+    * \return 1 w przypadku gdy numer telefonu znajduję się liście
+    * \return 0 w przypadku gdy numer telefonu nie znajduję się liście
+*/
 int tel_exist(struct telephone_nr * FrontTelList,int data)
 {
     for (; NULL != FrontTelList ; FrontTelList = FrontTelList -> next)
@@ -365,6 +442,14 @@ int tel_exist(struct telephone_nr * FrontTelList,int data)
         }
     return 0;
 }
+/**
+    * \fn int email_exist(struct email_node * FrontEmailList,char data[])
+    * \brief Funkcja sprawdza czy podany email znajduje się na liście email_node
+    * \param FrontEmailList wskaźnik na pierwszy element listy email_node
+    * \param data przechowuje email podany przez użytkownika
+    * \return 1 w przypadku gdy email znajduję się liście
+    * \return 0 w przypadku gdy email nie znajduję się liście
+*/
 int email_exist(struct email_node * FrontEmailList,char data[])
 {
     for (; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next)
@@ -375,6 +460,14 @@ int email_exist(struct email_node * FrontEmailList,char data[])
         }
     return 0;
 }
+/**
+    * \fn int name_exist(struct User_Node * FrontUserList,char data[])
+    * \brief Funkcja sprawdza czy podane imię znajduje się na liście User_Node
+    * \param FrontUserList wskaźnik na pierwszy element listy User_Node
+    * \param data przechowuje imię podane przez użytkownika
+    * \return 1 w przypadku gdy imię znajduję się liście
+    * \return 0 w przypadku gdy imię nie znajduję się liście
+*/
 int name_exist(struct User_Node * FrontUserList,char data[])
 {
     for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next)
@@ -385,6 +478,14 @@ int name_exist(struct User_Node * FrontUserList,char data[])
         }
     return 0;
 }
+/**
+    * \fn int surname_exist(struct User_Node * FrontUserList,char data[])
+    * \brief Funkcja sprawdza czy podane nazwisko znajduje się na liście User_Node
+    * \param FrontUserList wskaźnik na pierwszy element listy User_Node
+    * \param data przechowuje nazwisko podane przez użytkownika
+    * \return 1 w przypadku gdy nazwisko znajduję się liście
+    * \return 0 w przypadku gdy nazwisko nie znajduję się liście
+*/
 int surname_exist(struct User_Node * FrontUserList,char data[])
 {
     for (; NULL != FrontUserList ; FrontUserList = FrontUserList -> next)

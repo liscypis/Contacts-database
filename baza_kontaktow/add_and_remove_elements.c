@@ -1,6 +1,16 @@
 #include "baza_kontaktow.h"
 
+/**
+    @file add_and_remove_elements.c
+    \brief Przechowuje funkcję do tworzenia list, usuwania list, dodawania elementów i usuwania elementów.
+*/
 
+/**
+    * \fn struct telephone_nr * CreatePhoneList(struct telephone_nr *FrontTelList)
+    * \brief Funkcja tworzy listę telephone_nr i dodaje do niej pierwszy element
+    * \param FrontTelList wskaźnik na początek listy telephone_nr.
+    * \return FrontTelList zwraca wskażnik na pierwszy element
+*/
 struct telephone_nr * CreatePhoneList(struct telephone_nr *FrontTelList)
 {
     struct telephone_nr *new_node = (struct telephone_nr *)malloc (sizeof (struct telephone_nr));
@@ -22,7 +32,12 @@ struct telephone_nr * CreatePhoneList(struct telephone_nr *FrontTelList)
     FrontTelList=new_node;
     return FrontTelList;
 }
-
+/**
+    * \fn struct telephone_nr * InsertTelNum(struct telephone_nr *FrontTelList)
+    * \brief Funkcja dodaje nowy element na koniec listy
+    * \param FrontTelList wskaźnik na początek listy telephone_nr.
+    * \return FrontTelList zwraca wskażnik na pierwszy element
+*/
 struct telephone_nr * InsertTelNum(struct telephone_nr *FrontTelList)
 {
     struct telephone_nr *new_node = (struct telephone_nr *)malloc (sizeof (struct telephone_nr));
@@ -50,7 +65,12 @@ struct telephone_nr * InsertTelNum(struct telephone_nr *FrontTelList)
     return FrontTelList;
 }
 
-
+/**
+    * \fn struct email_node * CreateEmalList(struct email_node *email_node)
+    * \brief Funkcja tworzy listę email_node i dodaje do niej pierwszy element
+    * \param FrontEmailList wskaźnik na początek listy email_node
+    * \return FrontEmailList zwraca wskażnik na pierwszy element
+*/
 struct email_node * CreateEmalList(struct email_node *FrontEmailList)
 {
     struct email_node *new_node = (struct email_node *)malloc (sizeof (struct email_node));
@@ -75,7 +95,12 @@ struct email_node * CreateEmalList(struct email_node *FrontEmailList)
     FrontEmailList=new_node;
     return FrontEmailList;
 }
-
+/**
+    * \fn struct email_node * InsertEmail(struct email_node *FrontEmailList)
+    * \brief Funkcja dodaje nowy element na koniec listy
+    * \param FrontEmailList wskaźnik na początek listy email_node.
+    * \return FrontEmailList zwraca wskażnik na pierwszy element
+*/
 struct email_node * InsertEmail(struct email_node *FrontEmailList)
 {
     struct email_node *new_node = (struct email_node *)malloc (sizeof (struct email_node));
@@ -108,6 +133,12 @@ struct email_node * InsertEmail(struct email_node *FrontEmailList)
     return FrontEmailList;
 }
 
+/**
+    * \fn struct User_Node *create_list(struct User_Node *FrontUserList)
+    * \brief Funkcja tworzy listę User_Node i dodaje do niej pierwszy element
+    * \param FrontUserList wskaźnik na początek listy User_Node
+    * \return FrontUserList zwraca wskażnik na pierwszy element
+*/
 struct User_Node *create_list(struct User_Node *FrontUserList)
 {
     struct User_Node *new_node = (struct User_Node *)malloc (sizeof (struct User_Node));
@@ -206,8 +237,13 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
     }
     return FrontUserList;
 }
-
-struct User_Node * InsertUser ( struct User_Node *FrontUserList  )
+/**
+    * \fn struct User_Node * InsertUser (struct User_Node *FrontUserList)
+    * \brief Funkcja dodaje nowy element na koniec listy
+    * \param FrontUserList wskaźnik na początek listy User_Node.
+    * \return FrontUserList zwraca wskażnik na pierwszy element
+*/
+struct User_Node * InsertUser (struct User_Node *FrontUserList)
 {
     struct User_Node * new_node = ( struct User_Node *)malloc ( sizeof ( struct User_Node ));
     struct User_Node *wsk=FrontUserList; //Ustawienie wskaŸnika roboczego na pierwszym elemencie listy
@@ -308,7 +344,14 @@ struct User_Node * InsertUser ( struct User_Node *FrontUserList  )
     }
     return FrontUserList;
 }
-struct User_Node * DeleteUserNode ( struct User_Node *FrontUserList , int data )
+/**
+    * \fn struct User_Node * DeleteUserNode (struct User_Node *FrontUserList, int data)
+    * \brief Funkcja usuwa użytkownika o podanym ID
+    * \param FrontUserList wskaźnik na początek listy User_Node.
+    * \param data przechowuje ID podane przez użytkownika
+    * \return FrontUserList zwraca wskażnik na pierwszy element
+*/
+struct User_Node * DeleteUserNode (struct User_Node *FrontUserList, int data)
 {
     if ( NULL == FrontUserList )
         return NULL ;
@@ -342,9 +385,16 @@ struct User_Node * DeleteUserNode ( struct User_Node *FrontUserList , int data )
     }
     return FrontUserList;
 }
-struct email_node * DeleteEmailNode ( struct email_node *FrontEmailList , int data )
+/**
+    * \fn struct email_node * DeleteEmailNode (struct email_node *FrontEmailList, int data)
+    * \brief Funkcja usuwa emaile o podanym ID
+    * \param FrontEmailList wskaźnik na początek listy email_node.
+    * \param data przechowuje ID podane przez użytkownika
+    * \return FrontEmailList zwraca wskażnik na pierwszy element
+*/
+struct email_node * DeleteEmailNode (struct email_node *FrontEmailList, int data)
 {
-    if ( NULL == FrontEmailList )
+    if (NULL == FrontEmailList)
         return NULL ;
     struct email_node * prev = FrontEmailList; //zapiosanie we wskaŸniku lokalnymnext adresu pierwszego elementu listy
     struct email_node * temp = FrontEmailList; //zapiosanie we wskaŸniku lokalnymnext adresu pierwszego elementu listy
@@ -376,7 +426,14 @@ struct email_node * DeleteEmailNode ( struct email_node *FrontEmailList , int da
     }
     return FrontEmailList;
 }
-struct telephone_nr * DeleteTelNode ( struct telephone_nr *FrontTelList , int data )
+/**
+    * \fn struct telephone_nr * DeleteTelNode (struct telephone_nr *FrontTelList, int data)
+    * \brief Funkcja usuwa numery telefonów o podanym ID
+    * \param FrontTelList wskaźnik na początek listy telephone_nr.
+    * \param data przechowuje ID podane przez użytkownika
+    * \return FrontTelList zwraca wskażnik na pierwszy element
+*/
+struct telephone_nr * DeleteTelNode (struct telephone_nr *FrontTelList, int data)
 {
     if ( NULL == FrontTelList )
         return NULL ;
@@ -410,7 +467,12 @@ struct telephone_nr * DeleteTelNode ( struct telephone_nr *FrontTelList , int da
     }
     return FrontTelList;
 }
-void remove_list ( struct User_Node ** temp )
+/**
+    * \fn void remove_list (struct User_Node ** temp)
+    * \brief Procedura usuwa liste typu User_Node
+    * \param temp podwójny wskaźnik na początek listy User_Node.
+*/
+void remove_list (struct User_Node ** temp)
 {
     struct User_Node * next = NULL ;
     while ( NULL != * temp )
@@ -420,7 +482,12 @@ void remove_list ( struct User_Node ** temp )
         * temp = next ;
     }
 }
-void remove_tel_list ( struct telephone_nr ** temp )
+/**
+    * \fn void remove_tel_list (struct telephone_nr ** temp)
+    * \brief Procedura usuwa liste typu telephone_nr
+    * \param temp podwójny wskaźnik na początek listy telephone_nr.
+*/
+void remove_tel_list (struct telephone_nr ** temp)
 {
     struct telephone_nr * next = NULL ;
     while ( NULL != * temp )
@@ -430,7 +497,12 @@ void remove_tel_list ( struct telephone_nr ** temp )
         * temp = next ;
     }
 }
-void remove_email_list ( struct email_node ** temp )
+/**
+    * \fn void remove_email_list (struct email_node ** temp)
+    * \brief Procedura usuwa liste typu email_node
+    * \param temp podwójny wskaźnik na początek listy email_node.
+*/
+void remove_email_list (struct email_node ** temp)
 {
     struct email_node * next = NULL ;
     while ( NULL != * temp )

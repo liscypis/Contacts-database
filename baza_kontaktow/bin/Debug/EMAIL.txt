@@ -1,0 +1,6 @@
+
+0	GFD@.PL
+0	FDS@.PL
+2	DF@.PL
+2	SD@.PL
+3	DJSIAJ@.PL

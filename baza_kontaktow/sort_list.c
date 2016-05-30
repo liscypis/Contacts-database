@@ -1,5 +1,17 @@
 #include "baza_kontaktow.h"
 
+/**
+    @file sort_list.c
+    \brief Przechowuje funkcję do sortowania list
+*/
+
+/**
+    * \fn void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned int what)
+    * \brief Procedura sortuje listę User_Node po wybranym polu i po wybranym kierunku
+    * \param FrontUserList wskaźnik na początek listy User_Node.
+    * \param direction przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco.
+    * \param what przechowuje wyrób po którym polu chcemy sortować 0-numer,ID 1-imie,2-nazwisko,3-miasto,4-ulica,5-numer domu,6-kod pocztowy,7-poczta.
+*/
 void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned int what)
 {
     unsigned int counter=0,i,j;
@@ -264,7 +276,7 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
     }
     temp=front_temp;
     FrontUserList=front_user;
-    //skopiowanie posortowanej listy temp do listy FrontUserList
+    //skopiowanie posortowanej listy temp do listy User_node
     while(temp!=NULL)
     {
         strcpy(FrontUserList->name, temp->name);
@@ -280,10 +292,15 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
     }
     remove_list(&temp);
 }
-//$$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-// sortowanie po nr tel
+
+/**
+    * \fn void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *FrontUserList,unsigned int direction)
+    * \brief Procedura sortuje listę telephone_nr po wybranym kierunku i sortuje listę User_Node po odpowiednum ID telefonów
+    * \param FrontTelList wskaźnik na początek listy telephone_nr.
+    * \param FrontUserList wskaźnik na początek listy User_Node.
+    * \param direction przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco.
+*/
 void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *FrontUserList,unsigned int direction)
 {
     unsigned int counter=0,i,j;
@@ -425,7 +442,7 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *Front
 
     temp_user=front_temp_user;
     FrontUserList=front_user;
-    //skopiowanie posortowanej listy temp_user do listy FrontUserList
+    //skopiowanie posortowanej listy temp_user do listy User_node
     while(temp_user!=NULL)
     {
         strcpy(FrontUserList->name, temp_user->name);
@@ -443,7 +460,7 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *Front
 
     temp=front_temp;
     FrontTelList=front_tel;
-    //skopiowanie posortowanej listy temp do listy FrontTelList
+    //skopiowanie posortowanej listy temp do listy User_node
     while(temp!=NULL)
     {
 
@@ -454,10 +471,15 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *Front
     }
     remove_tel_list(&temp);
 }
-//$$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 // sortowanie po emailu
+/**
+    * \fn void sort_list_by_email(struct email_node *FrontEmailList, struct User_Node *FrontUserList,unsigned int direction)
+    * \brief Procedura sortuje listę email_node po wybranym kierunku i sortuje listę User_Node po odpowiednum ID emaili
+    * \param FrontEmailList wskaźnik na początek listy email_node.
+    * \param FrontUserList wskaźnik na początek listy User_Node.
+    * \param direction przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco.
+*/
 void sort_list_by_email(struct email_node *FrontEmailList, struct User_Node *FrontUserList,unsigned int direction)
 {
     unsigned int counter=0,i,j;
@@ -599,7 +621,7 @@ void sort_list_by_email(struct email_node *FrontEmailList, struct User_Node *Fro
 
     temp_user=front_temp_user;
     FrontUserList=front_user;
-    //skopiowanie posortowanej listy temp_user do listy FrontUserList
+    //skopiowanie posortowanej listy temp_user do listy User_node
     while(temp_user!=NULL)
     {
         strcpy(FrontUserList->name, temp_user->name);
@@ -617,7 +639,7 @@ void sort_list_by_email(struct email_node *FrontEmailList, struct User_Node *Fro
 
     temp=front_temp;
     FrontEmailList=front_em;
-    //skopiowanie posortowanej listy temp do listy FrontEmailList
+    //skopiowanie posortowanej listy temp do listy User_node
     while(temp!=NULL)
     {
         FrontEmailList->ID_email=temp->ID_email;
