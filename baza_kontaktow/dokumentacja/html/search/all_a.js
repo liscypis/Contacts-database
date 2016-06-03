@@ -1,10 +1,4 @@
 var searchData=
 [
-  ['read',['read',['../baza__kontaktow_8h.html#ab1af86eee1bfda82516e26cffc19931a',1,'read(FILE *file, struct User_Node *FrontUserList):&#160;read_and_save_to_file.c'],['../read__and__save__to__file_8c.html#a1d956fa57a511dd3c3a6f3173041c86d',1,'read(FILE *file, struct User_Node *FrontUserList):&#160;read_and_save_to_file.c']]],
-  ['read_5fand_5fsave_5fto_5ffile_2ec',['read_and_save_to_file.c',['../read__and__save__to__file_8c.html',1,'']]],
-  ['reademail',['readEmail',['../baza__kontaktow_8h.html#aeb4629717b55d9d93b1ee075808167de',1,'readEmail(FILE *file3, struct email_node *FrontEmailList):&#160;read_and_save_to_file.c'],['../read__and__save__to__file_8c.html#a839af0bd2873f85dadd835f3e493f1f7',1,'readEmail(FILE *file3, struct email_node *FrontEmailList):&#160;read_and_save_to_file.c']]],
-  ['readtelephone',['readTelephone',['../baza__kontaktow_8h.html#a612f5bf9063df1324faad049324958b6',1,'readTelephone(FILE *file2, struct telephone_nr *FrontTelList):&#160;read_and_save_to_file.c'],['../read__and__save__to__file_8c.html#a098fa38cd8b70ac8729e4aa171863dda',1,'readTelephone(FILE *file2, struct telephone_nr *FrontTelList):&#160;read_and_save_to_file.c']]],
-  ['remove_5femail_5flist',['remove_email_list',['../add__and__remove__elements_8c.html#a0fc18f59b58bbd864989ce6d8966b7c8',1,'remove_email_list(struct email_node **temp):&#160;add_and_remove_elements.c'],['../baza__kontaktow_8h.html#a0fc18f59b58bbd864989ce6d8966b7c8',1,'remove_email_list(struct email_node **temp):&#160;add_and_remove_elements.c']]],
-  ['remove_5flist',['remove_list',['../add__and__remove__elements_8c.html#afd0c42f7258632512671d8d07f3bd54e',1,'remove_list(struct User_Node **temp):&#160;add_and_remove_elements.c'],['../baza__kontaktow_8h.html#afd0c42f7258632512671d8d07f3bd54e',1,'remove_list(struct User_Node **temp):&#160;add_and_remove_elements.c']]],
-  ['remove_5ftel_5flist',['remove_tel_list',['../add__and__remove__elements_8c.html#a4469b1745f89c6f67b91e618b11e1c46',1,'remove_tel_list(struct telephone_nr **temp):&#160;add_and_remove_elements.c'],['../baza__kontaktow_8h.html#a4469b1745f89c6f67b91e618b11e1c46',1,'remove_tel_list(struct telephone_nr **temp):&#160;add_and_remove_elements.c']]]
+  ['operations_5fon_5flists_2ec',['operations_on_lists.c',['../operations__on__lists_8c.html',1,'']]]
 ];

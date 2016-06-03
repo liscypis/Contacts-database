@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1464641601 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\main.c
+1464815437 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -22,21 +22,21 @@
 1464442457 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\sorting.c
 	"add_removeElements.h"
 
-1464643211 c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\baza_kontaktow.h
+1464888151 c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\baza_kontaktow.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 
-1464643850 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\operations_on_lists.c
+1464955745 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\operations_on_lists.c
 	"baza_kontaktow.h"
 
-1464643198 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\sort_list.c
+1464818433 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\sort_list.c
 	"baza_kontaktow.h"
 
-1464643108 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\add_and_remove_elements.c
+1464818553 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\add_and_remove_elements.c
 	"baza_kontaktow.h"
 
-1464643157 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\read_and_save_to_file.c
+1464812788 source:c:\users\wojtek\documents\c\pp2\projektpp2\baza_kontaktow\read_and_save_to_file.c
 	"baza_kontaktow.h"
 

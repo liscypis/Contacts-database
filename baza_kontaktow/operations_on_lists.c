@@ -83,7 +83,7 @@ void print_person_by_id(struct User_Node * FrontUserList, struct telephone_nr * 
     * \param FrontTelList wskaźnik na początek listy.
     * \param FrontEmailList wskaźnik na początek listy.
     * \param data paramert przechowuje imie lub nazwisko.
-    * \param wtah parametr przechowuje decyzje użytkownica po jakim polu chce wyszukać osobę wartość 1 po imieniu 2 po nazwisku
+    * \param what parametr przechowuje decyzje użytkownica po jakim polu chce wyszukać osobę wartość 1 po imieniu 2 po nazwisku
 */
 void print_person_by_name_or_surname(struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, char data[], unsigned short int what)
 {
@@ -138,11 +138,11 @@ void print_person_by_name_or_surname(struct User_Node * FrontUserList, struct te
     * \param FrontEmailList wskaźnik na początek listy.
     * \param data paramert przechowuje ID edytowanego użytkownika
 */
-void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, unsigned short int data )
+void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontTelList, struct email_node *FrontEmailList, unsigned short int data)
 {
     unsigned short int choice;
     unsigned long int tel_num;
-    char email[40];
+    char email[40], new_email[40];
     char pom[20];
     unsigned int good=1,HouseNr,good2=1;
     struct telephone_nr * temp_tel = FrontTelList; ////zapisanie we wskazniku lokalnym "temp_tel" adresu pierwszego elementu listy "telephone_nr"
@@ -170,7 +170,11 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
                 puts("9.Email");
                 puts("10.Koniec edycji");
 
-                scanf("%hu",&choice);
+                while(scanf("%hu", &choice) != 1) //dopóki nie uda siê wczytaæ
+                {
+                    puts("Nie ma takiej opcji");
+                    fflush(stdin);
+                }
                 switch(choice)
                 {
                 case 1:
@@ -280,8 +284,8 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
                     {
                         if(FrontTelList->tel_nr==tel_num)
                         {
-                        FrontTelList->tel_nr=pomtel;
-                        break;
+                            FrontTelList->tel_nr=pomtel;
+                            break;
                         }
 
                     }
@@ -298,24 +302,23 @@ void edit_person (struct User_Node * FrontUserList, struct telephone_nr * FrontT
                     }
                     while(good==0);
                     puts("Podaj nowy email");
-                    do
+                    for (; NULL != FrontEmailList; FrontEmailList = FrontEmailList -> next)
                     {
-                        for (; NULL != FrontEmailList ; FrontEmailList = FrontEmailList -> next)
-                        {
 
-                            if(strcmp(FrontEmailList->em,email)==0)
+                        if(strcmp(FrontEmailList->em,email)==0)
+                        {
+                            do
                             {
-                                scanf("%s",email);
-                                good2=check_email(email);
+                                scanf("%s",new_email);
+                                good2=check_email(new_email);
                                 if(good2==0)
-                                    puts("Wprowadzone email jest niepoprawny");
-                                break;
+                                    puts("Wprowadzony email jest niepoprawny");
                             }
+                            while(good2==0);
+                            ChangeToupper(new_email); //zamiena na du¿e litery
+                            strcpy(FrontEmailList->em, new_email);
                         }
                     }
-                    while(good2==0);
-                    ChangeToupper(email); //zamiena na du¿e litery
-                    strcpy(FrontEmailList->em, email);
                     break;
                 case 10:
                     printf("Koniec edycji\n");
@@ -497,5 +500,3 @@ int surname_exist(struct User_Node * FrontUserList,char data[])
         }
     return 0;
 }
-
-

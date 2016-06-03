@@ -8,6 +8,11 @@
     \brief Główna funcka programu.
 */
 
+/**
+    * \fn int main()
+    * \brief Główna fukcja programu
+
+*/
 int main()
 {
     struct User_Node *FrontUserList=NULL;
@@ -26,7 +31,7 @@ int main()
     }
     for(;;)
     {
-        printf("Baza kontaktow v1.27\n\n");
+        printf("Baza kontaktow v1.28\n\n");
         puts("#################### MENU ####################");
         puts("1.Dodaj osobe");
         puts("2.Usun osobe");
@@ -37,7 +42,7 @@ int main()
         puts("7.SORTOWANIE");
         puts("8.WYJSCIE i USUNIECIE LISTY");
 
-        unsigned short int choice,tel,HowManyEmail;
+        short int choice,tel,HowManyEmail;
         int i=0,j=0;
         unsigned int z,k; // do sortowanie
         scanf("%hu",&choice);
@@ -53,9 +58,9 @@ int main()
                 FrontUserList=InsertUser(FrontUserList);
 
             system("cls");
-            puts("#### DODAWANIE UZYTWONIKA ####");
-            printf("Ile numerow telefonow chcesz podac? MAX 10!:\n");
-            while(scanf("%hu", &tel) != 1 || tel<=0 || tel>10) //dopóki nie uda się wczytać
+            puts("#### DODAWANIE UZYTKOWNIKA ####");
+            printf("Ile numerow telefonow chcesz podac?\n");
+            while(scanf("%hi", &tel) != 1 || tel<=0) //dopóki nie uda się wczytać
             {
                 puts("Niepoprawny wybor, podaj liczbe jeszcze raz:");
                 fflush(stdin);
@@ -69,9 +74,9 @@ int main()
             }
 
             system("cls");
-            puts("#### DODAWANIE UZYTWONIKA ####");
-            printf("Ile adresow email chcesz podac? MAX 10!:\n");
-            while(scanf("%hu", &HowManyEmail) != 1 || HowManyEmail<=0 || HowManyEmail>10) //dopóki nie uda się wczytać
+            puts("#### DODAWANIE UZYTKOWNIKA ####");
+            printf("Ile adresow email chcesz podac?\n");
+            while(scanf("%hi", &HowManyEmail) != 1 || HowManyEmail<=0) //dopóki nie uda się wczytać
             {
                 puts("Niepoprawny wybor, podaj liczbe jeszcze raz:");
                 fflush(stdin);
@@ -84,7 +89,7 @@ int main()
                     FrontEmailList=InsertEmail(FrontEmailList);
             }
             system("cls");
-            puts("\n######DODAWANIE UZYTWONIKA ZAKONCZONE#######\n");
+            puts("\n#####DODAWANIE UZYTKOWNIKA ZAKONCZONE#######\n");
             puts("#### NACISNIJ ENTER ABY PRZEJSC DO MENU ####");
             break;
         case 2:
@@ -154,7 +159,7 @@ int main()
                 system("cls");
                 unsigned short int choice1;
                 puts("Po jakim polu chcesz wyszukac?");
-                puts(" 0 - ID \n 1 - IMEIU\n 2 - NAZWISKU");
+                puts(" 0 - ID \n 1 - IMIENIU\n 2 - NAZWISKU");
                 printf("WYBOR: ");
                 while(scanf("%hu", &choice1) != 1 || choice1<0 || choice1>2) //dopóki nie uda się wczytać
                 {
@@ -277,6 +282,7 @@ int main()
             exit(0);
             break;
         default:
+            puts("Nie ma takiej opcji");
             break;
 
         }

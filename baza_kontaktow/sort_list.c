@@ -7,7 +7,7 @@
 
 /**
     * \fn void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned int what)
-    * \brief Procedura sortuje listę User_Node po wybranym polu i po wybranym kierunku
+    * \brief Procedura sortuje listę typu User_Node po wybranym polu i po wybranym kierunku
     * \param FrontUserList wskaźnik na początek listy.
     * \param direction przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco.
     * \param what przechowuje wyrób po którym polu chcemy sortować 0-numer,ID 1-imie,2-nazwisko,3-miasto,4-ulica,5-numer domu,6-kod pocztowy,7-poczta.
@@ -59,12 +59,11 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
             if(what==6)strcpy(temp->postal_code, FrontUserList->postal_code);
             if(what==7)strcpy(temp->post_office, FrontUserList->post_office);
         }
-        ///////////////////////
-        /// Szukanie minimum///
-        ////////// || /////////
-        /// Szukanie maximum///
-        ///////////////////////
-
+        ////////////////////////
+        //// Szukanie minimum///
+        ////////// || //////////
+        //// Szukanie maximum///
+        ////////////////////////
         for(j=0; j<counter; j++)
         {
             if(direction==0)
@@ -296,7 +295,7 @@ void sort_list(struct User_Node *FrontUserList, unsigned int direction,unsigned 
 
 /**
     * \fn void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *FrontUserList,unsigned int direction)
-    * \brief Procedura sortuje listę telephone_nr po wybranym kierunku i sortuje listę User_Node po odpowiednum ID telefonów
+    * \brief Procedura sortuje listę typu telephone_nr po wybranym kierunku i sortuje listę typu User_Node po odpowiednum ID telefonów
     * \param FrontTelList wskaźnik na początek listy.
     * \param FrontUserList wskaźnik na początek listy.
     * \param direction przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco.
@@ -338,11 +337,11 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *Front
             temp->next=NULL;
             temp->tel_nr=FrontTelList->tel_nr;
         }
-        ///////////////////////
-        /// Szukanie minimum///
-        ////////// || /////////
-        /// Szukanie maximum///
-        ///////////////////////
+        ////////////////////////
+        //// Szukanie minimum///
+        ////////// || //////////
+        //// Szukanie maximum///
+        ////////////////////////
 
         for(j=0; j<counter; j++)
         {
@@ -475,7 +474,7 @@ void sort_list_by_tel(struct telephone_nr *FrontTelList, struct User_Node *Front
 // sortowanie po emailu
 /**
     * \fn void sort_list_by_email(struct email_node *FrontEmailList, struct User_Node *FrontUserList,unsigned int direction)
-    * \brief Procedura sortuje listę email_node po wybranym kierunku i sortuje listę User_Node po odpowiednum ID emaili
+    * \brief Procedura sortuje listę typu email_node po wybranym kierunku i sortuje listę typu User_Node po odpowiednum ID emaili
     * \param FrontEmailList wskaźnik na początek listy.
     * \param FrontUserList wskaźnik na początek listy.
     * \param direction przechowuje wyrób kierunku sortowania 0-rosnąco, 1-malejąco.
@@ -517,11 +516,11 @@ void sort_list_by_email(struct email_node *FrontEmailList, struct User_Node *Fro
             temp->next=NULL;
             strcpy(temp->em,FrontEmailList->em);
         }
-        ///////////////////////
-        /// Szukanie minimum///
-        ////////// || /////////
-        /// Szukanie maximum///
-        ///////////////////////
+        ////////////////////////
+        //// Szukanie minimum///
+        ////////// || //////////
+        //// Szukanie maximum///
+        ////////////////////////
 
         for(j=0; j<counter; j++)
         {

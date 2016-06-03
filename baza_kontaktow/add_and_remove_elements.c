@@ -7,7 +7,7 @@
 
 /**
     * \fn struct telephone_nr * CreatePhoneList(struct telephone_nr *FrontTelList)
-    * \brief Funkcja tworzy listę telephone_nr i dodaje do niej pierwszy element
+    * \brief Funkcja tworzy listę typu telephone_nr i dodaje do niej pierwszy element
     * \param FrontTelList wskaźnik na początek listy.
     * \return FrontTelList zwraca wskażnik na pierwszy element
 */
@@ -60,14 +60,14 @@ struct telephone_nr * InsertTelNum(struct telephone_nr *FrontTelList)
         }
         new_node->ID_tel=NumID;
         new_node->tel_nr=NrTel;// przypisanie wartosci
-        new_node->next=NULL; //przypisanie wskaznikowi next ostatniego elementu na liscie wartosci NULL
+        new_node->next=NULL; //przypisanie wskaznikowi next wartosci NULL
     }
     return FrontTelList;
 }
 
 /**
-    * \fn struct email_node * CreateEmalList(struct email_node *email_node)
-    * \brief Funkcja tworzy listę email_node i dodaje do niej pierwszy element
+    * \fn struct email_node * CreateEmalList(struct email_node *FrontEmailList)
+    * \brief Funkcja tworzy listę typu email_node i dodaje do niej pierwszy element
     * \param FrontEmailList wskaźnik na początek listy
     * \return FrontEmailList zwraca wskażnik na pierwszy element
 */
@@ -135,7 +135,7 @@ struct email_node * InsertEmail(struct email_node *FrontEmailList)
 
 /**
     * \fn struct User_Node *create_list(struct User_Node *FrontUserList)
-    * \brief Funkcja tworzy listę User_Node i dodaje do niej pierwszy element
+    * \brief Funkcja tworzy listę typu User_Node i dodaje do niej pierwszy element
     * \param FrontUserList wskaźnik na początek listy
     * \return FrontUserList zwraca wskażnik na pierwszy element
 */
@@ -387,7 +387,7 @@ struct User_Node * DeleteUserNode (struct User_Node *FrontUserList, int data)
 }
 /**
     * \fn struct email_node * DeleteEmailNode (struct email_node *FrontEmailList, int data)
-    * \brief Funkcja usuwa emaile o podanym ID
+    * \brief Funkcja usuwa e-maile o podanym ID
     * \param FrontEmailList wskaźnik na początek listy.
     * \param data przechowuje ID podane przez użytkownika
     * \return FrontEmailList zwraca wskażnik na pierwszy element

@@ -16,24 +16,24 @@
 */
 unsigned int NumID; //deklaracja globalnej zmiennej ID
 
-FILE *file;
-FILE *file2;
-FILE *file3;
+FILE *file; /*!< Wskaznik na plik */
+FILE *file2; /*!< Wskaznik na plik */
+FILE *file3; /*!< Wskaznik na plik */
 /**
     \struct User_Node
     \brief Struktura przechowuje dane uzytkownika i wskaznik na nastepny element.
 */
 struct User_Node
 {
-    int ID;
-    char name[15];
-    char surname[20];
-    char city[40];
-    char street[40];
-    unsigned int house_number;
-    char postal_code[8];
-    char post_office[30];
-    struct User_Node *next;
+    int ID; /*!< Pole przechowuje ID */
+    char name[15]; /*!< Pole przechowuje imie */
+    char surname[20]; /*!< Pole przechowuje nazwisko */
+    char city[40]; /*!< Pole przechowuje nazwe miasta */
+    char street[40]; /*!< Pole przechowuje nazwe ulicy */
+    unsigned int house_number; /*!< Pole przechowuje numer domu */
+    char postal_code[8]; /*!< Pole przechowuje kod pocztowy */
+    char post_office[30]; /*!< Pole przechowuje nazwe poczty */
+    struct User_Node *next; /*!<  wskaznik na nastepny element w liscie */
 };
 /**
     \struct telephone_nr
@@ -41,9 +41,9 @@ struct User_Node
 */
 struct telephone_nr
 {
-    unsigned int ID_tel;
-    unsigned long int tel_nr;
-    struct telephone_nr *next;
+    unsigned int ID_tel; /*!< Pole przechowuje ID numeru telefonu */
+    unsigned long int tel_nr; /*!< Pole przechowuje numer telefonu */
+    struct telephone_nr *next; /*!<  wskaznik na nastepny element w liscie */
 };
 /**
     \struct email_node
@@ -51,9 +51,9 @@ struct telephone_nr
 */
 struct email_node
 {
-    unsigned int ID_email;
-    char em[40];
-    struct email_node *next;
+    unsigned int ID_email; /*!< Pole przechowuje ID adresu e-mail  */
+    char em[40]; /*!< Pole przechowuje adres  e-mail  */
+    struct email_node *next; /*!<  wskaznik na nastepny element w liscie */
 };
 
 
@@ -115,7 +115,6 @@ int surname_exist(struct User_Node * FrontUserList,char data[]);
 void remove_list ( struct User_Node ** temp );
 void remove_tel_list ( struct telephone_nr ** temp );
 void remove_email_list ( struct email_node ** temp );
-//
 
 #endif
 

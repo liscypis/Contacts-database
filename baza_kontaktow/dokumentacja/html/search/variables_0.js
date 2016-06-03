@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['numid',['NumID',['../baza__kontaktow_8h.html#afa775335f302e8068241a49e2ce057e9',1,'baza_kontaktow.h']]]
+  ['city',['city',['../struct_user___node.html#a0769a023d08f71d68c3cd1b4d6f756f5',1,'User_Node']]]
 ];
