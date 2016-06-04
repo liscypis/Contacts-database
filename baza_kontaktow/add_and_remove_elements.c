@@ -18,7 +18,7 @@ struct telephone_nr * CreatePhoneList(struct telephone_nr *FrontTelList)
     if (NULL != new_node)
     {
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         puts("Podaj numer telefonu:");
         while(scanf("%lu", &NrTel) != 1 || NrTel<1 || NrTel>999999999) //dopóki nie uda się wczytać
         {
@@ -50,7 +50,7 @@ struct telephone_nr * InsertTelNum(struct telephone_nr *FrontTelList)
     if (NULL != new_node)
     {
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         puts("Podaj numer telefonu:");
         wsk->next = new_node;  // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
         while(scanf("%lu", &NrTel) != 1 || NrTel<1 || NrTel>999999999) //dopóki nie uda się wczytać
@@ -79,7 +79,7 @@ struct email_node * CreateEmalList(struct email_node *FrontEmailList)
         int good=1;
         char email[40];
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         do{
         puts("Podaj email:");
         scanf("%s",email);
@@ -117,7 +117,7 @@ struct email_node * InsertEmail(struct email_node *FrontEmailList)
         wsk->next = new_node;  // w pole next ostatniego elementu listy wpisaæ adres nowo przydzielonego obszaru
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         do{
         puts("Podaj email:");
         scanf("%s",email);
@@ -149,7 +149,7 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         new_node->ID = NumID;
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
        do{
         printf("Podaj imie: \n");
         scanf("%s",pom);
@@ -161,7 +161,7 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         strcpy(new_node->name,pom);
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         do{
         printf("Podaj nazwisko: \n");
         scanf("%s",pom);
@@ -173,7 +173,7 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         strcpy(new_node->surname,pom);
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         do{
         printf("Podaj miasto: \n");
         scanf("%s",pom);
@@ -185,7 +185,7 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         strcpy(new_node->city,pom);
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         do{
         printf("Podaj ulice: \n");
         scanf("%s",pom);
@@ -197,7 +197,7 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         strcpy(new_node->street,pom);
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         printf("Podaj numer domu: \n");
         while(scanf("%u", &HouseNr) != 1) //dopóki nie uda się wczytać
         {
@@ -207,7 +207,7 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         new_node->house_number=HouseNr;
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         do
         {
         printf("Podaj kod pocztowy (00-000):\n");
@@ -219,7 +219,7 @@ struct User_Node *create_list(struct User_Node *FrontUserList)
         }while(good==0);
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         do{
         printf("Podaj poczte: \n");
         scanf("%s",pom);
@@ -259,7 +259,7 @@ struct User_Node * InsertUser (struct User_Node *FrontUserList)
         new_node->ID = ++NumID;
 
          system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
        do{
         printf("Podaj imie: \n");
         scanf("%s",pom);
@@ -271,7 +271,7 @@ struct User_Node * InsertUser (struct User_Node *FrontUserList)
         strcpy(new_node->name,pom);
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         do{
         printf("Podaj nazwisko: \n");
         scanf("%s",pom);
@@ -283,7 +283,7 @@ struct User_Node * InsertUser (struct User_Node *FrontUserList)
         strcpy(new_node->surname,pom);
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         do{
         printf("Podaj miasto: \n");
         scanf("%s",pom);
@@ -295,7 +295,7 @@ struct User_Node * InsertUser (struct User_Node *FrontUserList)
         strcpy(new_node->city,pom);
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         do{
         printf("Podaj ulice: \n");
         scanf("%s",pom);
@@ -307,7 +307,7 @@ struct User_Node * InsertUser (struct User_Node *FrontUserList)
         strcpy(new_node->street,pom);
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         printf("Podaj numer domu: \n");
         while(scanf("%u", &HouseNr) != 1) //dopóki nie uda się wczytać
         {
@@ -317,7 +317,7 @@ struct User_Node * InsertUser (struct User_Node *FrontUserList)
         new_node->house_number=HouseNr;
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         do
         {
         printf("Podaj kod pocztowy (00-000):\n");
@@ -329,7 +329,7 @@ struct User_Node * InsertUser (struct User_Node *FrontUserList)
         }while(good==0);
 
         system("cls");
-        puts("#### DODAWANIE UZYTWONIKA ####");
+        puts("#### DODAWANIE UZYTKOWNIKA ####");
         do{
         printf("Podaj poczte: \n");
         scanf("%s",pom);
